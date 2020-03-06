@@ -1,0 +1,9 @@
+/* Cabeçalho */
+.cabecalho{
+    background-image: url("../../../images/background_topo.jpg");
+    height: 150px;
+}
+.logo{
+    margin-top: 15px;
+    margin-left: 15px;
+}

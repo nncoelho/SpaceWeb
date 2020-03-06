@@ -1,0 +1,18 @@
+/* Perfil */
+.perfil{
+    /* Background Color */
+    background: linear-gradient(rgb(134, 164, 199), rgb(188, 211, 236));
+    color: black;
+}
+
+.btn-link{
+    text-decoration: none;    
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.btn-link:hover{
+    text-decoration: none;    
+    color: blue;
+}
