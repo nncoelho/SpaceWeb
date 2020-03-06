@@ -1,2 +1,2 @@
 # SpaceWeb
-PHP Web Application with SQL
+PHP Web Application with SQL.
