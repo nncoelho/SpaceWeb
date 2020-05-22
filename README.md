@@ -1,6 +1,5 @@
 # SpaceWeb
-PHP Web Application with SQL. (Visual Studio Code & Laragon)
 
-Aplicação em PHP com acesso a Base de Dados MySQL.
+PHP Website Application with Database Access & Mailbox
 
-Apresentação e funcionamento da aplicação web através do Laragon (Ambiente de Desenvolvimento Web com servidor Apache e MySQL(HeidiSQL)) - https://www.laragon.org/
+Apresentação e funcionamento da aplicação web através do Laragon (Ambiente de Desenvolvimento Web com servidor Apache e MySQL(HeidiSQL)) - <https://www.laragon.org/>
