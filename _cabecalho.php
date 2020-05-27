@@ -1,9 +1,8 @@
 <?php 
-    //========================================
+    //=========================================
     // Cabeçalho da Aplicação Web
-    //========================================
+    //=========================================
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -22,13 +21,14 @@
 <body>
 <div class="bg-white">
 
-<?php 
-    //=======================================
-    // Inclui a Barra de Clientes
-    include_once('clientes/barra_cliente.php');
-?>
+    <?php 
+        //========================================
+        // Barra de Login e Signup
+        //========================================
+        include_once('clientes/barra_cliente.php');
+    ?>
 
-<!-- Cabeçalho -->
-<div class="container-fluid cabecalho">
-    <a href="?a=home"><img class="logo" src="images/logo.png"></a>
-</div>
+    <!-- Cabeçalho -->
+    <div class="container-fluid cabecalho">
+        <a href="?a=home"><img class="logo" src="images/logo.png"></a>
+    </div>

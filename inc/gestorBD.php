@@ -1,6 +1,6 @@
 <?php
     //======================================================================================
-    // Gestor | Gestor da Base de Dados - MySQL - PDO - CRUD
+    // GESTOR DA BASE DE DADOS - MySQL - PDO - CRUD
     //======================================================================================
 
     class cl_gestorBD{
@@ -8,12 +8,12 @@
         //==================================================================
         public function EXE_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
         {
-            // Executa a Query à Base de Dados (SELECT)
+            // Executa a Query a Base de Dados (READ/SELECT)
             $resultados = NULL;
 
             $config = include('config.php');
 
-            // Abre a Ligação à Base de Dados
+            // Abre a Ligação a Base de Dados
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -46,11 +46,10 @@
         //==================================================================
         public function EXE_NON_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
         {
-            // Executa uma Query com ou sem Parâmetros (INSERT, UPDATE, DELETE)
-
+            // Executa uma Query com ou sem Parâmetros (CREATE/INSERT, UPDATE, DELETE)
             $config = include('config.php');
 
-            // Abre a Ligação à Base de Dados
+            // Abre a Ligação a Base de Dados
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -85,10 +84,10 @@
         //==================================================================
         public function RESET_AUTO_INCREMENT($tabela){
             
-            // Faz Reset ao Auto_Increment de uma determinada tabela ($tabela)
+            // Faz Reset ao AUTO_INCREMENT de uma determinada tabela ($tabela)
             $config = include('config.php');
 
-            // Abre a Ligação à Base de Dados
+            // Abre a Ligação a Base de Dados
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -98,7 +97,7 @@
                 array(PDO::ATTR_PERSISTENT => TRUE));
             $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Reset ao Auto_Increment
+            // Reset ao AUTO_INCREMENT
             $ligacao->exec('ALTER TABLE '.$tabela.' AUTO_INCREMENT = 1');
 
             // Fecha a Ligação

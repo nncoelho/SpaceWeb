@@ -1,15 +1,15 @@
 <?php
     //========================================
-    // Index da Aplicação Web
+    // INDEX PRINCIPAL DA APLICAÇÃO WEB
     //========================================    
     
-    // Controlo de sessão
+    // CONTROLO DE SESSÃO
     session_start();
     if(!isset($_SESSION['a'])){
         $_SESSION['a'] = 'inicio';
     }
 
-    // Inclui as funcoes necessárias do sistema 
+    // INCLUI AS FUNCOES NECESSÁRIAS DO SISTEMA 
     include_once('inc/funcoes.php');
 
     include_once('inc/cl_datas.php');

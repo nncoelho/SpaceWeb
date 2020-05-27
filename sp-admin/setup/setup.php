@@ -1,42 +1,45 @@
 <?php 
     //=========================================
-    // Setup
+    // AREA DO SETUP
     //=========================================
 
-    // Verificar a sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     } 
     
-    // Verifica se 'a' está definido na URL
+    // VERIFICA SE A VARIÁVEL 'a' ESTÁ DEFINIDA NA URL
     $a = '';
     if(isset($_GET['a'])){
         $a = $_GET['a'];
     }
 
-    // Route do Setup
+    // ROUTE DO SETUP
     switch ($a) {
+
+        // EXECUTA OS PROCEDIMENTOS PARA A CRIAÇÃO DA BASE DE DADOS
         case 'setup_criar_bd':        
-            // Executa os procedimentos para a criação da Base de Dados
             include('setup/setup_criar_bd.php');
             break;
         
+        // INSERIR UTILIZADORES
         case 'setup_inserir_utilizadores':
-            // Inserir Utilizadores
             include('setup/setup_inserir_utilizadores.php');
             break;
     }
 ?>
 
-<div class="container-fluid pad-20">
+<div class="container-fluid p-3">
+
     <h2 class="text-center">Setup</h2>
 
     <div class="text-center">
-        <!-- Criar a Base de Dados -->
-        <p><a href="?a=setup_criar_bd" class="btn btn-secondary btn-size-250">Criar a Base de Dados</a></p>
-        <!-- Inserir Utilizadores -->
-        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-secondary btn-size-250">Inserir Utilizadores</a></p>
+        <!-- CRIAR A BASE DE DADOS -->
+        <p><a href="?a=setup_criar_bd" class="btn btn-primary btn-size-250">Criar a Base de Dados</a></p>
+        <!-- INSERIR UTILIZADORES -->
+        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-250">Inserir Utilizadores</a></p>
         <hr>
-        <p><a href="?a=inicio" class="btn btn-secondary btn-size-150">Voltar</a></p>
-    </div>
+        <p><a href="?a=home" class="btn btn-secondary btn-size-150">Voltar</a></p>
+    </div>  
+
 </div>

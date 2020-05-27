@@ -1,9 +1,9 @@
 <?php 
     //========================================
-    // Routes da Aplicação Web
+    // ROUTES DA APLICAÇÃO WEB
     //========================================
 
-    // Verificar a sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -25,15 +25,26 @@
         // CLIENTES
         //========================================
 
-        // Validar conta de cliente
+        // VALIDAR CONTA DE CLIENTE
         case 'validar':                         include_once('clientes/validar_cliente.php'); break;
-        // Login
+        // LOGIN
         case 'login':                           include_once('clientes/login.php'); break;
-        // Signup
+        // SIGNUP
         case 'signup':                          include_once('clientes/signup.php'); break;
-        // Logout        
+        // LOGOUT
         case 'logout':                          include_once('clientes/logout.php'); break;
-        // Perfil 
+        // PERFIL
         case 'perfil':                          include_once('clientes/perfil.php'); break;
+
+        //========================================
+        // AREA DO SETUP/ADMIN
+        //========================================
+
+        // ABRE O MENU DO SETUP 
+        case 'setup':                           include_once('sp-admin/setup/setup.php'); break;
+        // CRIA A BASE DE DADOS
+        case 'setup_criar_bd':                  include_once('sp-admin/setup/setup_criar_bd.php'); break;
+        // INSERE UTILIZADORES NA BASE DE DADOS
+        case 'setup_inserir_utilizadores':      include_once('sp-admin/setup/setup_inserir_utilizadores.php'); break;
     }
 ?>

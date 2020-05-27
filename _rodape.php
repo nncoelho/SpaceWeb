@@ -1,26 +1,23 @@
-<?php 
-    //========================================
-    // Rodapé
-    //========================================
-?>
-
-
+    <?php 
+        //========================================
+        // Rodapé da Aplicação Web 
+        //========================================
+    ?>
 </div>
 
 <div class="container rodape">
     <div class="row">
-        <div class="col-sm-6 mt-2 col-12">
-            <p>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fas fa-envelope"></i> <a href="mailto:spacewebproject@gmail.com">spaceweb@gmail.com</a></p>
-            <p>Aplicação Web PHP com acesso a base de Dados MySQL e com envio de emails através do PHPMailer.</p>
-        </div>
-        <div class="col-sm-6 col-12 rodape-social text-right">
-            <a href=""><i class="fab fa-facebook-square mr-3"></i></a>
-            <a href=""><i class="fab fa-twitter-square mr-3"></i></a>
-            <a href=""><i class="fab fa-instagram mr-3"></i></a>
-            <a href=""><i class="fab fa-linkedin"></i></a>
-        </div>
+    <div class="col-sm-6 mt-2 col-12">
+        <h6>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fas fa-envelope"></i> <a href="mailto:nncoelho.dev@gmail.com">nncoelho.dev@gmail.com</a></h6>
+        <p>Aplicação Web PHP com acesso a base de Dados MySQL e com envio de emails através do PHPMailer.</p>
+    </div>
+    <div class="col-sm-6 col-12 rodape-social text-right">
+        <a href=""><i class="fab fa-facebook-square mr-3"></i></a>
+        <a href=""><i class="fab fa-twitter-square mr-3"></i></a>
+        <a href=""><i class="fab fa-instagram mr-3"></i></a>
+        <a href=""><i class="fab fa-linkedin"></i></a>
+    </div>
 </div>
-
 
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

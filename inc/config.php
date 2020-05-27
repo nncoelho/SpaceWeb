@@ -1,22 +1,23 @@
 <?php 
 
 return [
-    // Variáveis da Base de Dados
+    
+    // VARIÁVEIS DA BASE DE DADOS
     'BD_HOST'           => 'localhost',
     'BD_DATABASE'       => 'spaceweb',
     'BD_CHARSET'        => 'utf8',
     'BD_USERNAME'       => 'root',
     'BD_PASSWORD'       => '',
 
-    // Variáveis do Email
+    // VARIÁVEIS DO EMAIL
     'MAIL_HOST'         => 'smtp.gmail.com',
     'MAIL_PORT'         => 587,
-    'MAIL_USERNAME'     => 'spaceweb@gmail.com',
-    'MAIL_PASSWORD'     => 'space!123',
-    'MAIL_FROM'         => 'spaceweb@gmail.com',
+    'MAIL_USERNAME'     => 'nncoelho.dev@gmail.com',
+    'MAIL_PASSWORD'     => '!Wolfdev81',
+    'MAIL_FROM'         => 'nncoelho.dev@gmail.com',
     'MAIL_DEBUG'        => 0, 
     
-    // Endereço Base
+    // ENDEREÇO BASE
     'BASE_URL'          =>'http://spaceweb.dev.com/'
 ]   
 

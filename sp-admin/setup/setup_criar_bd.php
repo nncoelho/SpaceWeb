@@ -1,30 +1,31 @@
 <?php 
-    //========================================
-    // Setup - Criar a Base de Dados
-    //========================================
+    //=========================================
+    // SETUP/ADMIN - CRIAR A BASE DE DADOS
+    //=========================================
 
-    // Verificar a sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     } 
 
-    // Cria a Base de Dados
+    // CRIA A BASE DE DADOS
     $gestor = new cl_gestorBD();        
-    $configs = include('../inc/config.php');
+    $configs = include('../../inc/config.php');
 
-    // Apagar a Base de Dados caso ela exista
+    // APAGA A BASE DE DADOS CASO ELA EXISTA
     $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$configs['BD_DATABASE']);
     
-    // Cria a Nova Base de Dados
+    // CRIA A NOVA BASE DE DADOS
     $gestor->EXE_NON_QUERY('CREATE DATABASE '.$configs['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
     $gestor->EXE_NON_QUERY('USE '.$configs['BD_DATABASE']);
 
     //=============================================
-    // Criação das Tabelas
+    // CRIAÇÃO DAS TABELAS
     //=============================================
 
     //==========================
-    // Utilizadores
+    // UTILIZADORES
+    //==========================
     $gestor->EXE_NON_QUERY(
         'CREATE TABLE utilizadores('.
         'id_utilizador                  INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
@@ -38,7 +39,8 @@
     );
 
     //==========================
-    // Logs
+    // LOGS
+    //==========================
     $gestor->EXE_NON_QUERY(
         'CREATE TABLE logs('.
         'id_log                         INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
@@ -48,7 +50,8 @@
     );
 
     //==========================
-    // Clientes
+    // CLIENTES
+    //==========================
     $gestor->EXE_NON_QUERY(
         'CREATE TABLE clientes('.
         'id_cliente                     INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, '.
@@ -63,4 +66,4 @@
     );
 ?>
 
-<div class="alert alert-success text-center">Base de Dados Criada com Sucesso.</div>
+<div class="alert alert-success offset-3 col-6 text-center">Base de Dados Criada com Sucesso.</div>
