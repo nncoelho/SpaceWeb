@@ -1,9 +1,9 @@
 <?php 
-    //========================================
-    // Signup
-    //========================================
+    //=========================================
+    // SIGNUP
+    //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }  
@@ -13,14 +13,15 @@
     $mensagem = '';
     $gestor = new cl_gestorBD();
 
-    // Dados de Cliente
+    // DADOS DO CLIENTE
     $nome = '';
     $email = '';
     $utilizador = '';
     $codigo_validacao = '';
     
     //========================================
-    // Verifica se foi feito POST
+    // VERIFICA SE FOI FEITO POST
+    //========================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
       
         // Recolha dos Dados
@@ -30,13 +31,13 @@
         $senha1 = $_POST['text_senha_1'];
         $senha2 = $_POST['text_senha_2'];
 
-        // Verifica se as Senhas são correspondentes (iguais)
+        // VERIFICA SE AS SENHAS CORRESPONDEM
         if($senha1 != $senha2){
             $erro = true;
             $mensagem = 'As senhas não coincidem.';
         }
 
-        // Verificar se já existe um Cliente com os mesmos Dados
+        // VERIFICA SE JÁ EXISTE UM CLIENTE COM OS MESMOS DADOS
         if(!$erro){
             $parametros = [
                 ':nome'             => $nome,
@@ -57,7 +58,7 @@
             }
         }
 
-        // Vamos criar condições para Criar a Conta de Cliente (em Validação)
+        // CRIA CONDIÇÕES PARA CRIAR A CONTA DE CLIENTE (EM VALIDAÇÃO)
         if(!$erro){
             $codigo_validacao = funcoes::CriarCodigoAlfanumerico(30);
             $data = new DateTime();
@@ -73,7 +74,7 @@
                 ':atualizado_em'    => $data->format('Y-m-d H:i:s')
             ];
 
-            // Regista o Cliente na Base de Dados
+            // REGISTA O CLIENTE NA BASE DE DADOS
             $gestor->EXE_NON_QUERY('
                 INSERT INTO
                 clientes(nome, email, utilizador, palavra_passe, codigo_validacao, validada, criado_em, atualizado_em)
@@ -81,14 +82,14 @@
                 (:nome, :email, :utilizador, :palavra_passe, :codigo_validacao, :validada, :criado_em, :atualizado_em)
             ',$parametros);
 
-            // Envio do Email para o Cliente Validar a sua nova conta
+            // ENVIO DO EMAIL PARA O CLIENTE ATIVAR/VALIDAR A SUA CONTA
             $email_a_enviar = new emails();
 
-            // Criar o link de Ativação
+            // CRIAR O LINK DE ATIVAÇÃO
             $config = include('inc/config.php');
             $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];            
 
-            // Preparação dos Dados do Email
+            // PREPARAÇÃO DOS DADOS DO EMAIL
             $temp = [
                 
                 $email,
@@ -99,12 +100,12 @@
                 '<a href="'.$link.'">'.$link.'</a>'                
             ];
 
-            // Envio do Email
+            // ENVIO DO EMAIL
             $mensagem_enviada = $email_a_enviar->EnviarEmailCliente($temp);
         }
     }
 ?>
-<!-- Mensagem de Erro -->
+<!-- MENSAGEM DE ERRO -->
 <?php if($erro){
         echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
     }
@@ -116,7 +117,7 @@
         <div class="col-sm-6 offset-sm-3">
             
             <form action="" method="post">
-                <!-- Nome Completo do Cliente -->
+                <!-- NOME COMPLETO DO CLIENTE -->
                 <div class="form-group">
                     <input type="text"
                            class="form-control"
@@ -125,7 +126,7 @@
                            value="<?php echo $nome ?>"
                            required>
                 </div>
-                <!-- Email -->
+                <!-- EMAIL -->
                 <div class="form-group">
                     <input type="email"
                            class="form-control"
@@ -134,7 +135,7 @@
                            value="<?php echo $email ?>"
                            required>
                 </div>
-                <!-- Utilizador -->
+                <!-- UTILIZADOR -->
                 <div class="form-group">
                     <input type="text"
                            class="form-control"
@@ -143,7 +144,7 @@
                            value="<?php echo $utilizador ?>"
                            required>
                 </div>
-                <!-- Senha 1 -->
+                <!-- SENHA 1 -->
                 <div class="form-group">
                     <input type="password"
                            class="form-control"
@@ -151,7 +152,7 @@
                            placeholder = "Senha"
                            required>
                 </div>
-                <!-- Senha 2 (Verificação) -->
+                <!-- SENHA 2 (VERIFICAÇÃO) -->
                 <div class="form-group">
                     <input type="password"
                            class="form-control"
@@ -159,16 +160,16 @@
                            placeholder = "Repetir a senha"
                            required>
                 </div>
-                <!-- Aceitação dos Termos de Utilização -->
+                <!-- ACEITAÇÃO DOS TERMOS E CONDIÇÕES DE UTILIZAÇÃO -->
                 <div class="text-center form-group">
                     <input type="checkbox" 
                            name="check_termos" 
                            id="check_termos" 
                            class="mr-2"
                            required>
-                           <label for="check_termos">Li e Aceito os <a href="">Termos de Utilização</a>.</label>
+                           <label for="check_termos">Li e Aceito os <a href="">Termos e Condições de Utilização</a>.</label>
                 </div>
-                <!-- Submeter -->
+                <!-- SUBMETER -->
                 <div class="text-center">                    
                     <button class="btn btn-primary mb-5">Criar Cliente</button>
                 </div>

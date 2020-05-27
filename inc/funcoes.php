@@ -1,9 +1,9 @@
 <?php 
-    //========================================
-    // Funções Estáticas
-    //========================================
+    //=========================================
+    // FUNÇÕES ESTÁTICAS
+    //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -12,7 +12,7 @@
 
         // =======================================================
         public static function VerificarLogin(){
-            // Verifica se o Utilizador tem Sessão Ativa
+            // VERIFICA SE O UTILIZADOR TEM SESSÃO ATIVA
             $resultado = false;
             if(isset($_SESSION['id_utilizador'])){
                 $resultado = true;
@@ -22,7 +22,7 @@
 
         // =======================================================
         public static function VerificarLoginCliente(){
-            // Verifica se o Cliente tem Sessão Ativa
+            // VERIFICA SE O CLIENTE TEM SESSÃO ATIVA
             $resultado = false;
             if(isset($_SESSION['id_cliente'])){
                 $resultado = true;
@@ -32,7 +32,7 @@
 
         // =======================================================
         public static function IniciarSessao($dados){
-            // Iniciar a Sessão
+            // INICIA A SESSÃO
             $_SESSION['id_utilizador'] = $dados[0]['id_utilizador'];
             $_SESSION['nome'] = $dados[0]['nome'];
             $_SESSION['email'] = $dados[0]['email'];
@@ -41,7 +41,7 @@
 
         // =======================================================
         public static function IniciarSessaoCliente($dados){
-            // Iniciar a Sessão do Cliente
+            // INICIA A SESSÃO DO CLIENTE
             $_SESSION['id_cliente'] = $dados[0]['id_cliente'];
             $_SESSION['nome_cliente'] = $dados[0]['nome'];
             $_SESSION['email_cliente'] = $dados[0]['email'];
@@ -49,7 +49,7 @@
 
         // =======================================================
         public static function DestroiSessao(){
-            // Destroi as variáveis da Sessão
+            // DESTROI AS VARIÁVEIS DA SESSÃO
             unset($_SESSION['id_utilizador']);
             unset($_SESSION['nome']);
             unset($_SESSION['email']);
@@ -58,7 +58,7 @@
 
         // =======================================================
         public static function DestroiSessaoCliente(){
-            // Destroi as variáveis da Sessão do Cliente
+            // DESTROI AS VARIÁVEIS DA SESSÃO DO CLIENTE
             unset($_SESSION['id_cliente']);
             unset($_SESSION['nome_cliente']);
             unset($_SESSION['email_cliente']);
@@ -66,7 +66,7 @@
 
         // =======================================================
         public static function CriarCodigoAlfanumerico($numChars){
-            // Cria um Código Aleatório Alfanumérico
+            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO
             $codigo='';
             $caracteres = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!?()-%';
             for($i = 0; $i < $numChars; $i++){
@@ -77,7 +77,7 @@
 
         // =======================================================
         public static function CriarCodigoAlfanumericoSemSinais($numChars){
-            // Cria um Código Aleatório Alfanumérico
+            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO
             $codigo='';
             $caracteres = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789';
             for($i = 0; $i < $numChars; $i++){
@@ -88,7 +88,7 @@
 
         // =======================================================
         public static function CriarLOG($mensagem, $utilizador){
-            // Cria um registo em LOGS
+            // CRIA UM REGISTO EM LOGS
             $gestor = new cl_gestorBD();
             $data_hora = new DateTime();
             $parametros = [
@@ -103,7 +103,7 @@
 
         // =======================================================
         public static function Permissao($index){
-            // Verifica se o Utilizador com Sessão Ativa tem Permissão para a funcionalidade
+            // VERIFICA SE O UTILIZADOR COM SESSÃO ATIVA TEM PERMISSÃO PARA A FUNCIONALIDADE
             if(substr($_SESSION['permissoes'], $index, 1) == 1){
                 return true;
             } else{

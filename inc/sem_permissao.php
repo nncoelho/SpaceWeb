@@ -1,9 +1,9 @@
 <?php
     //========================================
-    // Sem Permissão
+    // SEM PERMISSÃO
     //========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }

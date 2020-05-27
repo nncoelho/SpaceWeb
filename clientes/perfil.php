@@ -1,5 +1,5 @@
 <?php     
-    // Verificar a sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -12,7 +12,9 @@
     $sucesso = false;
     $mensagem = '';
 
-    // =========================================
+    //=========================================
+    // PERFIL DO CLIENTE
+    //=========================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         $p = $_GET['p'];
@@ -23,7 +25,7 @@
         switch ($p) {
 
             case 1:
-                // Alterar o Nome do Cliente
+                // ALTERA O NOME DO CLIENTE
                 $parametros = [
                     ':id_cliente' => $id_cliente,
                     ':nome'       => $_POST['text_nome']
@@ -33,7 +35,7 @@
                                              WHERE id_cliente <> :id_cliente
                                              AND nome = :nome', $parametros);
                 if(count($dados) != 0){
-                    // Foi encontrado outro Cliente com o mesmo Nome
+                    // FOI ENCONTRADO OUTRO CLIENTE COM O MESMO NOME
                     $erro = true;
                     $mensagem = 'Já existe outro Cliente com o mesmo Nome.';
                 } else {
@@ -55,17 +57,17 @@
             break;
         
             case 2:
-                // Alterar o Email do Cliente
+                // ALTERA O EMAIL DO CLIENTE
                 $text_email_1 = $_POST['text_email'];
                 $text_email_2 = $_POST['text_email_repetir'];
 
-                // Verifica se os Emails introduzidos correspondem
+                // VERIFICA SE OS EMAILS INTRODUZIDOS CORRESPONDEM
                 if($text_email_1 != $text_email_2){
                     $erro = true;
                     $mensagem = 'Os Emails não correspondem.';
                 }
 
-                // Verifica se já existe outro Cliente com o mesmo Email
+                // VERIFICA SE JÁ EXISTE OUTRO CLIENTE COM O MESMO EMAIL
                 if(!$erro){                    
                     $parametros = [
                         ':id_cliente'   => $id_cliente,
@@ -81,7 +83,7 @@
                     }
                 }
 
-                // Atualização do Email do Cliente na Base de Dados
+                // ATUALIZAÇÃO DO EMAIL DO CLIENTE NA BASE DE DADOS
                 if(!$erro){ 
                     $parametros = [
                         ':id_cliente'   => $id_cliente,
@@ -99,12 +101,12 @@
             break;
             
             case 3:
-                // Alterar a senha do Cliente
+                // ALTERA A SENHA DO CLIENTE
                 $text_senha_atual = $_POST['text_senha_atual'];
                 $text_senha_nova = $_POST['text_senha_nova'];
                 $text_senha_nova_1 = $_POST['text_senha_nova_1'];
                 
-                // Verificar se a Senha atual é a mesma da Base de Dados
+                // VERIFICA SE A SENHA ATUAL É A MESMA DA BASE DE DADOS
                 $parametros = [
                     ':id_cliente'           => $id_cliente,
                     ':palavra_passe'        => md5($text_senha_atual)
@@ -114,12 +116,12 @@
                                              WHERE id_cliente = :id_cliente 
                                              AND palavra_passe = :palavra_passe', $parametros);
                 if(count($dados)==0){
-                    // Existe um erro - A Senha não é igual à que se encontra na BD
+                    // EXISTE UM ERRO - A SENHA NÃO É IGUAL À QUE SE ENCONTRA NA BD
                     $erro = true;
                     $mensagem = 'Senha atual não corresponde.';
                 }
 
-                // Verificar se a nova Senha e Senha repetida são iguais
+                // VERIFICAR SE A NOVA SENHA E SENHA REPETIDA SÃO IGUAIS
                 if(!$erro){
                     if($text_senha_nova != $text_senha_nova_1){
                         // As Senhas novas não correspondem
@@ -128,7 +130,7 @@
                     }
                 }   
 
-                // Atualizar nova Senha na Base de Dados
+                // ATUALIZAR NOVA SENHA NA BASE DE DADOS
                 if(!$erro){
                     $parametros = [
                         ':id_cliente'   =>$id_cliente,
@@ -147,7 +149,7 @@
         }
     }
 
-    // Vamos buscar os dados do cliente
+    // VAI BUSCAR OS DADOS DO CLIENTE
     $parametros = [
         ':id_cliente' => $_SESSION['id_cliente']
     ];
@@ -155,23 +157,25 @@
     $dados_cliente = $gestor->EXE_QUERY('SELECT * FROM clientes 
                                          WHERE id_cliente = :id_cliente', 
                                          $parametros);  
-    $dados = $dados_cliente[0]; // Passar os Dados todos para um Array unidimensional
+    $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
 ?>
 
-<!-- Mensagem de Erro -->
+<!-- MENSAGEM DE ERRO -->
 <?php if($erro):?>
     <div class="alert alert-danger text-center">
         <p><?php echo $mensagem ?></p>
     </div>
 <?php endif;?>
 
-<!-- Mensagem de Sucesso -->
+<!-- MENSAGEM DE SUCESSO -->
 <?php if($sucesso):?>
     <div class="alert alert-success text-center">
         <p><?php echo $mensagem ?></p>
     </div>
 <?php endif;?>
 
+
+<!-- EDITAR PERFIL DO CLIENTE -->    
 <div class="container-fluid perfil">
 
     <div class="container pt-5 pb-5">
@@ -184,7 +188,7 @@
 
                 <div id="accordion">
 
-                    <!-- Alterar Utilizador -->
+                    <!-- ALTERAR UTILIZADOR -->
                     <div class="card">
                         <div class="card-header" id="caixa_utilizador">
                             <h5 class="mb-0">
@@ -197,7 +201,7 @@
                         <div id="t_1" class="collapse show" aria-labelledby="caixa_utilizador" data-parent="#accordion">
                             <div class="card-body">
                         
-                                <!-- Formulário para alterar o Nome do Utilizador -->
+                                <!-- FORMULÁRIO PARA ALTERAR O NOME DO UTILIZADOR -->
                                 Nome atual: <b><?php echo $dados['nome'] ?></b>
 
                                 <form action="?a=perfil&p=1" method="post" class="mt-3">
@@ -217,7 +221,7 @@
                         </div>
                     </div>
 
-                    <!-- Alterar Email -->
+                    <!-- ALTERAR EMAIL -->
                     <div class="card">
                         <div class="card-header" id="caixa_email">
                             <h5 class="mb-0">
@@ -229,7 +233,7 @@
                         <div id="t_2" class="collapse" aria-labelledby="caixa_email" data-parent="#accordion">
                             <div class="card-body">
                                 
-                                <!-- Formulário para alterar o Email -->
+                                <!-- FORMULÁRIO PARA ALTERAR O EMAIL -->
                                 Email atual: <b><?php echo $dados['email'] ?></b>
 
                                 <form action="?a=perfil&p=2" method="post" class="mt-3">
@@ -252,12 +256,13 @@
                                     <div class="text-right">
                                         <input type="submit" value="Alterar" class="btn btn-primary">
                                     </div>
+
                                 </form>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Alterar Senha -->
+                    <!-- ALTERAR SENHA -->
                     <div class="card">
                         <div class="card-header" id="caixa_senha">
                             <h5 class="mb-0">
@@ -269,7 +274,7 @@
                         <div id="t_3" class="collapse" aria-labelledby="caixa_senha" data-parent="#accordion">
                             <div class="card-body">
                             
-                                <!-- Formulário para alterar a Senha -->
+                                <!-- FORMULÁRIO PARA ALTERAR A SENHA -->
                                 <form action="?a=perfil&p=3" method="post" class="mt-3">
                                     <div class="form-group">
                                         <input type="password"
@@ -298,6 +303,7 @@
                                     <div class="text-right">
                                         <input type="submit" value="Alterar" class="btn btn-primary">
                                     </div>
+
                                 </form>
                             </div>
                         </div>

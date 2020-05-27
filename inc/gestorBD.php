@@ -1,19 +1,19 @@
 <?php
-    //======================================================================================
-    // GESTOR DA BASE DE DADOS - MySQL - PDO - CRUD
-    //======================================================================================
+    //====================================================================
+    // GESTOR DA BASE DE DADOS - MYSQL - PDO - CRUD
+    //====================================================================
 
     class cl_gestorBD{
         
-        //==================================================================
+        //================================================================
         public function EXE_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
         {
-            // Executa a Query a Base de Dados (READ/SELECT)
+            // EXECUTA A QUERY A BASE DE DADOS (READ/SELECT)
             $resultados = NULL;
 
             $config = include('config.php');
 
-            // Abre a Ligação a Base de Dados
+            // ABRE A LIGAÇÃO A BASE DE DADOS
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -23,7 +23,7 @@
                 array(PDO::ATTR_PERSISTENT => TRUE));
             $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Executa a Query
+            // EXECUTA A QUERY
             if ($parametros != NULL) {
                 $gestor = $ligacao->prepare($query);
                 $gestor->execute($parametros);
@@ -34,22 +34,22 @@
                 $resultados = $gestor->fetchAll(PDO::FETCH_ASSOC);
             }
 
-            // Fecha a Ligação por defeito
+            // FECHA A LIGAÇÃO POR DEFEITO
             if ($fechar_ligacao) {
                 $ligacao = NULL;
             }
 
-            // Retorna os resultados
+            // RETORNA OS RESULTADOS
             return $resultados;
         }
 
-        //==================================================================
+        //================================================================
         public function EXE_NON_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
         {
-            // Executa uma Query com ou sem Parâmetros (CREATE/INSERT, UPDATE, DELETE)
+            // EXECUTA UMA QUERY COM OU SEM PARÂMETROS (CREATE/INSERT, UPDATE, DELETE)
             $config = include('config.php');
 
-            // Abre a Ligação a Base de Dados
+            // ABRE A LIGAÇÃO A BASE DE DADOS
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -59,7 +59,7 @@
                 array(PDO::ATTR_PERSISTENT => TRUE));
             $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Executa a Query
+            // EXECUTA A QUERY
             $ligacao->beginTransaction();
             try {
                 if ($parametros != NULL) {
@@ -75,19 +75,19 @@
                 $ligacao->rollBack();
             }
 
-            // Fecha a Ligação por defeito
+            // FECHA A LIGAÇÃO POR DEFEITO
             if ($fechar_ligacao) {
                 $ligacao = NULL;
             }
         }
 
-        //==================================================================
+        //================================================================
         public function RESET_AUTO_INCREMENT($tabela){
             
-            // Faz Reset ao AUTO_INCREMENT de uma determinada tabela ($tabela)
+            // FAZ RESET AO AUTO_INCREMENT DE UMA DETERMINADA TABELA ($TABELA)
             $config = include('config.php');
 
-            // Abre a Ligação a Base de Dados
+            // ABRE A LIGAÇÃO A BASE DE DADOS
             $ligacao = new PDO(
                 'mysql:host='.$config['BD_HOST'].
                 ';dbname='.$config['BD_DATABASE'].
@@ -97,10 +97,10 @@
                 array(PDO::ATTR_PERSISTENT => TRUE));
             $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Reset ao AUTO_INCREMENT
+            // RESET AO AUTO_INCREMENT
             $ligacao->exec('ALTER TABLE '.$tabela.' AUTO_INCREMENT = 1');
 
-            // Fecha a Ligação
+            // FECHA A LIGAÇÃO
             $ligacao = NULL;
         }    
     }

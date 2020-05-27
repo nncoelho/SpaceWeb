@@ -6,14 +6,14 @@ use PHPMailer\PHPMailer\Exception;
         
         public function EnviarEmail($dados){
 
-            // Dados[0] = Endereço de Email do Destinatário
-            // Dados[1] = Assunto
-            // Dados[2] = Mensagem
+            // DADOS[0] = ENDEREÇO DE EMAIL DO DESTINATÁRIO
+            // DADOS[1] = ASSUNTO
+            // DADOS[2] = MENSAGEM
             require '../phpmailer/src/Exception.php';
             require '../phpmailer/src/PHPMailer.php';
             require '../phpmailer/src/SMTP.php';
 
-            // Configurações
+            // CONFIGURAÇÕES
             $configs = include('config.php');
 		
             $mail = new PHPMailer();
@@ -33,19 +33,19 @@ use PHPMailer\PHPMailer\Exception;
             $mail->SMTPAuth = true;
             $mail->Username = $configs['MAIL_USERNAME'];                        
 
-            // Email
+            // EMAIL
             $mail->Password = $configs['MAIL_PASSWORD'];
             $mail->setFrom ($configs['MAIL_FROM'], 'spaceweb');
             $mail->addAddress($dados[0], $dados[0]);
             $mail->CharSet = "UTF-8";
 
-            // Assunto
+            // ASSUNTO
             $mail->Subject = $dados[1];
 
-            // Mensagem
+            // MENSAGEM
             $mail->Body = $dados[2];               
 
-            // Envio da Mensagem
+            // ENVIO DA MENSAGEM
             $enviada = false;
             if($mail->send()){ $enviada = true; }
             return $enviada;
@@ -54,14 +54,14 @@ use PHPMailer\PHPMailer\Exception;
         // =========================================================
         public function EnviarEmailCliente($dados){
 
-            // Dados[0] = Endereço de Email do Cliente
-            // Dados[1] = Assunto
-            // Dados[2] = Mensagem
+            // DADOS[0] = ENDEREÇO DE EMAIL DO CLIENTE
+            // DADOS[1] = ASSUNTO
+            // DADOS[2] = MENSAGEM
             require 'phpmailer/src/Exception.php';
             require 'phpmailer/src/PHPMailer.php';
             require 'phpmailer/src/SMTP.php';
 
-            // Configurações
+            // CONFIGURAÇÕES
             $configs = include('config.php');
 		
             $mail = new PHPMailer();
@@ -81,19 +81,19 @@ use PHPMailer\PHPMailer\Exception;
             $mail->SMTPAuth = true;
             $mail->Username = $configs['MAIL_USERNAME'];
 
-            // Email
+            // EMAIL
             $mail->Password = $configs['MAIL_PASSWORD'];
             $mail->setFrom ($configs['MAIL_FROM'], 'spaceweb');
             $mail->addAddress($dados[0], $dados[0]);
             $mail->CharSet = "UTF-8";
 
-            // Assunto
+            // ASSUNTO
             $mail->Subject = $dados[1];
 
-            // Mensagem
+            // MENSAGEM
             $mail->Body = $dados[2];               
 
-            // Envio da Mensagem
+            // ENVIO DA MENSAGEM
             $enviada = false;
             if($mail->send()){ $enviada = true; }
             return $enviada;

@@ -1,4 +1,4 @@
-/* Ficheiro Principal de CSS */
+/* FICHEIRO PRINCIPAL DE CSS */
 * {
   margin: 0px;
   padding: 0px; }
@@ -153,13 +153,13 @@
 .btn-transparent {
   background-color: transparent; }
 
-/* Cabeçalho */
+/* CABEÇALHO */
 .cabecalho {
   padding: 15px;
   background-color: black;
   color: white; }
 
-/* Barra dos Utilizadores */
+/* BARRA DOS UTILIZADORES */
 .barra_utilizadores {
   margin: 0px;
   padding: 20px;

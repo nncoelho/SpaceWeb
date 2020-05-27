@@ -1,20 +1,20 @@
 <?php 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     } 
 ?>
 
-<!-- Barra do Cliente -->
+<!-- BARRA DO CLIENTE -->
 <div class="container-fluid barra-cliente">
     <div class="text-right">
 
-        <!-- Cliente Logado -->
+        <!-- CLIENTE LOGADO -->
         <?php if(funcoes::VerificarLoginCliente()): ?>
 
             <i class="fas fa-user mr-2"></i><?php echo $_SESSION['nome_cliente'] ?>
 
-            <!-- Dropdown Menu -->
+            <!-- DROPDOWN MENU -->
             <div class="dropdown d-inline">
                 <button class="btn btn-secondary ml-2 dropdown-toggle" type="button" 
                     id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,14 +29,14 @@
 
         <?php else :?>
 
-        <!-- Cliente Não Logado -->
+        <!-- CLIENTE NÃO LOGADO -->
         <div class="dropdown d-inline">
 
-            <!-- Interruptor -->
+            <!-- INTERRUPTOR -->
             <a href="" class="mr-3" id="dropdownMenuButton" data-toggle="dropdown" 
             aria-haspopup="true" aria-expanded="false"><i class="fas fa-sign-in-alt"></i> Login</a>|
             
-            <!-- Caixa -->
+            <!-- CAIXA -->
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="p-3">
                     <form action="?a=login" method="post">

@@ -1,17 +1,17 @@
 <?php 
-    //========================================
-    // Logout
-    //========================================
+    //=========================================
+    // LOGOUT
+    //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
 
-    // Guardar o Nome do Cliente para ser apresentado no Logout
+    // GUARDA O NOME DO CLIENTE PARA SER APRESENTADO NO LOGOUT
     $nome = $_SESSION['nome_cliente'];
 
-    // Executa a Destruição da Sessão do Cliente
+    // EXECUTA A DESTRUIÇÃO DA SESSÃO DO CLIENTE
     funcoes::DestroiSessaoCliente();
 ?>
 

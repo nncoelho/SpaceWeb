@@ -1,10 +1,10 @@
-//====================================
-// Ficheiro principal de JavaScript
-//====================================
+//=============================================
+// FICHEIRO PRINCIPAL DE JAVASCRIPT
+//=============================================
 
 function gerarPassword(numLetras){
     
-    // Gerar uma Password Aleatória
+    // GERA UMA PASSWORD ALEATÓRIA
     let text_password = document.getElementById('text_password');
 
     let caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?()-%';
@@ -14,7 +14,7 @@ function gerarPassword(numLetras){
         codigo += caracteres.substr(r,1);
     }
 
-    // Coloca o Código no campo da Password
+    // COLOCA O CÓDIGO NO CAMPO DA PASSWORD
     text_password.value = codigo;    
 }
 

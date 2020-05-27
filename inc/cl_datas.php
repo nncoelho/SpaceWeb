@@ -1,12 +1,12 @@
 <?php 
-    //=================================
-    // Classe para tratamento de Datas
-    //=================================
+    //=========================================
+    // CLASSE PARA TRATAMENTO DE DATAS
+    //=========================================
 
     class DATAS{
         
         public static function DataHoraAtualBD(){
-            // Retorna a Data e Hora atual formatada para MySQL
+            // RETORNA A DATA E HORA ATUAL FORMATADA PARA MYSQL
             $data = new DateTime();
             return $data->format('Y-m-d H:i:s');
         }
