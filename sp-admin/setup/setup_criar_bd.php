@@ -9,15 +9,14 @@
     } 
 
     // CRIA A BASE DE DADOS
-    $gestor = new Gestor();        
-    $configs = include('../../inc/config.php');
+    $gestor = new Gestor();
 
-    // APAGA A BASE DE DADOS CASO ELA EXISTA
-    $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$configs['BD_DATABASE']);
+    // // APAGA A BASE DE DADOS CASO ELA EXISTA
+    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.['BD_DATABASE']);
     
-    // CRIA A NOVA BASE DE DADOS
-    $gestor->EXE_NON_QUERY('CREATE DATABASE '.$configs['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
-    $gestor->EXE_NON_QUERY('USE '.$configs['BD_DATABASE']);
+    // // CRIA A NOVA BASE DE DADOS
+    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
+    // $gestor->EXE_NON_QUERY('USE '.['BD_DATABASE']);
 
     //=========================================
     // CRIAÇÃO DAS TABELAS
