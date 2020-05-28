@@ -13,7 +13,7 @@
 
     // LIMPAR OS DADOS DOS UTILIZADORES
     $gestor->EXE_NON_QUERY('DELETE FROM utilizadores');
-    $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT=1');+
+    $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT=1');
 
     $data = new DateTime();
     
@@ -41,10 +41,10 @@
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Nuno',
-        ':palavra_passe'    => md5('abc123'),
+        ':palavra_passe'    => md5('nuno'),
         ':nome'             => 'Nuno Coelho',
-        ':email'            => 'nncoelho.dev@gmail.com',
-        ':permissoes'       => str_repeat('1', 100),
+        ':email'            => 'nunocoelho@gmail.com',
+        ':permissoes'       => str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
@@ -60,9 +60,9 @@
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Vera',
-        ':palavra_passe'    => md5('verinha'),
+        ':palavra_passe'    => md5('vera'),
         ':nome'             => 'Vera Matos',
-        ':email'            => 'veramatos517@gmail.com',
+        ':email'            => 'veramatos@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
@@ -79,9 +79,9 @@
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Jorge',
-        ':palavra_passe'    => md5('mata'),
+        ':palavra_passe'    => md5('jorge'),
         ':nome'             => 'Jorge Moita',
-        ':email'            => 'matamoita@gmail.com',
+        ':email'            => 'jorgemoita@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
@@ -93,4 +93,4 @@
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 ?>
-<div class="alert alert-success text-center">Utilizadores inseridos com Sucesso.</div>
+<div class="alert alert-success offset-3 col-6 mt-2 text-center">Utilizadores inseridos com Sucesso.</div>

@@ -8,14 +8,13 @@
 <div class="container rodape">
     <div class="row">
     <div class="col-sm-6 mt-2 col-12">
-        <h6>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fas fa-envelope"></i> <a href="mailto:nncoelho.dev@gmail.com">nncoelho.dev@gmail.com</a></h6>
+        <h6>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fas fa-envelope"></i> <a href="mailto:geral@spaceweb.com">geral@spaceweb.com</a></h6>
         <p>Aplicação Web Desenvolvida em PHP com acesso a base de Dados MySQL e com envio de emails através do PHPMailer e do Composer.</p>
     </div>
     <div class="col-sm-6 col-12 rodape-social text-right">
-        <a href=""><i class="fab fa-facebook-square mr-3"></i></a>
-        <a href=""><i class="fab fa-twitter-square mr-3"></i></a>
-        <a href=""><i class="fab fa-instagram mr-3"></i></a>
-        <a href=""><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com"><i class="fab fa-facebook-square mr-3"></i></a>
+        <a href="https://www.twitter.com"><i class="fab fa-twitter-square mr-3"></i></a>
+        <a href="https://www.instagram.com"><i class="fab fa-instagram mr-3"></i></a>
     </div>
 </div>
 

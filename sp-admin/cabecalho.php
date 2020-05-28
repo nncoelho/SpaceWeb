@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="../inc/css/admin/main.css">
 </head>
 <body>
+<div class="bg-white">
 
-<div class="container-fluid cabecalho text-center">
-    <p>Cabeçalho</p>
-</div>
+    <!-- CABEÇALHO E LOGOTIPO -->
+    <div class="container-fluid cabecalho">
+        <a href="http://spaceweb.me/?a=home"><img class="logo" src="../images/logo.png"></a>
+    </div>

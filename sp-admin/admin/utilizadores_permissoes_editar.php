@@ -45,7 +45,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         // PERMISSÕES
-        $total_permissoes = (count(include('inc/permissoes.php')));
+        $total_permissoes = (count(include('../inc/permissoes.php')));
         $permissoes = [];
         if(isset($_POST['check_permissao'])){
             $permissoes = $_POST['check_permissao'];
@@ -106,7 +106,7 @@
                 <form action="?a=editar_permissoes&id=<?php echo $id_utilizador ?>" method="post">
                     <div class="caixa-permissoes">                                    
                         <?php 
-                            $permissoes = include('inc/permissoes.php');
+                            $permissoes = include('../inc/permissoes.php');
                             $id=0;
                             foreach($permissoes as $permissao){ 
                         ?>

@@ -159,6 +159,12 @@
   background-color: black;
   color: white; }
 
+/* RODAPÉ */
+.rodape {
+  padding: 30px;
+  background-color: black;
+  color: white; }
+
 /* BARRA DOS UTILIZADORES */
 .barra_utilizadores {
   margin: 0px;

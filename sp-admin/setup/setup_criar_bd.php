@@ -11,12 +11,12 @@
     // CRIA A BASE DE DADOS
     $gestor = new Gestor();
 
-    // // APAGA A BASE DE DADOS CASO ELA EXISTA
-    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.['BD_DATABASE']);
+    // APAGA A BASE DE DADOS CASO ELA EXISTA
+    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$this->db_name);
     
-    // // CRIA A NOVA BASE DE DADOS
-    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
-    // $gestor->EXE_NON_QUERY('USE '.['BD_DATABASE']);
+    // CRIA A NOVA BASE DE DADOS
+    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.$this->db_name.' CHARACTER SET UTF8 COLLATE utf8_general_ci');
+    // $gestor->EXE_NON_QUERY('USE '.$this->db_name);
 
     //=========================================
     // CRIAÇÃO DAS TABELAS
@@ -65,4 +65,4 @@
     );
 ?>
 
-<div class="alert alert-success offset-3 col-6 text-center">Base de Dados Criada com Sucesso.</div>
+<div class="alert alert-success offset-3 col-6 mt-2 text-center">Base de Dados Criada com Sucesso.</div>

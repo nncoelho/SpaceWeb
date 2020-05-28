@@ -21,10 +21,10 @@
     // BARRA DO UTILIZADOR
     include_once('users/barra_utilizador.php');
 
-    include_once('_cabecalho.php');   
+    include_once('cabecalho.php');   
 
     include_once('routes.php');
     
-    include_once('_rodape.php');
+    include_once('rodape.php');
 
 ?>

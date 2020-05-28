@@ -22,7 +22,7 @@
 
     <?php 
         //=====================================
-        // BARRA DE LOGIN E SIGNUP
+        // BARRA DE CLIENTES
         //=====================================
         include_once('clientes/barra_cliente.php');
     ?>

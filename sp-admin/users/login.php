@@ -34,11 +34,11 @@
             $erro = true;
             $mensagem = 'Dados de login inválidos.';
         } else {
+
             // LOGIN VÁLIDO
             $erro = false;
             // INICIA A SESSÃO
             funcoes::IniciarSessao($dados);
-
             // LOG
             funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' fez login.', $_SESSION['nome']);
         }
@@ -46,15 +46,19 @@
 ?>
 
 <?php if($erro): ?>
+
     <?php 
         if($mensagem!=''){
-            echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
+            echo '<div class="alert alert-danger offset-3 col-6 mt-2 text-center">'.$mensagem.'</div>';
         }
     ?>
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-4 card m-3 p-3">
+        
+        <h3 class="text-center mt-4">Gestão de Utilizadores</h3>
+
+        <div class="row justify-content-center">        
+            <div class="col-md-4 card mt-4 p-4">
 
                 <form action="?a=login" method="post">
                     <div class="form-group">
@@ -71,6 +75,7 @@
                 <div class="text-center">
                     <a href="?a=recuperar_password">Recuperar Password</a>
                 </div>
+
             </div>        
         </div>
     </div>
@@ -80,14 +85,10 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-4 card m-3 p-3 text-center">
-                <p>Bem-vindo, <strong><?php echo $dados[0]['nome'] ?></strong></p>
+                <p>Bem-vindo(a), <strong><?php echo $dados[0]['nome'] ?></strong></p>
                 <a href="?a=inicio" class="btn btn-primary">Avançar</a>
             </div>        
         </div>
     </div>   
 
 <?php endif; ?>
-
-<div class="text-center">
-    <a href="?a=setup" class="btn btn-secondary">Setup</a>
-</div>
