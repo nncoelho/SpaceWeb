@@ -3,7 +3,7 @@
     // CLASSE PARA TRATAMENTO DE DATAS
     //=========================================
 
-    class DATAS{
+    class Datas{
         
         public static function DataHoraAtualBD(){
             // RETORNA A DATA E HORA ATUAL FORMATADA PARA MYSQL

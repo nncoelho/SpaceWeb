@@ -1,9 +1,9 @@
 <?php
-    //========================================
-    // Formulário de Login
-    //========================================    
+    //=========================================
+    // FORMULÁRIO DE RECUPERAÇÃO DA PASSWORD
+    //=========================================   
     
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -13,46 +13,46 @@
     $mensagem_enviada = false;
 
 
-    // Verificar se existe um POST
+    // VERIFICA SE EXISTE UM POST
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $text_email = $_POST['text_email'];
 
-        // Criar o objeto da Base de Dados
-        $gestor = new cl_gestorBD();
+        // CRIA O OBJETO DA BASE DE DADOS
+        $gestor = new Gestor();
 
-        // Parametros
+        // PARAMETROS
         $parametros = [
             ':email' => $text_email
         ];
 
-        // Pesquisar na BD para verificar se existe Conta de Utilizador com este Email
+        // PESQUISAR NA BD PARA VERIFICAR SE EXISTE CONTA DE UTILIZADOR COM ESTE EMAIL
         $dados = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE email = :email',$parametros);
 
-        // Verificar se foi encontrado Email
+        // VERIFICAR SE FOI ENCONTRADO EMAIL
         if(count($dados) == 0){
             $erro = true;
             $mensagem = 'Não foi encontrada conta de utilizador com esse email.';
         }
         
-        // No caso de não haver Erro (Foi encontrada Conta de Utilizador com o Email indicado)
+        // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O EMAIL INDICADO)
         else{
 
-            // Recuperar a Password
+            // RECUPERAR A PASSWORD
             $nova_password = funcoes::CriarCodigoAlfanumerico(15);
 
-            // Enviar o Email
+            // ENVIAR O EMAIL
             $email = new emails();
-            // Preparação dos Dados do Email
+            // PREPARAÇÃO DOS DADOS DO EMAIL
             $temp = [
                 $dados[0]['email'],
                 'spaceweb - Recuperação da password',
                 '<h3>spaceweb</H3><h4>RECUPERAÇÃO DA PASSWORD</h4><p>'.$nova_password.'</p>'
             ];
 
-            // Envio do Email
+            // ENVIO DO EMAIL
             $mensagem_enviada = $email->EnviarEmail($temp);
 
-            // Alterar a Senha na BD
+            // ALTERAR A SENHA NA BD
             if($mensagem_enviada){
                 $id_utilizador = $dados[0]['id_utilizador'];
 
@@ -70,7 +70,7 @@
                 funcoes::CriarLOG('O utilizador '.$dados[0]['nome'].' solicitou recuperação da password.', $dados[0]['nome']);
 
             } else {
-                // Aconteceu um Erro
+                // ACONTECEU UM ERRO
                 $erro = true;
                 $mensagem = 'Atenção: O Email de recuperação não foi enviado com Sucesso. Tente novamente.';
             }
@@ -80,14 +80,14 @@
 
 <?php if($mensagem_enviada == false) : ?>
 
-    <!-- Mensagem de Erro -->
+    <!-- MENSAGEM DE ERRO -->
     <?php if($erro): ?>
         <div class="alert alert-danger text-center">
             <?php echo $mensagem ?>
         </div>
     <?php endif; ?>
 
-    <!-- Apresentação do Formulário -->
+    <!-- APRESENTAÇÃO DO FORMULÁRIO -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
             <div class="col-md-4 card m-3 p-3">
@@ -111,7 +111,7 @@
 
 <?php else :?>
     
-    <!-- Apresentação da mensagem de Sucesso na recuperação da Password -->
+    <!-- APRESENTAÇÃO DA MENSAGEM DE SUCESSO NA RECUPERAÇÃO DA PASSWORD -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
             <div class="col-md-4 card m-3 p-3 text-center">

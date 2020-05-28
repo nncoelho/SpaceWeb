@@ -1,9 +1,9 @@
 <?php
     //=========================================
-    // Formulário de Login
-    //========================================    
+    // FORMULÁRIO DE LOGIN
+    //=========================================    
     
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -11,32 +11,32 @@
     $erro = true;    
     $mensagem = '';
     
-    // Verificar se foi feito um POST    
+    // VERIFICA SE FOI FEITO UM POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        // Verificar se os dados do Login estão corretos
-        $gestor = new cl_gestorBD();
+        // VERIFICA SE OS DADOS DO LOGIN ESTÃO CORRETOS
+        $gestor = new Gestor();
 
-        // Preparação dos Parâmetros
+        // PREPARAÇÃO DOS PARÂMETROS
         $parametros = [
             ':utilizador'       => $_POST['text_utilizador'],
             ':palavra_passe'    => md5($_POST['text_password'])
         ];
 
-        // Procurar o Utilizador na Base de Dados
+        // PROCURA O UTILIZADOR NA BASE DE DADOS
         $dados = $gestor->EXE_QUERY(
             'SELECT * FROM utilizadores
              WHERE utilizador = :utilizador
              AND palavra_passe = :palavra_passe',$parametros);
         
         if(count($dados) == 0){
-            // Login inválido
+            // LOGIN INVÁLIDO
             $erro = true;
             $mensagem = 'Dados de login inválidos.';
         } else {
-            // Login válido
+            // LOGIN VÁLIDO
             $erro = false;
-            // Inicia a sessão
+            // INICIA A SESSÃO
             funcoes::IniciarSessao($dados);
 
             // LOG

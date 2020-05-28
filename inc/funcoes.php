@@ -77,7 +77,7 @@
 
         // =======================================================
         public static function CriarCodigoAlfanumericoSemSinais($numChars){
-            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO
+            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO SEM SINAIS
             $codigo='';
             $caracteres = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789';
             for($i = 0; $i < $numChars; $i++){
@@ -89,7 +89,7 @@
         // =======================================================
         public static function CriarLOG($mensagem, $utilizador){
             // CRIA UM REGISTO EM LOGS
-            $gestor = new cl_gestorBD();
+            $gestor = new Gestor();
             $data_hora = new DateTime();
             $parametros = [
                 ':data_hora'        => $data_hora->format('Y-m-d H:i:s'),

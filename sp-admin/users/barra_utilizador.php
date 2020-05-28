@@ -1,9 +1,9 @@
 <?php 
     //=========================================
-    // Barra do Utilizador
+    // BARRA DO UTILIZADOR
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -11,7 +11,7 @@
     $nome_utilizador = 'Nenhum utilizador ativo.';
     $classe = 'barra_utilizador_inativo';
 
-    // Verifica se existe Sessão
+    // VERIFICA SE EXISTE SESSÃO
     if(funcoes::VerificarLogin()){
         $nome_utilizador = $_SESSION['nome'];
         $classe = 'barra_utilizador_ativo';
@@ -22,7 +22,7 @@
     
     <?php if(funcoes::VerificarLogin()): ?>
         
-    <!-- Dropdown -->
+    <!-- DROPDOWN -->
     <div class="dropdown">
         <span class="mr-3"><i class="fa fa-user mr-3"></i><?php echo $nome_utilizador ?></span>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,7 +34,7 @@
             <a class="dropdown-item" href="?a=perfil_alterar_email">Alterar Email</a>
             <div class="dropdown-divider"></div>
             
-            <!-- Opções disponíveis apenas para o Administrador -->
+            <!-- OPÇÕES DISPONÍVEIS APENAS PARA O ADMINISTRADOR -->
             <?php if(funcoes::Permissao(0)): ?>
                 <a class="dropdown-item" href="?a=utilizadores_gerir">Gerir Utilizadores</a>
                 <div class="dropdown-divider"></div>

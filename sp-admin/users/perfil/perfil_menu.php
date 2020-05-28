@@ -1,9 +1,9 @@
 <?php 
     //=========================================
-    // Perfil - Menu Inicial
+    // PERFIL - MENU INICIAL
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -11,14 +11,14 @@
     $erro = false;
     $mensagem = '';
 
-    // Verifica se tem Permissão para Aceder ao Sistema
+    // VERIFICA SE TEM PERMISSÃO PARA ACEDER AO SISTEMA
     if(!funcoes::Permissao(4)){
         $erro = true;
         $mensagem = 'Não tem permissão.';
     }
 
-    // Vai buscar todas as informações do Utilizador
-    $gestor = new cl_gestorBD();
+    // VAI BUSCAR TODAS AS INFORMAÇÕES DO UTILIZADOR
+    $gestor = new Gestor();
     $parametros = [
         ':id_utilizador' => $_SESSION['id_utilizador']
     ];
@@ -40,13 +40,13 @@
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
                 <h4 class="text-center">Perfil de Utilizador</h4>
-                <!-- Dados do Utilizador -->
+                <!-- DADOS DO UTILIZADOR -->
                 <h5><i class="fa fa-user"></i> <?php echo $dados[0]['nome'] ?></h5>
                 <p><i class="fa fa-envelope"></i> <?php echo $dados[0]['email'] ?></p>
             </div>          
         </div>
         <div class="text-center">
-            <!-- Voltar -->
+            <!-- VOLTAR -->
             <a href="?a=inicio" class="btn btn-primary btn-size-150 m-3">Voltar</a>
         </div>
     </div>

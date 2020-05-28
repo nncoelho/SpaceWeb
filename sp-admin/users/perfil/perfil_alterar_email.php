@@ -1,30 +1,30 @@
 <?php 
     //=========================================
-    // Perfil - Alterar Email
+    // PERFIL - ALTERAR EMAIL
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
 
-    // Define o erro
+    // DEFINE O ERRO
     $erro = false;
     $sucesso = false;
     $mensagem = '';
 
-    // Verifica se foi feito POST
+    // VERIFICA SE FOI FEITO POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        // Vai buscar o valor inserido no Input
+        // VAI BUSCAR O VALOR INSERIDO NO INPUT
         $novo_email = $_POST['text_novo_email'];
         
-        $gestor = new cl_gestorBD();
+        $gestor = new Gestor();
 
         //=====================================
-        // Verificações
+        // VERIFICAÇÕES
 
-        // Verifica se o novo Email está a ser usado por outro Utilizador
+        // VERIFICA SE O NOVO EMAIL ESTÁ A SER USADO POR OUTRO UTILIZADOR
         $parametros = [
             ':id_utilizador'    => $_SESSION['id_utilizador'],
             ':email'            => $novo_email
@@ -36,12 +36,12 @@
              AND email = :email',$parametros);
 
         if(count($dados) != 0){
-            // Outro utilizador com o mesmo Email
+            // OUTRO UTILIZADOR COM O MESMO EMAIL
             $erro = true;
             $mensagem = 'Já existe outro Utilizador com o mesmo Email.';
         }
 
-        // Atualizar o Email na BD        
+        // ATUALIZAR O EMAIL NA BD
         if(!$erro){
             
             $data_atualizacao = new DateTime();
@@ -62,7 +62,7 @@
             $sucesso = true;
             $mensagem = 'Email atualizado com sucesso.';
 
-            // Atualiza o Email na Sessão
+            // ATUALIZA O EMAIL NA SESSÃO
             $_SESSION['email'] = $novo_email;
 
             // LOG
@@ -71,7 +71,7 @@
     }
 ?>
 
-<!-- Mensagens de Erro e Sucesso -->
+<!-- MENSAGENS DE ERRO E SUCESSO -->
 <?php if($erro) : ?>
     <div class="alert alert-danger text-center">
         <?php echo $mensagem ?>
@@ -90,12 +90,12 @@
             <h4 class="text-center">Alterar Email</h4>
             <hr>
 
-            <!-- Apresenta o Email atual -->
+            <!-- APRESENTA O EMAIL ATUAL -->
             <div class="text-center">Email atual: <strong><?php echo $_SESSION['email'] ?></strong></div>
 
             <hr>
 
-            <!-- Formulário -->
+            <!-- FORMULÁRIO -->
             <form action="?a=perfil_alterar_email" method="post">
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">

@@ -1,13 +1,6 @@
 <?php 
 
 return [
-    
-    // VARIÁVEIS DA BASE DE DADOS
-    'BD_HOST'           => 'localhost',
-    'BD_DATABASE'       => 'spaceweb',
-    'BD_CHARSET'        => 'utf8',
-    'BD_USERNAME'       => 'root',
-    'BD_PASSWORD'       => '',
 
     // VARIÁVEIS DO EMAIL
     'MAIL_HOST'         => 'smtp.gmail.com',

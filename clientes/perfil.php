@@ -19,7 +19,7 @@
 
         $p = $_GET['p'];
         $id_cliente = $_SESSION['id_cliente'];
-        $gestor = new cl_gestorBD();
+        $gestor = new Gestor();
         $data = new DateTime();
 
         switch ($p) {
@@ -153,7 +153,7 @@
     $parametros = [
         ':id_cliente' => $_SESSION['id_cliente']
     ];
-    $gestor = new cl_gestorBD();
+    $gestor = new Gestor();
     $dados_cliente = $gestor->EXE_QUERY('SELECT * FROM clientes 
                                          WHERE id_cliente = :id_cliente', 
                                          $parametros);  

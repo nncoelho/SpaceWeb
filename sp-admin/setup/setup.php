@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // AREA DO SETUP
+    // ÁREA DO SETUP
     //=========================================
 
     // VERIFICA A SESSÃO
@@ -8,7 +8,7 @@
         exit();
     } 
     
-    // VERIFICA SE A VARIÁVEL 'a' ESTÁ DEFINIDA NA URL
+    // VERIFICA SE A VARIÁVEL 'A' ESTÁ DEFINIDA NA URL
     $a = '';
     if(isset($_GET['a'])){
         $a = $_GET['a'];

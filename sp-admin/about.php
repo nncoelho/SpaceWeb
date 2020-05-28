@@ -1,12 +1,12 @@
 <?php 
     //========================================
-    // About
+    // ABOUT DA APLICACAO WEB
     //========================================
 
-    // Verificar a sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
-    }    
+    }
 ?>
 
 <p>About - (Acerca de)</p>

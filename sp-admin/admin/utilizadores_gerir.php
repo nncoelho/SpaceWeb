@@ -1,14 +1,14 @@
 <?php
     //========================================
-    // Gestão de Utilizadores
+    // GESTÃO DE UTILIZADORES
     //========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
     
-    // Verificar Permissão
+    // VERIFICA PERMISSÃO
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
@@ -29,7 +29,7 @@
                 <a href="?a=utilizadores_adicionar" class="btn btn-primary btn-size-150">Novo Utilizador</a>
             </div>
 
-            <?php // Tabela dos Utilizadores Registados na Base de Dados ?>
+            <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS ?>
 
                 <div class="row m-3 p-3">            
                     <table class="table">
@@ -43,7 +43,7 @@
                         </thead>
 
                         <?php 
-                            $gestor = new cl_gestorBD();
+                            $gestor = new Gestor();
                             $dados_utilizadores = $gestor->EXE_QUERY(
                                 'SELECT * FROM utilizadores'
                             );                        
@@ -62,11 +62,11 @@
                                 <td><?php echo $utilizador['email'] ?></td>
 
                                 <td>
-                                    <!-- Dropdown -->
+                                    <!-- DROPDOWN -->
                                     <?php 
                                         $id = $utilizador['id_utilizador'] ;
 
-                                        // Definir se o Dropdown vai aparecer
+                                        // DEFINE SE O DROPDOWN VAI APARECER
                                         $drop = true;
                                         if($id == 1 || $id == $_SESSION['id_utilizador'] ){
                                             $drop = false;

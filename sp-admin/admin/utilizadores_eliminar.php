@@ -1,20 +1,20 @@
 <?php
     //==============================================================
-    // Gestão de Utilizadores - Eliminar Utilizador
+    // GESTÃO DE UTILIZADORES - ELIMINAR UTILIZADOR
     //==============================================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
     
-    // Verificar Permissão
+    // VERIFICA PERMISSÃO
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
     }
 
-    // Verifica se id_utilizador está definido
+    // VERIFICA SE ID_UTILIZADOR ESTÁ DEFINIDO
     $id_utilizador = -1;
     if(isset($_GET['id'])){
         $id_utilizador = $_GET['id'];
@@ -22,43 +22,43 @@
         $erro_permissao = true;
     }
 
-    // Verifica se pode avançar (id_utilizador != 1 e != do da sessão)
+    // VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
     if($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']){
         $erro_permissao = true;
     }
 
     //==============================================================
     $dados_utilizador = null;
-    $gestor = new cl_gestorBD();
+    $gestor = new Gestor();
     if(!$erro_permissao){
-        // Vai buscar os Dados do Utilizador
+        // VAI BUSCAR OS DADOS DO UTILIZADOR
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores
                                                 WHERE id_utilizador = :id_utilizador', $parametros);
     }
 
     //==============================================================
-    // Verifica se foi dada resposta afirmativa para eliminação
+    // VERIFICA SE FOI DADA RESPOSTA AFIRMATIVA PARA ELIMINAÇÃO
     $sucesso = false;
     if(isset($_GET['r'])){
         if($_GET['r']==1){
             
-            // Remover o Utilizador da Base de Dados
+            // REMOVER O UTILIZADOR DA BASE DE DADOS
             $parametros = [':id_utilizador' => $id_utilizador];            
             $gestor->EXE_NON_QUERY('DELETE FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
 
-            // Informa o sistema que a remoção do Utilizador aconteceu com Sucesso.
+            // INFORMA O SISTEMA QUE A REMOÇÃO DO UTILIZADOR ACONTECEU COM SUCESSO.
             $sucesso = true;
         }
     }
 ?>
 
-<!-- Sem Permissão -->
+<!-- SEM PERMISSÃO -->
 <?php if($erro_permissao) : ?>
     <?php include('inc/sem_permissao.php') ?>
 <?php else : ?>
 
-    <!-- Remoção com Sucesso -->
+    <!-- REMOÇÃO COM SUCESSO -->
     <?php if($sucesso) :?>
         
         <div class="container">
@@ -72,12 +72,12 @@
 
     <?php else : ?>
 
-        <!-- Apresentação dos Dados do Utilizador a remover -->
+        <!-- APRESENTAÇÃO DOS DADOS DO UTILIZADOR A REMOVER -->
         <div class="container">
             <div class="mt-3 mb-3 p-3">
                 <h4 class="text-center">Remover Utilizador</h4>                    
 
-                <!-- Dados do Utilizador -->
+                <!-- DADOS DO UTILIZADOR -->
                 <div class="row">
                     <div class="col-md-8 offset-md-2 card mt-3 mb-3 p-3">
 
@@ -86,7 +86,7 @@
                             <strong><?php echo $dados_utilizador[0]['email'] ?></strong> ?
                         </p>
 
-                        <!-- Botões Não e Sim -->
+                        <!-- BOTÕES NÃO E SIM -->
                         <div class="text-center mt-3 mb-3">
                             <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100">Não</a>
                             <a href="?a=eliminar_utilizador&id=<?php echo $id_utilizador ?>&r=1" class="btn btn-primary btn-size-100">Sim</a>

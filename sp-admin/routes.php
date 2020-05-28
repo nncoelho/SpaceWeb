@@ -1,9 +1,9 @@
 <?php 
     //=========================================
-    // Routes do Backend
+    // ROUTES DO BACKEND
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICAR A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
@@ -13,10 +13,10 @@
         $a = $_GET['a'];
     }
 
-    // Verificar o Login
+    // VERIFICAR O LOGIN
     if(!funcoes::VerificarLogin()){
         
-        // Casos especiais
+        // CASOS ESPECIAIS
         $routes_especiais = [
             'recuperar_password',
             'setup',
@@ -24,57 +24,57 @@
             'setup_inserir_utilizadores'
         ];
 
-        // Bypass do Sistema Normal
+        // BYPASS DO SISTEMA NORMAL
         if(!in_array($a, $routes_especiais)){
             $a='login';
         }                        
     }
 
     //=========================================
-    // Routes
+    // ROUTES
     //=========================================
     switch ($a) {
 
         //=====================================
-        // Login
+        // LOGIN
         case 'login':                           include_once('users/login.php'); break;
-        // Logout
+        // LOGOUT
         case 'logout':                          include_once('users/logout.php'); break;
-        // Recuperar Password
+        // RECUPERAR PASSWORD
         case 'recuperar_password':              include_once('users/recuperar_password.php'); break;
 
         //=====================================
-        // Perfil
+        // PERFIL
         case 'perfil':                          include_once('users/perfil/perfil_menu.php'); break;
-        // Alterar Password
+        // ALTERAR PASSWORD
         case 'perfil_alterar_password':         include_once('users/perfil/perfil_alterar_password.php'); break;
-        // Alterar Email
+        // ALTERAR EMAIL
         case 'perfil_alterar_email':            include_once('users/perfil/perfil_alterar_email.php'); break;
         
         //=====================================
-        // Opções do Administrador
+        // OPÇÕES DO ADMINISTRADOR
         case 'utilizadores_gerir':              include_once('admin/utilizadores_gerir.php'); break;
-        // Formulário para adicionar Novo Utilizador
+        // FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR
         case 'utilizadores_adicionar':          include_once('admin/utilizadores_adicionar.php'); break;
-        // Editar Utilizador
+        // EDITAR UTILIZADOR
         case 'editar_utilizador':               include_once('admin/utilizadores_editar.php'); break;
-        // Editar Permissões
+        // EDITAR PERMISSÕES
         case 'editar_permissoes':               include_once('admin/utilizadores_permissoes_editar.php'); break;
-        // Eliminar Utilizador
+        // ELIMINAR UTILIZADOR
         case 'eliminar_utilizador':             include_once('admin/utilizadores_eliminar.php'); break;
 
         //=====================================
-        // Apresentar a Página Inicial
+        // APRESENTA A PÁGINA INICIAL
         case 'inicio':                          include_once('inicio.php'); break;
-        // Apresenta a Página Acerca de
+        // APRESENTA A PÁGINA ACERCA DE
         case 'about':                           include_once('about.php'); break;
-        // Abre o menu do Setup
+        // ABRE O MENU DO SETUP
         case 'setup':                           include_once('setup/setup.php'); break;
 
         //=====================================
-        // Setup - Criar a Base de Dados
+        // SETUP - CRIAR A BASE DE DADOS
         case 'setup_criar_bd':                  include_once('setup/setup.php'); break;
-        // Setup - Inserir Utilizadores
+        // SETUP - INSERIR UTILIZADORES
         case 'setup_inserir_utilizadores':      include_once('setup/setup.php'); break;
     }
     

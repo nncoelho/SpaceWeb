@@ -9,7 +9,7 @@
     } 
 
     // CRIA A BASE DE DADOS
-    $gestor = new cl_gestorBD();        
+    $gestor = new Gestor();        
     $configs = include('../../inc/config.php');
 
     // APAGA A BASE DE DADOS CASO ELA EXISTA
@@ -19,9 +19,9 @@
     $gestor->EXE_NON_QUERY('CREATE DATABASE '.$configs['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
     $gestor->EXE_NON_QUERY('USE '.$configs['BD_DATABASE']);
 
-    //=============================================
+    //=========================================
     // CRIAÇÃO DAS TABELAS
-    //=============================================
+    //=========================================
 
     //==========================
     // UTILIZADORES

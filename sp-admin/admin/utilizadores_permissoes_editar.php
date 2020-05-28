@@ -1,24 +1,24 @@
 <?php
     //==============================================================
-    // Gestão de Utilizadores - Editar Permissões de Utilizador
+    // GESTÃO DE UTILIZADORES - EDITAR PERMISSÕES DE UTILIZADOR
     //==============================================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
 
-    // Sucesso ou Erro
+    // SUCESSO OU ERRO
     $sucesso = false;
     $mensagem = '';
     
-    // Verificar Permissão
+    // VERIFICA PERMISSÃO
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
     }
 
-    // Verifica se id_utilizador está definido
+    // VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
     $id_utilizador = -1;
     if(isset($_GET['id'])){
         $id_utilizador = $_GET['id'];
@@ -26,25 +26,25 @@
         $erro_permissao = true;
     }
 
-    // Verifica se pode avançar (id_utilizador != 1 e != do da sessão)
+    // VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
     if($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']){
         $erro_permissao = true;
     }
     
-    // ==============================================================
-    $gestor = new cl_gestorBD();
+    // =============================================================
+    $gestor = new Gestor();
     $dados_utilizador = null;
     if(!$erro_permissao){
-        // Vamos buscar os Dados do Utilizador
+        // VAI BUSCAR OS DADOS DO UTILIZADOR
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
                                                 WHERE id_utilizador = :id_utilizador', $parametros);
     }
 
-    // ==============================================================
+    // =============================================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        // Permissões
+        // PERMISSÕES
         $total_permissoes = (count(include('inc/permissoes.php')));
         $permissoes = [];
         if(isset($_POST['check_permissao'])){
@@ -63,18 +63,18 @@
             }        
         }
 
-        // Atualizar as Permissões na Base de Dados
+        // ATUALIZA AS PERMISSÕES NA BASE DE DADOS
         $parametros = [
             ':id_utilizador'    => $id_utilizador,
             ':permissoes'       => $permissoes_finais,
-            ':atualizado_em'    => DATAS::DataHoraAtualBD()
+            ':atualizado_em'    => Datas::DataHoraAtualBD()
         ];
 
         $gestor->EXE_NON_QUERY('UPDATE utilizadores SET 
                                 permissoes = :permissoes,
                                 atualizado_em = :atualizado_em
                                 WHERE id_utilizador = :id_utilizador',$parametros);
-        // Recarregar os Dados do Utilizador
+        // RECARREGA OS DADOS DO UTILIZADOR
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
                                                 WHERE id_utilizador = :id_utilizador', $parametros);
@@ -87,7 +87,7 @@
     <?php include('inc/sem_permissao.php') ?>
 <?php else : ?>
 
-    <!-- Mensagem de Sucesso -->
+    <!-- MENSAGEM DE SUCESSO -->
     <?php if($sucesso) :?>
     <div class="alert alert-success text-center"><?php echo $mensagem ?></div>
     <?php endif; ?>
@@ -97,12 +97,12 @@
             <div class="col-8 offset-2 card p-4">
                 <h4 class="text-center">Editar Permissões</h4>
 
-                <!-- Dados do Utilizador -->
+                <!-- DADOS DO UTILIZADOR -->
                 <hr>
                 <p>Utilizador: <b><?php echo $dados_utilizador[0]['nome'] ?></b> </p>
                 <hr>
 
-                <!-- Caixa Permissões -->
+                <!-- CAIXA PERMISSÕES -->
                 <form action="?a=editar_permissoes&id=<?php echo $id_utilizador ?>" method="post">
                     <div class="caixa-permissoes">                                    
                         <?php 
@@ -113,7 +113,7 @@
                         <div class="checkbox">
                             <label>
                                 <?php 
-                                    // Vamos buscar o valor da Permissão no Utilizador
+                                    // VAI BUSCAR O VALOR DA PERMISSÃO NO UTILIZADOR
                                     $ptemp = substr($dados_utilizador[0]['permissoes'], $id, 1);
                                     $checked = $ptemp == '1' ? 'checked' : '';
                                 ?>                    
@@ -125,13 +125,13 @@
                         </div>
                         <?php $id++; } ?>
                 
-                        <!-- Todas | Nenhuma -->
+                        <!-- TODAS | NENHUMA -->
                         <div>
                             <a href="#" onclick="checks(true); return false">Todas</a> | <a href="#" onclick="checks(false); return false">Nenhumas</a>
                         </div>                    
                     </div>
 
-                    <!-- Botões -->
+                    <!-- BOTÕES -->
                     <div class="text-center mt-5">
                         <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Cancelar</a>
                         <button type="submit" class="btn btn-primary btn-size-150">Atualizar</button>

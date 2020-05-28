@@ -1,20 +1,20 @@
 <?php
     //========================================================
-    // Gestão de Utilizadores - Editar Utilizador
+    // GESTÃO DE UTILIZADORES - EDITAR UTILIZADOR
     //========================================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
     
-    // Verificar Permissão
+    // VERIFICA PERMISSÃO
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
     }
 
-    // Verifica se o id_utilizador está definido
+    // VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
     $id_utilizador = -1;
     if(isset($_GET['id'])){
         $id_utilizador = $_GET['id'];
@@ -22,13 +22,13 @@
         $erro_permissao = true;
     }
 
-    // Verifica se pode avançar (id_utilizador != 1 e != do da Sessão)
+    // VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
     if($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']){
         $erro_permissao = true;
     }
 
-    // ==============================================================
-    $gestor = new cl_gestorBD();
+    // =======================================================
+    $gestor = new Gestor();
     $dados_utilizador = null;  
    
     $erro = false;
@@ -36,27 +36,27 @@
     $mensagem = '';  
     
     if(!$erro_permissao){
-        // Vai buscar os Dados do Utilizador
+        // VAI BUSCAR OS DADOS DO UTILIZADOR
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
                                                 WHERE id_utilizador = :id_utilizador', $parametros);
-        // Verifica se existem Dados do Utilizador
+        // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
         if(count($dados_utilizador)==0){
             $erro = true;
             $mensagem = 'Não foram encontrados dados do utilizador.';
         }
     }  
     
-    //==============================================================
+    //========================================================
     // POST
-    //==============================================================
+    //========================================================
     if($_SERVER['REQUEST_METHOD']== 'POST'){
         
-        // Vai buscar os Dados das text's
+        // VAI BUSCAR OS DADOS DAS TEXT'S
         $nome = $_POST['text_nome'];
         $email = $_POST['text_email'];
 
-        // Verificações - Verifica se existe outro Utilizador com o mesmo Email
+        // VERIFICAÇÕES - VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO EMAIL
         $parametros = [
             ':id_utilizador' => $id_utilizador,
             ':email'         => $email
@@ -70,14 +70,14 @@
             $mensagem = 'Já existe outro utilizador com o mesmo email.';
         }
 
-        //========================================
-        // Atualiza os Dados na Base de Dados
+        //==========================================================
+        // ATUALIZA OS DADOS NA BASE DE DADOS
         if(!$erro){
             $parametros = [
                 ':id_utilizador' => $id_utilizador,
                 ':nome'          => $nome,
                 ':email'         => $email,
-                ':atualizado_em' => DATAS::DataHoraAtualBD()
+                ':atualizado_em' => Datas::DataHoraAtualBD()
             ];  
             
             $gestor->EXE_NON_QUERY(
@@ -87,7 +87,7 @@
                 atualizado_em = :atualizado_em
                 WHERE id_utilizador = :id_utilizador',$parametros);
             
-            // Sucesso
+            // SUCESSO
             $sucesso = true;
             $mensagem = 'Dados atualizados com sucesso.';
 
@@ -97,12 +97,12 @@
     }
 ?>
 
-<!-- Erro de Permissão -->
+<!-- ERRO DE PERMISSÃO -->
 <?php if($erro_permissao) : ?>
     <?php include('inc/sem_permissao.php') ?>
 <?php else : ?>
 
-    <!-- Erro de falta de Dados -->
+    <!-- ERRO DE FALTA DE DADOS -->
     <?php if($erro) : ?>
 
         <div class="container">
@@ -116,14 +116,14 @@
 
     <?php else : ?>
     
-        <!-- Apresenta uma mensagem de Sucesso -->
+        <!-- APRESENTA UMA MENSAGEM DE SUCESSO -->
         <?php if($sucesso): ?>
             <div class="alert alert-success text-center">
                 <?php echo $mensagem ?>
             </div>
         <?php endif; ?>
 
-        <!-- Formulário com os Dados para Alteração -->
+        <!-- FORMULÁRIO PARA EDIÇÃO DOS DADOS DO UTILIZADOR -->
         <div class="container">
             <div class="row card mt-3 mb-3">
                 <h4 class="text-center mt-4">Editar Dados do Utilizador</h4>
@@ -136,7 +136,7 @@
                                     <label>Utilizador:</label>
                                     <p><strong><?php echo $dados_utilizador[0]['utilizador'] ?></strong></p>
 
-                                    <!-- Nome Completo -->
+                                    <!-- NOME COMPLETO -->
                                     <div class="form-group">
                                         <label>Nome:</label>
                                         <input type="text"
@@ -148,7 +148,7 @@
                                             required>
                                     </div>
 
-                                    <!-- Email -->
+                                    <!-- EMAIL -->
                                     <div class="form-group">
                                         <label>Email:</label>
                                         <input type="email"

@@ -1,15 +1,15 @@
 <?php
-    //========================================
-    // Index do Backend
-    //========================================    
+    //=========================================
+    // INDEX DO BACKEND
+    //=========================================
     
-    // Controlo de Sessão
+    // CONTROLO DE SESSÃO
     session_start();
     if(!isset($_SESSION['a'])){
         $_SESSION['a'] = 'inicio';
     }
 
-    // Inclui as funcoes necessárias do Sistema 
+    // INCLUI AS FUNCOES NECESSÁRIAS DO SISTEMA 
     include_once('../inc/funcoes.php');
 
     include_once('../inc/cl_datas.php');
@@ -18,7 +18,7 @@
 
     include_once('../inc/gestorBD.php');    
 
-    // Barra do Utilizador
+    // BARRA DO UTILIZADOR
     include_once('users/barra_utilizador.php');
 
     include_once('_cabecalho.php');   

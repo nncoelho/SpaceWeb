@@ -1,25 +1,25 @@
 <?php 
-    //========================================
-    // Setup - Inserir Utilizadores
-    //========================================
+    //=========================================
+    // SETUP - INSERIR UTILIZADORES
+    //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     } 
 
-    // Inserir o Utilizador Admin
-    $gestor = new cl_gestorBD();
+    // ACESSO A BASE DE DADOS
+    $gestor = new Gestor();
 
-    // Limpar os Dados dos Utilizadores
+    // LIMPAR OS DADOS DOS UTILIZADORES
     $gestor->EXE_NON_QUERY('DELETE FROM utilizadores');
     $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT=1');+
 
     $data = new DateTime();
     
     //==============================================================
-    // Utilizador 1 - Admin
-    // Definição de Parametros
+    // UTILIZADOR 1 - ADMIN
+    // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Admin',
         ':palavra_passe'    => md5('admin'),
@@ -30,15 +30,15 @@
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
 
-    // Inserir o Utilizador
+    // INSERIR O UTILIZADOR
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 
     //==============================================================
-    // Utilizador 2 - Nuno
-    // Definição de Parametros
+    // UTILIZADOR 2 - NUNO
+    // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Nuno',
         ':palavra_passe'    => md5('abc123'),
@@ -49,15 +49,15 @@
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
 
-    // Inserir o Utilizador
+    // INSERIR O UTILIZADOR
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 
     //==============================================================
-    // Utilizador 3 - Vera
-    // Definição de Parametros
+    // UTILIZADOR 3 - VERA
+    // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Vera',
         ':palavra_passe'    => md5('verinha'),
@@ -68,15 +68,15 @@
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
 
-    // Inserir o Utilizador
+    // INSERIR O UTILIZADOR
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 
     //==============================================================
-    // Utilizador 4 - Jorge
-    // Definição de Parametros
+    // UTILIZADOR 4 - JORGE
+    // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Jorge',
         ':palavra_passe'    => md5('mata'),
@@ -87,7 +87,7 @@
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
 
-    // Inserir o Utilizador
+    // INSERIR O UTILIZADOR
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',

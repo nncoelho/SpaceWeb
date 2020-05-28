@@ -12,7 +12,7 @@
     $senha = md5($_POST['text_senha']);
 
     // PREPARA A QUERY PARA O LOGIN
-    $gestor = new cl_gestorBD();
+    $gestor = new Gestor();
     $parametros = [
         ':utilizador'       => $utilizador,
         ':palavra_passe'    => $senha

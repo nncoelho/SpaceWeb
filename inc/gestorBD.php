@@ -1,107 +1,102 @@
 <?php
-    //====================================================================
-    // GESTOR DA BASE DE DADOS - MYSQL - PDO - CRUD
-    //====================================================================
+    //=======================================================================
+    // CLASSE GESTORA DA BASE DE DADOS - MYSQL - PDO - CRUD
+    //=======================================================================
+    class Gestor{
+            
+        private $db_server = 'localhost';
+        private $db_name = 'spaceweb';
+        private $db_charset = 'utf8';
+        private $db_username = 'root';
+        PRIVATE $db_password = '';
 
-    class cl_gestorBD{
-        
-        //================================================================
-        public function EXE_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
-        {
-            // EXECUTA A QUERY A BASE DE DADOS (READ/SELECT)
-            $resultados = NULL;
+        //===================================================================
+        // CRUD - CREATE READ UPDATE DELETE
+        //===================================================================
+        public function EXE_QUERY($query, $parameters = null, $debug = true, $close_connection = true){
 
-            $config = include('config.php');
+            // EXECUTA A CONEXÃO A DATABASE (READ/SELECT)
+            $results = null;
 
-            // ABRE A LIGAÇÃO A BASE DE DADOS
-            $ligacao = new PDO(
-                'mysql:host='.$config['BD_HOST'].
-                ';dbname='.$config['BD_DATABASE'].
-                ';charset='.$config['BD_CHARSET'],
-                $config['BD_USERNAME'],
-                $config['BD_PASSWORD'],
-                array(PDO::ATTR_PERSISTENT => TRUE));
-            $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // EXECUTA A QUERY
-            if ($parametros != NULL) {
-                $gestor = $ligacao->prepare($query);
-                $gestor->execute($parametros);
-                $resultados = $gestor->fetchAll(PDO::FETCH_ASSOC);
-            } else {
-                $gestor = $ligacao->prepare($query);
-                $gestor->execute();
-                $resultados = $gestor->fetchAll(PDO::FETCH_ASSOC);
+            // CONEXÃO
+            $connection = new PDO(
+                'mysql:host='.$this->db_server.
+                ';dbname='.$this->db_name.
+                ';charset='.$this->db_charset,
+                $this->db_username,
+                $this->db_password,
+                array(PDO::ATTR_PERSISTENT => true));      
+                
+            if($debug){
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             }
 
-            // FECHA A LIGAÇÃO POR DEFEITO
-            if ($fechar_ligacao) {
-                $ligacao = NULL;
+            // EXECUÇÃO
+            try {
+                if ($parameters != null) {
+                    $gestor = $connection->prepare($query);
+                    $gestor->execute($parameters);
+                    $results = $gestor->fetchAll(PDO::FETCH_ASSOC);
+                } else {
+                    $gestor = $connection->prepare($query);
+                    $gestor->execute();
+                    $results = $gestor->fetchAll(PDO::FETCH_ASSOC);
+                }
+            } catch (PDOException $e) {        
+                return false;
             }
 
-            // RETORNA OS RESULTADOS
-            return $resultados;
+            // FECHA CONEXÃO
+            if ($close_connection) {
+                $connection = null;
+            }
+
+            // RETORNA RESULTADOS
+            return $results;
         }
 
-        //================================================================
-        public function EXE_NON_QUERY($query, $parametros = NULL, $fechar_ligacao = TRUE)
-        {
-            // EXECUTA UMA QUERY COM OU SEM PARÂMETROS (CREATE/INSERT, UPDATE, DELETE)
-            $config = include('config.php');
+        //===================================================================
+        public function EXE_NON_QUERY($query, $parameters = null, $debug = true, $close_connection = true){
 
-            // ABRE A LIGAÇÃO A BASE DE DADOS
-            $ligacao = new PDO(
-                'mysql:host='.$config['BD_HOST'].
-                ';dbname='.$config['BD_DATABASE'].
-                ';charset='.$config['BD_CHARSET'],
-                $config['BD_USERNAME'],
-                $config['BD_PASSWORD'],
-                array(PDO::ATTR_PERSISTENT => TRUE));
-            $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // EXECUTA A QUERY A DATABASE (CREATE/INSERT, UPDATE, DELETE)
 
-            // EXECUTA A QUERY
-            $ligacao->beginTransaction();
+            // CONEXÃO
+            $connection = new PDO(
+                'mysql:host='.$this->db_server.
+                ';dbname='.$this->db_name.
+                ';charset='.$this->db_charset,
+                $this->db_username,
+                $this->db_password,
+                array(PDO::ATTR_PERSISTENT => true));   
+
+            if($debug){
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            }
+            
+            // EXECUÇÃO
+            $connection->beginTransaction();
             try {
-                if ($parametros != NULL) {
-                    $gestor = $ligacao->prepare($query);
-                    $gestor->execute($parametros);
+                if ($parameters != null) {
+                    $gestor = $connection->prepare($query);
+                    $gestor->execute($parameters);
                 } else {
-                    $gestor = $ligacao->prepare($query);
+                    $gestor = $connection->prepare($query);
                     $gestor->execute();
                 }
-                $ligacao->commit();
-            } catch (PDOException $e) {
-                echo '<p>' . $e . '</p>';
-                $ligacao->rollBack();
+                $connection->commit();
+            } catch (PDOException $e) {            
+                $connection->rollBack();
+                return false;
             }
 
-            // FECHA A LIGAÇÃO POR DEFEITO
-            if ($fechar_ligacao) {
-                $ligacao = NULL;
+            // FECHA CONEXÃO
+            if ($close_connection) {
+                $connection = null;
             }
-        }
-
-        //================================================================
-        public function RESET_AUTO_INCREMENT($tabela){
             
-            // FAZ RESET AO AUTO_INCREMENT DE UMA DETERMINADA TABELA ($TABELA)
-            $config = include('config.php');
-
-            // ABRE A LIGAÇÃO A BASE DE DADOS
-            $ligacao = new PDO(
-                'mysql:host='.$config['BD_HOST'].
-                ';dbname='.$config['BD_DATABASE'].
-                ';charset='.$config['BD_CHARSET'],
-                $config['BD_USERNAME'],
-                $config['BD_PASSWORD'],
-                array(PDO::ATTR_PERSISTENT => TRUE));
-            $ligacao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // RESET AO AUTO_INCREMENT
-            $ligacao->exec('ALTER TABLE '.$tabela.' AUTO_INCREMENT = 1');
-
-            // FECHA A LIGAÇÃO
-            $ligacao = NULL;
-        }    
+            return true;
+        }
     }
 ?>

@@ -1,32 +1,32 @@
 <?php 
     //=========================================
-    // Perfil - Alterar Password
+    // PERFIL - ALTERAR PASSWORD
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
 
-    // Define o Erro
+    // DEFINE O ERRO
     $erro = false;
     $sucesso = false;
     $mensagem = '';
 
-    // Verifica se foi feito POST
+    // VERIFICA SE FOI FEITO POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        // Vai buscar os valores inseridos nos Inputs
+        // VAI BUSCAR OS VALORES INSERIDOS NOS INPUTS
         $password_atual = $_POST['text_password_atual'];
         $password_nova_1 = $_POST['text_password_nova_1'];
         $password_nova_2 = $_POST['text_password_nova_2'];
 
-        $gestor = new cl_gestorBD();
+        $gestor = new Gestor();
 
         //=====================================
-        // Verificações
+        // VERIFICAÇÕES
 
-        // Verifica se a Password atual está correta
+        // VERIFICA SE A PASSWORD ATUAL ESTÁ CORRETA
         $parametros = [
             ':id_utilizador'    => $_SESSION['id_utilizador'],
             ':palavra_passe'    => md5($password_atual)
@@ -38,20 +38,20 @@
              AND palavra_passe = :palavra_passe',$parametros);
 
         if(count($dados) == 0){
-            // Password atual errada
+            // PASSWORD ATUAL ERRADA
             $erro = true;
             $mensagem = 'A password atual não coincide.';
         }
 
         if(!$erro){
-            // Verificar se as duas Passwords novas coincidem
+            // VERIFICA SE AS DUAS PASSWORDS NOVAS COINCIDEM
             if($password_nova_1 != $password_nova_2){
                 $erro = true;
                 $mensagem = 'A Nova Password e a sua repetição não correspondem.';
             }
         }
 
-        // Atualizar a Password na BD
+        // ATUALIZA A PASSWORD NA BD
         if(!$erro){
             
             $data_atualizacao = new DateTime();
@@ -78,7 +78,7 @@
     }
 ?>
 
-<!-- Mensagens de Erro e Sucesso -->
+<!-- MENSAGENS DE ERRO E SUCESSO -->
 <?php if($erro) : ?>
     <div class="alert alert-danger text-center">
         <?php echo $mensagem ?>
@@ -97,7 +97,7 @@
             <h4 class="text-center">Alterar Password</h4>
             <hr>
 
-            <!-- Formulário -->
+            <!-- FORMULÁRIO -->
             <form action="?a=perfil_alterar_password" method="post">
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">

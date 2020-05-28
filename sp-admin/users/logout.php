@@ -1,16 +1,16 @@
 <?php 
     //=========================================
-    // Logout
+    // LOGOUT
     //=========================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
 
     $nome = $_SESSION['nome'];
 
-    // Executa o Logout (Destruição) da Sessão
+    // EXECUTA O LOGOUT (DESTRUIÇÃO) DA SESSÃO
     funcoes::DestroiSessao();
 
     // LOG

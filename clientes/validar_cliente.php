@@ -25,7 +25,7 @@
         $codigo_ativacao = $_GET['v'];
 
         // PERGUNTA À BD SE EXISTE UM CLIENTE COM ESTE CÓDIGO DE ATIVAÇÃO
-        $gestor = new cl_gestorBD();
+        $gestor = new Gestor();
         
         $parametros = [
             ':codigo_validacao' => $codigo_ativacao

@@ -1,34 +1,34 @@
 <?php
-    //========================================================
-    // Gestão de Utilizadores - Adicionar Novo Utilizador
-    //========================================================
+    //==============================================================
+    // GESTÃO DE UTILIZADORES - ADICIONAR NOVO UTILIZADOR
+    //==============================================================
 
-    // Verificar a Sessão
+    // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
     }
     
-    // Verificar Permissão
+    // VERIFICA PERMISSÃO
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
     }
     
-    $gestor = new cl_gestorBD();
+    $gestor = new Gestor();
     $erro = false;
     $sucesso = false;
     $mensagem = '';
 
-    //==================================================================================
+    //==============================================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        // Vai buscar os valores do formulário
+        // VAI BUSCAR OS VALORES DO FORMULÁRIO
         $utilizador =       $_POST['text_utilizador'];
         $password  =        $_POST['text_password'];
         $nome_completo =    $_POST['text_nome'];
         $email =            $_POST['text_email'];
 
-        // Permissoes
+        // PERMISSOES
         $total_permissoes = (count(include('inc/permissoes.php')));
         $permissoes = [];
         if(isset($_POST['check_permissao'])){
@@ -50,10 +50,10 @@
         }
         
         //==========================================================
-        // Verifica os Dados na Base de Dados
-
+        // VERIFICA OS DADOS NA BASE DE DADOS
         //==========================================================
-        // Verifica se existe Utilizador com Nome igual
+
+        // VERIFICA SE EXISTE ALGUM UTILIZADOR COM O NOME IGUAL
         $parametros = [
             ':utilizador' => $utilizador
         ];
@@ -66,8 +66,7 @@
             $mensagem = 'Já existe um utilizador com o mesmo nome.';
         }
 
-        //==========================================================
-        // Verifica se existe outro Utilizador com o mesmo Email
+        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO EMAIL
         if(!$erro){
             $parametros = [
                 ':email' => $email
@@ -82,8 +81,7 @@
             }                          
         }
         
-        //==========================================================
-        // Guardar na Base de Dados
+        // GUARDAR NA BASE DE DADOS
         if(!$erro){
             $parametros = [
                 ':utilizador'       => $utilizador,
@@ -91,8 +89,8 @@
                 ':nome'             => $nome_completo,
                 ':email'            => $email,
                 ':permissoes'       => $permissoes_finais,
-                ':criado_em'        => DATAS::DataHoraAtualBD(),
-                ':atualizado_em'    => DATAS::DataHoraAtualBD()
+                ':criado_em'        => Datas::DataHoraAtualBD(),
+                ':atualizado_em'    => Datas::DataHoraAtualBD()
             ];
 
             $gestor->EXE_NON_QUERY('
@@ -101,7 +99,7 @@
                 VALUES
                     (:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',$parametros);
             
-            // Enviar o Email para o Novo Utilizador
+            // ENVIAR O EMAIL PARA O NOVO UTILIZADOR
             $mensagem = [
                 $email,
                 'SpaceWeb - Criação de Nova Conta de Utilizador',
@@ -110,13 +108,13 @@
             $mail = new emails();
             $mail->EnviarEmail($mensagem);
             
-            // Apresentar um Alerta de Sucesso
+            // APRESENTAR UM ALERTA DE SUCESSO
             echo '<div class="alert alert-success text-center">Novo utilizador adicionado com sucesso.</div>';
         }
     }    
 ?>
 
-<!-- Apresenta o Erro no caso de existir -->
+<!-- APRESENTA O ERRO NO CASO DE EXISTIR -->
 <?php 
     if($erro){
         echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
@@ -128,10 +126,10 @@
         <div class="col-sm-8 card m-3 p-3">
             <h4 class="text-center">Adicionar Novo Utilizador</h4>
             <hr>
-            <!-- Formulário para Adicionar Novo Utilizador -->
+            <!-- FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR -->
             <form action="?a=utilizadores_adicionar" method="post">
             
-                <!-- Utilizador -->
+                <!-- UTILIZADOR -->
                 <div class="form-group">
                     <label>Utilizador:</label>
                     <input type="text"
@@ -142,7 +140,7 @@
                         required>
                 </div>
 
-                <!-- Password -->
+                <!-- PASSWORD -->
                 <div class="form-group">
                     <label>Password:</label>
                     <div class="row">                    
@@ -161,7 +159,7 @@
                     </div>
                 </div>
 
-                <!-- Nome Completo -->
+                <!-- NOME COMPLETO -->
                 <div class="form-group">
                     <label>Nome:</label>
                     <input type="text"
@@ -172,7 +170,7 @@
                         required>
                 </div>
 
-                <!-- Email -->
+                <!-- EMAIL -->
                 <div class="form-group">
                     <label>Email:</label>
                     <input type="email"
@@ -192,10 +190,11 @@
                     <button type="button" 
                             class="btn btn-primary btn-size-150"
                             data-toggle="collapse" 
-                            data-target="#caixa_permissoes">Definir Permissões</button>
+                            data-target="#caixa_permissoes">Definir Permissões
+                    </button>
                 </div>
 
-                <!-- Caixa Permissões -->
+                <!-- CAIXA PERMISSÕES -->
                 <div class="collapse" id="caixa_permissoes">
                     <div class="card p-3 caixa-permissoes">
                         <?php 
@@ -212,7 +211,7 @@
                         </div>
                         <?php $id++; } ?>
                     
-                        <!-- Todas | Nenhuma -->
+                        <!-- TODAS | NENHUMA -->
                         <div>
                             <a href="#" onclick="checks(true); return false">Todas</a> | <a href="#" onclick="checks(false); return false">Nenhumas</a>
                         </div>

@@ -11,7 +11,7 @@
     $erro = false;
     $sucesso = false;
     $mensagem = '';
-    $gestor = new cl_gestorBD();
+    $gestor = new Gestor();
 
     // DADOS DO CLIENTE
     $nome = '';
@@ -24,7 +24,7 @@
     //========================================
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
       
-        // Recolha dos Dados
+        // RECOLHA DOS DADOS
         $nome = $_POST['text_nome_completo'];
         $email = $_POST['text_email'];
         $utilizador = $_POST['text_utilizador'];
@@ -85,7 +85,7 @@
             // ENVIO DO EMAIL PARA O CLIENTE ATIVAR/VALIDAR A SUA CONTA
             $email_a_enviar = new emails();
 
-            // CRIAR O LINK DE ATIVAÇÃO
+            // CRIA O LINK DE ATIVAÇÃO
             $config = include('inc/config.php');
             $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];            
 
@@ -112,7 +112,7 @@
 ?>
 
 <div class="container signup mt-5">
-    <div class="text-center"><h3>Nova Conta de Cliente</h3></div>
+    <div class="text-center mb-4"><h3>Nova Conta de Cliente</h3></div>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             
