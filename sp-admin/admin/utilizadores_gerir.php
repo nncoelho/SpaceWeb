@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
-            <h4 class="text-center">Gestão de Utilizadores</h4>
+            <h4 class="text-center mt-2 mb-4">Gestão de Utilizadores</h4>
             
             <div class="text-center">
                 <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>

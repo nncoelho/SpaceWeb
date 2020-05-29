@@ -44,7 +44,7 @@
         ':palavra_passe'    => md5('nuno'),
         ':nome'             => 'Nuno Coelho',
         ':email'            => 'nunocoelho@gmail.com',
-        ':permissoes'       => str_repeat('1', 99),
+        ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];

@@ -80,6 +80,10 @@
         </div>
     </div>
 
+    <div class="text-center mt-5">
+        <a href="http://spaceweb.me/?a=home" class="btn btn-secondary btn-size-150">Voltar</a>
+    </div>
+
 <?php else : ?>
 
     <div class="container-fluid">

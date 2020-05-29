@@ -13,6 +13,10 @@
 
     <!-- BOTÃO PARA ACEDER AO SETUP -->
     <div class="text-center mt-5">
-        <a href="?a=setup" class="btn btn-primary btn-size-150">Setup da Base de Dados</a>
+        <a href="?a=setup" class="btn btn-primary btn-size-250">Setup da Base de Dados</a>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="http://spaceweb.me/?a=home" class="btn btn-secondary btn-size-150">Voltar</a>
     </div>
 </div>
