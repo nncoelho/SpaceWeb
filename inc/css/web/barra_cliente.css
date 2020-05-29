@@ -10,10 +10,9 @@
     color: rgb(121, 188, 250);
 }
 
-.barra-cliente a:hover{
-    color: rgb(253, 253, 253);
-}
+.barra-cliente a:hover{color: rgb(253, 253, 253);}
 
+/* DROPDOWN MENU */
 .dropdown-menu a{    
     text-decoration: none;
     color: blue;

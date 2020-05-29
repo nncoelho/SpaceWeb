@@ -14,7 +14,7 @@
 
 
     // VERIFICA SE EXISTE UM POST
-    if($_SERVER['REQUEST_METHOD']=='POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $text_email = $_POST['text_email'];
 
         // CRIA O OBJETO DA BASE DE DADOS
@@ -45,8 +45,8 @@
             // PREPARAÇÃO DOS DADOS DO EMAIL
             $temp = [
                 $dados[0]['email'],
-                'spaceweb - Recuperação da password',
-                '<h3>spaceweb</H3><h4>RECUPERAÇÃO DA PASSWORD</h4><p>'.$nova_password.'</p>'
+                'Spaceweb - Recuperação da password',
+                '<h3>Spaceweb</H3><h4>Recuperação Da Password</h4><p>'.$nova_password.'</p>'
             ];
 
             // ENVIO DO EMAIL
@@ -114,10 +114,10 @@
     <!-- APRESENTAÇÃO DA MENSAGEM DE SUCESSO NA RECUPERAÇÃO DA PASSWORD -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
-            <div class="col-md-4 card m-3 p-3 text-center">
+            <div class="col-md-6 card m-3 p-5 text-center">
             
-            <h2>Recuperação com Sucesso</h2>
-            <p>A recuperação da Password foi efetuada com Sucesso.<br>Consulte a sua Caixa de Entrada do Email para conhecer a Nova Password.</p>
+            <h3>Recuperação concluida com Sucesso</h3>
+            <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de entrada do email para conhecer a sua nova password.</p>
 
             <div class="text-center">
             <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>

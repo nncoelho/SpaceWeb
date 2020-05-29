@@ -12,11 +12,11 @@
     $gestor = new Gestor();
 
     // APAGA A BASE DE DADOS CASO ELA EXISTA
-    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$this->db_name);
+    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$results['db_name']);
     
     // CRIA A NOVA BASE DE DADOS
-    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.$this->db_name.' CHARACTER SET UTF8 COLLATE utf8_general_ci');
-    // $gestor->EXE_NON_QUERY('USE '.$this->db_name);
+    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.$results['db_name'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
+    // $gestor->EXE_NON_QUERY('USE '.$results['db_name']);
 
     //=========================================
     // CRIAÇÃO DAS TABELAS

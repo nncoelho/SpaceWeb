@@ -1,11 +1,8 @@
 /* RODAPÉ */
 .rodape{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 18px;
     color:rgb(150, 150, 150);
     font-size: .9em;
 }
 
-.rodape-social{
-    font-size: 2.7em;
-}
+.rodape-social{font-size: 2.4em;}

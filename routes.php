@@ -19,7 +19,7 @@
     switch ($a) {
 
         // HOME
-        case 'home':                            include_once('webgeral/index.php'); break;
+        case 'home':                            include_once('inicio.php'); break;
 
         //========================================
         // CLIENTES

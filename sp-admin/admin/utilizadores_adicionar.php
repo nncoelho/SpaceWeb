@@ -29,7 +29,7 @@
         $email =            $_POST['text_email'];
 
         // PERMISSOES
-        $total_permissoes = (count(include('inc/permissoes.php')));
+        $total_permissoes = (count(include('../inc/permissoes.php')));
         $permissoes = [];
         if(isset($_POST['check_permissao'])){
             $permissoes = $_POST['check_permissao'];
@@ -123,7 +123,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-sm-8 card m-3 p-3">
+        <div class="col-sm-8 card m-5 p-5">
             <h4 class="text-center">Adicionar Novo Utilizador</h4>
             <hr>
             <!-- FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR -->
@@ -198,16 +198,16 @@
                 <div class="collapse" id="caixa_permissoes">
                     <div class="card p-3 caixa-permissoes">
                         <?php 
-                            $permissoes = include('inc/permissoes.php');
+                            $permissoes = include('../inc/permissoes.php');
                             $id=0;
-                            foreach($permissoes as $permissao){ 
+                            foreach($permissoes as $permissoes_finais){ 
                         ?>
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="check_permissao[]" id="check_permissao" value="<?php echo $id ?> ">
-                                <span class="permissao-titulo"><?php echo $permissao['permissao'] ?></span>
+                                <span class="permissao-titulo"><?php echo $permissoes_finais['permissao'] ?></span>
                             </label>
-                            <p class="permissao-sumario"><?php echo $permissao['sumario'] ?></p>
+                            <p class="permissao-sumario"><?php echo $permissoes_finais['sumario'] ?></p>
                         </div>
                         <?php $id++; } ?>
                     

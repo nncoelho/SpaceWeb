@@ -9,12 +9,12 @@ use PHPMailer\PHPMailer\Exception;
             // DADOS[0] = ENDEREÇO DE EMAIL DO DESTINATÁRIO
             // DADOS[1] = ASSUNTO
             // DADOS[2] = MENSAGEM
-            require '../phpmailer/src/Exception.php';
-            require '../phpmailer/src/PHPMailer.php';
-            require '../phpmailer/src/SMTP.php';
+            require '../vendor/phpmailer/phpmailer/src/Exception.php';
+            require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+            require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
             // CONFIGURAÇÕES
-            $configs = include('config.php');
+            $configs = include('config.php');   
 		
             $mail = new PHPMailer();
             $mail->isSMTP();
@@ -57,9 +57,9 @@ use PHPMailer\PHPMailer\Exception;
             // DADOS[0] = ENDEREÇO DE EMAIL DO CLIENTE
             // DADOS[1] = ASSUNTO
             // DADOS[2] = MENSAGEM
-            require 'phpmailer/src/Exception.php';
-            require 'phpmailer/src/PHPMailer.php';
-            require 'phpmailer/src/SMTP.php';
+            require '../vendor/phpmailer/phpmailer/src/Exception.php';
+            require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+            require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
             // CONFIGURAÇÕES
             $configs = include('config.php');

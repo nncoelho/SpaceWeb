@@ -8,7 +8,7 @@
         exit();
     }
 
-    $nome_utilizador = 'Nenhum utilizador ativo.';
+    $nome_utilizador = 'Nenhum utilizador ativo';
     $classe = 'barra_utilizador_inativo';
 
     // VERIFICA SE EXISTE SESSÃO

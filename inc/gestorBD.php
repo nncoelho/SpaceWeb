@@ -8,7 +8,7 @@
         private $db_name = 'spaceweb';
         private $db_charset = 'utf8';
         private $db_username = 'root';
-        PRIVATE $db_password = '';
+        private $db_password = '';
 
         //===================================================================
         // CRUD - CREATE READ UPDATE DELETE

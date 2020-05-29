@@ -111,8 +111,8 @@
     }
 ?>
 
-<div class="container signup mt-5">
-    <div class="text-center mb-4"><h3>Nova Conta de Cliente</h3></div>
+<div class="container signup mt-4">
+    <div class="text-center mb-3"><h3>Nova Conta de Cliente</h3></div>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             
