@@ -3,12 +3,6 @@
     // CLASSE GESTORA DA BASE DE DADOS - MYSQL - PDO - CRUD
     //=======================================================================
     class Gestor{
-            
-        private $db_server = 'localhost';
-        private $db_name = 'spaceweb';
-        private $db_charset = 'utf8';
-        private $db_username = 'root';
-        private $db_password = '';
 
         //===================================================================
         // CRUD - CREATE READ UPDATE DELETE
@@ -18,13 +12,15 @@
             // EXECUTA A CONEXÃO A DATABASE (READ/SELECT)
             $results = null;
 
+            $config = include('config.php');
+
             // CONEXÃO
             $connection = new PDO(
-                'mysql:host='.$this->db_server.
-                ';dbname='.$this->db_name.
-                ';charset='.$this->db_charset,
-                $this->db_username,
-                $this->db_password,
+                'mysql:host='.$config['BD_HOST'].
+                ';dbname='.$config['BD_DATABASE'].
+                ';charset='.$config['BD_CHARSET'],
+                $config['BD_USERNAME'],
+                $config['BD_PASSWORD'],
                 array(PDO::ATTR_PERSISTENT => true));      
                 
             if($debug){
@@ -60,14 +56,15 @@
         public function EXE_NON_QUERY($query, $parameters = null, $debug = true, $close_connection = true){
 
             // EXECUTA A QUERY A DATABASE (CREATE/INSERT, UPDATE, DELETE)
+            $config = include('config.php');
 
             // CONEXÃO
             $connection = new PDO(
-                'mysql:host='.$this->db_server.
-                ';dbname='.$this->db_name.
-                ';charset='.$this->db_charset,
-                $this->db_username,
-                $this->db_password,
+                'mysql:host='.$config['BD_HOST'].
+                ';dbname='.$config['BD_DATABASE'].
+                ';charset='.$config['BD_CHARSET'],
+                $config['BD_USERNAME'],
+                $config['BD_PASSWORD'],
                 array(PDO::ATTR_PERSISTENT => true));   
 
             if($debug){

@@ -6,17 +6,19 @@
     // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
-    } 
+    }
 
     // CRIA A BASE DE DADOS
     $gestor = new Gestor();
 
+    $configs = include('../inc/config.php');
+
     // APAGA A BASE DE DADOS CASO ELA EXISTA
-    // $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$results['db_name']);
+    $gestor->EXE_NON_QUERY('DROP DATABASE IF EXISTS '.$configs['BD_DATABASE']);
     
     // CRIA A NOVA BASE DE DADOS
-    // $gestor->EXE_NON_QUERY('CREATE DATABASE '.$results['db_name'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
-    // $gestor->EXE_NON_QUERY('USE '.$results['db_name']);
+    $gestor->EXE_NON_QUERY('CREATE DATABASE '.$configs['BD_DATABASE'].' CHARACTER SET UTF8 COLLATE utf8_general_ci');
+    $gestor->EXE_NON_QUERY('USE '.$configs['BD_DATABASE']);
 
     //=========================================
     // CRIAÇÃO DAS TABELAS

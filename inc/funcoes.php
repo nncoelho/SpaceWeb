@@ -66,22 +66,22 @@
 
         // =======================================================
         public static function CriarCodigoAlfanumerico($numChars){
-            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO
+            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO PARA SER USADO NA RECUPERAÇÂO DA PASSWORD
             $codigo='';
-            $caracteres = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789!?()-%';
+            $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?()-%';
             for($i = 0; $i < $numChars; $i++){
-                $codigo .= substr($caracteres, rand(0,strlen($caracteres)) , 1 );
+                $codigo .= substr($caracteres, rand(0,strlen($caracteres)) ,1);
             }
             return $codigo;
         }
 
         // =======================================================
         public static function CriarCodigoAlfanumericoSemSinais($numChars){
-            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO SEM SINAIS
+            // CRIA UM CÓDIGO ALEATÓRIO ALFANUMÉRICO SEM SINAIS PARA SER USADO NA RECUPERAÇÂO DA PASSWORD
             $codigo='';
-            $caracteres = 'abcdefghijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ0123456789';
+            $caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             for($i = 0; $i < $numChars; $i++){
-                $codigo .= substr($caracteres, rand(0,strlen($caracteres)) , 1 );
+                $codigo .= substr($caracteres, rand(0,strlen($caracteres)) ,1);
             }
             return $codigo;
         }

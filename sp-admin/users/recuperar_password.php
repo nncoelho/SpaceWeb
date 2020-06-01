@@ -12,7 +12,6 @@
     $mensagem = '';
     $mensagem_enviada = false;
 
-
     // VERIFICA SE EXISTE UM POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $text_email = $_POST['text_email'];
@@ -31,7 +30,7 @@
         // VERIFICAR SE FOI ENCONTRADO EMAIL
         if(count($dados) == 0){
             $erro = true;
-            $mensagem = 'Não foi encontrada conta de utilizador com esse email.';
+            $mensagem = 'Não foi encontrada nenhuma conta de utilizador com esse email.';
         }
         
         // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O EMAIL INDICADO)
@@ -61,6 +60,7 @@
                     ':palavra_passe'    => md5($nova_password)
                 ];
 
+                // ACTUALIZAÇÃO NA BASE DE DADOS
                 $gestor->EXE_NON_QUERY(
                     'UPDATE utilizadores
                     SET palavra_passe = :palavra_passe
@@ -82,7 +82,7 @@
 
     <!-- MENSAGEM DE ERRO -->
     <?php if($erro): ?>
-        <div class="alert alert-danger text-center">
+        <div class="alert alert-danger offset-3 col-6 mt-4 text-center">
             <?php echo $mensagem ?>
         </div>
     <?php endif; ?>
@@ -90,7 +90,7 @@
     <!-- APRESENTAÇÃO DO FORMULÁRIO -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
-            <div class="col-md-4 card m-3 p-3">
+            <div class="col-md-4 card mt-5 p-3">
             
                 <form action="?a=recuperar_password" method="post">                
                     <div class="text-center">
@@ -98,7 +98,7 @@
                     <p>Coloque aqui o seu endereço de email para recuperação da password.</p>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="text_email" class="form-control" placeholder="email" required>
+                        <input type="email" name="text_email" class="form-control" placeholder="Email" required>
                     </div>                
                     <div class="form-group text-center">
                         <a href="?a=inicio" class="btn btn-primary btn-size-150">Cancelar</a>
@@ -117,7 +117,7 @@
             <div class="col-md-6 card m-3 p-5 text-center">
             
             <h3>Recuperação concluida com Sucesso</h3>
-            <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de entrada do email para conhecer a sua nova password.</p>
+            <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de entrada do email para acessar a sua nova password.</p>
 
             <div class="text-center">
             <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>

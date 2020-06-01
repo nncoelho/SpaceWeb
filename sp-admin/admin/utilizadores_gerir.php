@@ -26,7 +26,7 @@
             
             <div class="text-center">
                 <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
-                <a href="?a=utilizadores_adicionar" class="btn btn-primary btn-size-150">Novo Utilizador</a>
+                <a href="?a=utilizadores_adicionar" class="btn btn-success btn-size-150">Novo Utilizador</a>
             </div>
 
             <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS ?>
