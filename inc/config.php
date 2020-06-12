@@ -9,11 +9,11 @@ return [
     'BD_USERNAME'       => 'root',
     'BD_PASSWORD'       => '',
 
-    // VARIÁVEIS DO EMAIL
+    // VARIÁVEIS DO E-MAIL
     'MAIL_HOST'         => 'smtp.gmail.com',
     'MAIL_PORT'         => 587,
     'MAIL_USERNAME'     => 'nncoelho.dev@gmail.com',
-    'MAIL_PASSWORD'     => '',
+    'MAIL_PASSWORD'     => '!',
     'MAIL_FROM'         => 'nncoelho.dev@gmail.com',
     'MAIL_DEBUG'        => 0,
     

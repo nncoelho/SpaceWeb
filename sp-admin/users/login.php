@@ -40,7 +40,7 @@
             // INICIA A SESSÃO
             funcoes::IniciarSessao($dados);
             // LOG
-            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' fez login.', $_SESSION['nome']);
+            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' fez Login.', $_SESSION['nome']);
         }
     }
 ?>
@@ -55,7 +55,7 @@
 
     <div class="container-fluid">
         
-        <h3 class="text-center mt-4">Gestão de Utilizadores</h3>
+        <h3 class="text-center mt-4"><i class="fa fa-users" aria-hidden="true"></i> Gestão de Utilizadores</h3>
 
         <div class="row justify-content-center">        
             <div class="col-md-4 card mt-4 p-4">
@@ -88,7 +88,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-4 card m-3 p-3 text-center">
+            <div class="col-md-4 card mt-5 p-4 text-center">
                 <p>Bem-vindo(a), <strong><?php echo $dados[0]['nome'] ?></strong></p>
                 <a href="?a=inicio" class="btn btn-primary">Avançar</a>
             </div>        

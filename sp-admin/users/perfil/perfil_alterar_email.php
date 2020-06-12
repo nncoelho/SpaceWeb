@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // PERFIL - ALTERAR EMAIL
+    // PERFIL - ALTERAR E-MAIL
     //=========================================
 
     // VERIFICA A SESSÃO
@@ -24,7 +24,7 @@
         //=====================================
         // VERIFICAÇÕES
 
-        // VERIFICA SE O NOVO EMAIL ESTÁ A SER USADO POR OUTRO UTILIZADOR
+        // VERIFICA SE O NOVO E-MAIL ESTÁ A SER USADO POR OUTRO UTILIZADOR
         $parametros = [
             ':id_utilizador'    => $_SESSION['id_utilizador'],
             ':email'            => $novo_email
@@ -36,12 +36,12 @@
              AND email = :email',$parametros);
 
         if(count($dados) != 0){
-            // OUTRO UTILIZADOR COM O MESMO EMAIL
+            // OUTRO UTILIZADOR COM O MESMO E-MAIL
             $erro = true;
-            $mensagem = 'Já existe outro Utilizador com o mesmo Email.';
+            $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
         }
 
-        // ATUALIZAR O EMAIL NA BD
+        // ATUALIZAR O E-MAIL NA BD
         if(!$erro){
             
             $data_atualizacao = new DateTime();
@@ -60,13 +60,13 @@
                 ',$parametros);
             
             $sucesso = true;
-            $mensagem = 'Email atualizado com sucesso.';
+            $mensagem = 'E-mail atualizado com sucesso.';
 
-            // ATUALIZA O EMAIL NA SESSÃO
+            // ATUALIZA O E-MAIL NA SESSÃO
             $_SESSION['email'] = $novo_email;
 
             // LOG
-            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' alterou o seu email.',$_SESSION['nome']);
+            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' alterou o seu E-mail.',$_SESSION['nome']);
         }
     }
 ?>
@@ -87,11 +87,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card m-3 p-3">
-            <h4 class="text-center">Alterar Email</h4>
+            <h4 class="text-center"><i class="fa fa-at" aria-hidden="true"></i> Alterar E-mail</h4>
             <hr>
 
-            <!-- APRESENTA O EMAIL ATUAL -->
-            <div class="text-center">Email atual: <strong><?php echo $_SESSION['email'] ?></strong></div>
+            <!-- APRESENTA O E-MAIL ATUAL -->
+            <div class="text-center">E-mail atual: <strong><?php echo $_SESSION['email'] ?></strong></div>
 
             <hr>
 
@@ -100,7 +100,7 @@
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
-                        <label>Novo email:</label>
+                        <label>Novo E-mail:</label>
                         <input type="email" 
                                class="form-control" 
                                name="text_novo_email"

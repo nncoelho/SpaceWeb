@@ -66,7 +66,7 @@
             $mensagem = 'Já existe um utilizador com o mesmo nome.';
         }
 
-        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO EMAIL
+        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
         if(!$erro){
             $parametros = [
                 ':email' => $email
@@ -77,7 +77,7 @@
                                          WHERE email = :email', $parametros);
             if(count($dtemp)!=0){
                 $erro = true;
-                $mensagem = 'Já existe outro utilizador com o mesmo email.';
+                $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
             }                          
         }
         
@@ -99,11 +99,11 @@
                 VALUES
                     (:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',$parametros);
             
-            // ENVIAR O EMAIL PARA O NOVO UTILIZADOR
+            // ENVIAR O E-MAIL PARA O NOVO UTILIZADOR
             $mensagem = [
                 $email,
                 'SpaceWeb - Criação de Nova Conta de Utilizador',
-                "<p>Foi criada a Nova Conta de Utilizador com os seguintes dados:<p><p>Utilizador: $utilizador <p><p>Password: $password </p>"
+                "<p>Foi criada a sua nova conta de utilizador com os seguintes dados:<p><p>Utilizador: $utilizador <p><p>Password: $password </p>"
             ];
             $mail = new emails();
             $mail->EnviarEmail($mensagem);
@@ -122,12 +122,13 @@
 ?>
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-8 card m-5 p-5">
-            <h4 class="text-center">Adicionar Novo Utilizador</h4>
+    <div class="row mb-5 justify-content-center">
+        <div class="col-sm-8 card my-5 p-5">
+
+            <h4 class="text-center mb-4"><i class="fa fa-address-book" aria-hidden="true"></i> Adicionar Novo Utilizador</h4>
             <hr>
             <!-- FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR -->
-            <form action="?a=utilizadores_adicionar" method="post">
+            <form action="?a=utilizadores_adicionar" method="POST">
             
                 <!-- UTILIZADOR -->
                 <div class="form-group">
@@ -154,7 +155,9 @@
                                 required>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-primary" onclick="gerarPassword(10)">Gerar Password</button>
+                            <button type="button" class="btn btn-warning" onclick="gerarPassword(10)">
+                                <i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;&nbsp;Gerar Password
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -170,9 +173,9 @@
                         required>
                 </div>
 
-                <!-- EMAIL -->
+                <!-- E-MAIL -->
                 <div class="form-group">
-                    <label>Email:</label>
+                    <label>E-mail:</label>
                     <input type="email"
                         name="text_email"
                         class="form-control"
@@ -181,16 +184,18 @@
                         required>
                 </div>
 
-                <div class="text-center">
-                    <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Cancelar</a>
+                <div class="text-center my-4">
+                    <a href="?a=utilizadores_gerir" class="btn btn-secondary btn-size-150">Cancelar</a>&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-primary btn-size-150">Criar Utilizador</button>
                 </div>
-                <hr>
-                <div class="text-center m-3">
-                    <button type="button" 
-                            class="btn btn-primary btn-size-150"
+
+                <hr class="my-4">
+
+                <div class="text-center my-4">
+                    <button type="button"
+                            class="btn btn-dark"
                             data-toggle="collapse" 
-                            data-target="#caixa_permissoes">Definir Permissões
+                            data-target="#caixa_permissoes"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>&nbsp;&nbsp; Definir Permissões
                     </button>
                 </div>
 
@@ -213,12 +218,16 @@
                     
                         <!-- TODAS | NENHUMA -->
                         <div>
-                            <a href="#" onclick="checks(true); return false">Todas</a> | <a href="#" onclick="checks(false); return false">Nenhumas</a>
+                            <a href="#" onclick="checks(true); return false">Todas</a>
+                                <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
+                            <a href="#" onclick="checks(false); return false">Nenhumas</a>
+                                <i class="fa fa-square-o" aria-hidden="true"></i>
                         </div>
+
                     </div>
                 </div>
-
             </form>
+
         </div>        
     </div>
 </div>

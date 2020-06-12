@@ -40,14 +40,14 @@
         if(count($dados) == 0){
             // PASSWORD ATUAL ERRADA
             $erro = true;
-            $mensagem = 'A password atual não coincide.';
+            $mensagem = 'A Password atual não coincide.';
         }
 
         if(!$erro){
             // VERIFICA SE AS DUAS PASSWORDS NOVAS COINCIDEM
             if($password_nova_1 != $password_nova_2){
                 $erro = true;
-                $mensagem = 'A Nova Password e a sua repetição não correspondem.';
+                $mensagem = 'A nova Password e a sua repetição não coincidem.';
             }
         }
 
@@ -73,20 +73,20 @@
             $mensagem = 'Password atualizada com sucesso.';
 
             // LOG
-            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' alterou a sua password.',$_SESSION['nome']);
+            funcoes::CriarLOG('Utilizador '.$_SESSION['nome'].' alterou a sua Password.',$_SESSION['nome']);
         }
     }
 ?>
 
 <!-- MENSAGENS DE ERRO E SUCESSO -->
 <?php if($erro) : ?>
-    <div class="alert alert-danger text-center">
+    <div class="alert alert-danger offset-3 col-6 mt-3 text-center">
         <?php echo $mensagem ?>
     </div>
 <?php endif; ?>
 
 <?php if($sucesso) : ?>
-    <div class="alert alert-success text-center">
+    <div class="alert alert-success offset-3 col-6 mt-3 text-center">
         <?php echo $mensagem ?>
     </div>
 <?php endif; ?>
@@ -94,7 +94,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card m-3 p-3">
-            <h4 class="text-center">Alterar Password</h4>
+            <h4 class="text-center"><i class="fa fa-key" aria-hidden="true"></i> Alterar Password</h4>
             <hr>
 
             <!-- FORMULÁRIO -->
@@ -103,7 +103,7 @@
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
                         <label>Password atual:</label>
-                        <input type="text" 
+                        <input type="password" 
                                class="form-control" 
                                name="text_password_atual"
                                required title="No mínimo 3 e no máximo 20 caracteres."
@@ -115,7 +115,7 @@
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
                         <label>Nova Password:</label>
-                        <input type="text" 
+                        <input type="password" 
                                class="form-control" 
                                name="text_password_nova_1"
                                required title="No mínimo 3 e no máximo 20 caracteres."
@@ -127,7 +127,7 @@
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
                         <label>Repetir a Nova Password:</label>
-                        <input type="text" 
+                        <input type="password"
                                class="form-control" 
                                name="text_password_nova_2"
                                required title="No mínimo 3 e no máximo 20 caracteres."

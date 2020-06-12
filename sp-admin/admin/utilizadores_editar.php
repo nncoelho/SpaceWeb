@@ -56,7 +56,7 @@
         $nome = $_POST['text_nome'];
         $email = $_POST['text_email'];
 
-        // VERIFICAÇÕES - VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO EMAIL
+        // VERIFICAÇÕES - VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
         $parametros = [
             ':id_utilizador' => $id_utilizador,
             ':email'         => $email
@@ -67,7 +67,7 @@
                                     AND email = :email', $parametros);
         if(count($temp) != 0){
             $erro = true;
-            $mensagem = 'Já existe outro utilizador com o mesmo email.';
+            $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
         }
 
         //==========================================================
@@ -148,9 +148,9 @@
                                             required>
                                     </div>
 
-                                    <!-- EMAIL -->
+                                    <!-- E-MAIL -->
                                     <div class="form-group">
-                                        <label>Email:</label>
+                                        <label>E-mail:</label>
                                         <input type="email"
                                             name="text_email"
                                             class="form-control"

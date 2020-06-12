@@ -8,28 +8,28 @@
         exit();
     }
     
-    // VERIFICA PERMISSÃO
+    // VERIFICA PERMISSÃO DE ADMINISTRADOR
     $erro_permissao = false;
     if(!funcoes::Permissao(0)){
         $erro_permissao = true;
     }
 ?>
 
-<?php if($erro_permissao) : ?>
-    <?php include('inc/sem_permissao.php') ?>
-<?php else : ?>
+<?php if($erro_permissao): ?>
+    <?php include('../inc/sem_permissao.php') ?>
+<?php else: ?>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col card m-3 p-3">
-            <h4 class="text-center mt-2 mb-4">Gestão de Utilizadores</h4>
-            
-            <div class="text-center">
-                <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
-                <a href="?a=utilizadores_adicionar" class="btn btn-success btn-size-150">Novo Utilizador</a>
-            </div>
+                <h4 class="text-center mt-2 mb-4"><i class="fa fa-cogs" aria-hidden="true"></i> Gestão de Utilizadores</h4>
+                
+                <div class="text-center">
+                    <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>&nbsp;&nbsp;&nbsp;
+                    <a href="?a=utilizadores_adicionar" class="btn btn-success btn-size-150">Novo Utilizador</a>
+                </div>
 
-            <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS ?>
+                <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS ?>
 
                 <div class="row m-3 p-3">            
                     <table class="table">
@@ -38,7 +38,7 @@
                             <th></th>
                             <th>Utilizador</th>
                             <th>Nome completo</th>
-                            <th>Email</th>
+                            <th>E-mail</th>
                             <th class="text-center">Ação</th>
                         </thead>
 
@@ -51,9 +51,10 @@
 
                         <?php foreach($dados_utilizadores as $utilizador) : ?>                    
                             <tr>
+                                <!-- DIFERENCIAÇÃO DO ICON DE ADMINISTRADOR -->
                                 <?php if(substr($utilizador['permissoes'], 0, 1) == 1) : ?>
                                     <td><i class="fa fa-user"></i></td>
-                                <?php else : ?>
+                                <?php else: ?>
                                     <td><i class="fa fa-user-o"></i></td>
                                 <?php endif; ?>
 
@@ -73,7 +74,7 @@
                                         }
                                     ?>
 
-                                    <?php if($drop) : ?>
+                                    <?php if($drop): ?>
 
                                     <div class="dropdown text-center">
                                         <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
@@ -84,7 +85,7 @@
                                         </div>
                                     </div>
 
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <div class="text-center">
                                             <i class="fa fa-cog text-muted"></i>
                                         </div>

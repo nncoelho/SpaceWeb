@@ -35,9 +35,12 @@
 
     <div class="text-center">
         <!-- CRIAR A BASE DE DADOS -->
-        <p><a href="?a=setup_criar_bd" class="btn btn-primary btn-size-250">Criar a Base de Dados</a></p>
+        <p><a href="?a=setup_criar_bd" class="btn btn-primary btn-size-250">
+            <i class="fa fa-table fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Criar a Base de Dados</a>
+        </p>
         <!-- INSERIR UTILIZADORES -->
-        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-250">Inserir Utilizadores</a></p>
+        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-250">
+            <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Inserir Utilizadores</a></p>
         <hr class="mt-5">
         <p><a href="http://spaceweb.me/sp-admin/" class="btn btn-secondary mt-3 btn-size-150">Voltar</a></p>
     </div>  

@@ -24,31 +24,32 @@
             ':email' => $text_email
         ];
 
-        // PESQUISAR NA BD PARA VERIFICAR SE EXISTE CONTA DE UTILIZADOR COM ESTE EMAIL
+        // PESQUISAR NA BD PARA VERIFICAR SE EXISTE CONTA DE UTILIZADOR COM ESTE E-MAIL
         $dados = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE email = :email',$parametros);
 
-        // VERIFICAR SE FOI ENCONTRADO EMAIL
+        // VERIFICAR SE FOI ENCONTRADO E-MAIL
         if(count($dados) == 0){
             $erro = true;
-            $mensagem = 'Não foi encontrada nenhuma conta de utilizador com esse email.';
+            $mensagem = 'Não foi encontrada nenhuma conta de utilizador com esse E-mail.';
         }
         
-        // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O EMAIL INDICADO)
+        // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O E-MAIL INDICADO)
         else{
 
             // RECUPERAR A PASSWORD
             $nova_password = funcoes::CriarCodigoAlfanumerico(15);
 
-            // ENVIAR O EMAIL
+            // ENVIAR O E-MAIL
             $email = new emails();
-            // PREPARAÇÃO DOS DADOS DO EMAIL
+
+            // PREPARAÇÃO DOS DADOS DO E-MAIL
             $temp = [
                 $dados[0]['email'],
-                'Spaceweb - Recuperação da password',
-                '<h3>Spaceweb</H3><h4>Recuperação Da Password</h4><p>'.$nova_password.'</p>'
+                'SpaceWeb - Recuperação da Password',
+                '<h3>SpaceWeb</H3><h4>Recuperação Da Password</h4><p>'.$nova_password.'</p>'
             ];
 
-            // ENVIO DO EMAIL
+            // ENVIO DO E-MAIL
             $mensagem_enviada = $email->EnviarEmail($temp);
 
             // ALTERAR A SENHA NA BD
@@ -72,7 +73,7 @@
             } else {
                 // ACONTECEU UM ERRO
                 $erro = true;
-                $mensagem = 'Atenção: O Email de recuperação não foi enviado com Sucesso. Tente novamente.';
+                $mensagem = 'Atenção: O E-mail de recuperação não foi enviado com Sucesso. Tente novamente.';
             }
         }
     }
@@ -94,11 +95,11 @@
             
                 <form action="?a=recuperar_password" method="post">                
                     <div class="text-center">
-                    <h3>Recuperar Password</h3>
-                    <p>Coloque aqui o seu endereço de email para recuperação da password.</p>
+                        <h3>Recuperar Password</h3>
+                        <p>Coloque aqui o seu endereço de E-mail para recuperação da password.</p>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="text_email" class="form-control" placeholder="Email" required>
+                        <input type="email" name="text_email" class="form-control" placeholder="E-mail" required>
                     </div>                
                     <div class="form-group text-center">
                         <a href="?a=inicio" class="btn btn-primary btn-size-150">Cancelar</a>
@@ -115,15 +116,14 @@
     <div class="container-fluid">    
         <div class="row justify-content-center">
             <div class="col-md-6 card m-3 p-5 text-center">
-            
-            <h3>Recuperação concluida com Sucesso</h3>
-            <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de entrada do email para acessar a sua nova password.</p>
+                <h3>Recuperação concluida com Sucesso</h3>
+                <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de correio electrónico para ter acesso á sua nova password.</p>
 
-            <div class="text-center">
-            <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
-            </div>
-
+                <div class="text-center">
+                    <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
+                </div>
             </div>                    
         </div>
     </div>
+
 <?php endif; ?>

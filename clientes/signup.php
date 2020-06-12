@@ -86,16 +86,13 @@
             $email_a_enviar = new emails();
 
             // CRIA O LINK DE ATIVAÇÃO
-            $config = include('inc/config.php');
+            $config = include('../inc/config.php');
             $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];            
 
             // PREPARAÇÃO DOS DADOS DO EMAIL
             $temp = [
-                
                 $email,
-                
-                'spaceweb - Ativação da conta de cliente',
-                
+                '<h3>SpaceWeb - Ativação da Conta de Cliente</h3>',
                 '<p>Clique no link seguinte para validar a sua conta de cliente:</p>'.
                 '<a href="'.$link.'">'.$link.'</a>'                
             ];
@@ -112,7 +109,7 @@
 ?>
 
 <div class="container signup mt-4">
-    <div class="text-center mb-3"><h3>Nova Conta de Cliente</h3></div>
+    <div class="text-center mb-3"><h3><i class="fa fa-handshake fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Nova Conta de Cliente</h3></div>
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
             

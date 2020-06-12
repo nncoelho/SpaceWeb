@@ -81,8 +81,8 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2 card mt-3 mb-3 p-3">
 
-                        <p class="text-center">Tem a certeza que pretende eliminar o Utilizador:<br>
-                            <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo email é: 
+                        <p class="text-center">Tem a certeza que pretende eliminar o utilizador:<br>
+                            <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo E-mail é: 
                             <strong><?php echo $dados_utilizador[0]['email'] ?></strong> ?
                         </p>
 

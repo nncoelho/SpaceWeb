@@ -13,7 +13,7 @@
 
     <!-- BOTÃO PARA ACEDER AO SETUP -->
     <div class="text-center mt-5">
-        <a href="?a=setup" class="btn btn-primary btn-size-250">Setup da Base de Dados</a>
+        <a href="?a=setup" class="btn btn-primary btn-lg"><i class="fa fa-database"></i>&nbsp;&nbsp; Setup da Base de Dados</a>
     </div>
 
     <div class="text-center mt-5">

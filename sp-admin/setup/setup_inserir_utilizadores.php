@@ -14,7 +14,6 @@
     // LIMPAR OS DADOS DOS UTILIZADORES
     $gestor->EXE_NON_QUERY('DELETE FROM utilizadores');
     $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT=1');
-
     $data = new DateTime();
     
     //==============================================================
@@ -43,7 +42,7 @@
         ':utilizador'       => 'Nuno',
         ':palavra_passe'    => md5('nuno'),
         ':nome'             => 'Nuno Coelho',
-        ':email'            => 'nunocoelho@gmail.com',
+        ':email'            => 'nuno@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
@@ -62,7 +61,7 @@
         ':utilizador'       => 'Vera',
         ':palavra_passe'    => md5('vera'),
         ':nome'             => 'Vera Matos',
-        ':email'            => 'veramatos@gmail.com',
+        ':email'            => 'vera@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
@@ -75,13 +74,32 @@
          $parametros);
 
     //==============================================================
+    // UTILIZADOR 4 - SIMÃO
+    // DEFINIÇÃO DE PARAMETROS
+    $parametros = [
+        ':utilizador'       => 'Simao',
+        ':palavra_passe'    => md5('simao'),
+        ':nome'             => 'Simão Bercial',
+        ':email'            => 'simao@gmail.com',
+        ':permissoes'       => '0'.str_repeat('1', 99),
+        ':criado_em'        => $data->format('Y-m-d H:i:s'),
+        ':atualizado_em'    => $data->format('Y-m-d H:i:s')
+    ];
+
+    // INSERIR O UTILIZADOR
+    $gestor->EXE_NON_QUERY(
+        'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
+         VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
+         $parametros);
+    
+    //==============================================================
     // UTILIZADOR 4 - JORGE
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Jorge',
         ':palavra_passe'    => md5('jorge'),
         ':nome'             => 'Jorge Moita',
-        ':email'            => 'jorgemoita@gmail.com',
+        ':email'            => 'jorge@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
