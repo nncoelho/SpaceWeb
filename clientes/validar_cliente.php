@@ -58,7 +58,7 @@
             
             // INFORMAR O CLIENTE QUE A SUA CONTA FOI ATIVADA
             $sucesso = true;
-            $mensagem = "Conta Ativada com Sucesso.";
+            $mensagem = "Conta Validada e Ativada com Sucesso.";
         }
     }
 ?>

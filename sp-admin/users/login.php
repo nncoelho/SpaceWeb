@@ -49,7 +49,7 @@
 
     <?php 
         if($mensagem!=''){
-            echo '<div class="alert alert-danger offset-3 col-6 mt-2 text-center">'.$mensagem.'</div>';
+            echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
         }
     ?>
 

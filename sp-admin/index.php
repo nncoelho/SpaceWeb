@@ -12,7 +12,7 @@
     // INCLUI AS FUNCOES NECESSÁRIAS DO SISTEMA 
     include_once('../inc/funcoes.php');
 
-    include_once('../inc/cl_datas.php');
+    include_once('../inc/datas.php');
 
     include_once('../inc/emails.php');
 

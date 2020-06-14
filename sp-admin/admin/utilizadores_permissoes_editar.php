@@ -84,7 +84,7 @@
 ?>
 
 <?php if($erro_permissao) : ?>
-    <?php include('inc/sem_permissao.php') ?>
+    <?php include('../inc/sem_permissao.php') ?>
 <?php else : ?>
 
     <!-- MENSAGEM DE SUCESSO -->
@@ -95,7 +95,7 @@
     <div class="container">    
         <div class="row mt-3 mb-3 p-3">
             <div class="col-8 offset-2 card p-4">
-                <h4 class="text-center">Editar Permissões</h4>
+                <h4 class="text-center"><i class="fa fa-list"></i> Editar Permissões</h4>
 
                 <!-- DADOS DO UTILIZADOR -->
                 <hr>
@@ -127,7 +127,9 @@
                 
                         <!-- TODAS | NENHUMA -->
                         <div>
-                            <a href="#" onclick="checks(true); return false">Todas</a> | <a href="#" onclick="checks(false); return false">Nenhumas</a>
+                            <a href="#" onclick="checks(true); return false">Todas</a> <i class="fa fa-check-square" aria-hidden="true"></i>
+                                &nbsp;&nbsp;&nbsp;
+                            <a href="#" onclick="checks(false); return false">Nenhumas</a> <i class="fa fa-square-o" aria-hidden="true"></i>
                         </div>                    
                     </div>
 

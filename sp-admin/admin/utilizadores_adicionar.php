@@ -103,7 +103,7 @@
             $mensagem = [
                 $email,
                 'SpaceWeb - Criação de Nova Conta de Utilizador',
-                "<p>Foi criada a sua nova conta de utilizador com os seguintes dados:<p><p>Utilizador: $utilizador <p><p>Password: $password </p>"
+                "<h4>Foi criada a sua nova conta de utilizador com os seguintes dados:</h4><p><b>Utilizador:</b> $utilizador </p><p><b>Password:</b> $password </p>"
             ];
             $mail = new emails();
             $mail->EnviarEmail($mensagem);
@@ -218,10 +218,9 @@
                     
                         <!-- TODAS | NENHUMA -->
                         <div>
-                            <a href="#" onclick="checks(true); return false">Todas</a>
-                                <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;
-                            <a href="#" onclick="checks(false); return false">Nenhumas</a>
-                                <i class="fa fa-square-o" aria-hidden="true"></i>
+                            <a href="#" onclick="checks(true); return false">Todas</a> <i class="fa fa-check-square" aria-hidden="true"></i>
+                                &nbsp;&nbsp;&nbsp;
+                            <a href="#" onclick="checks(false); return false">Nenhuma</a> <i class="fa fa-square-o" aria-hidden="true"></i>
                         </div>
 
                     </div>

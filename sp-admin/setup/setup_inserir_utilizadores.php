@@ -17,7 +17,7 @@
     $data = new DateTime();
     
     //==============================================================
-    // UTILIZADOR 1 - ADMIN
+    // UTILIZADOR 1 - ADMIN PRIMÁRIO
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Admin',
@@ -36,14 +36,14 @@
          $parametros);
 
     //==============================================================
-    // UTILIZADOR 2 - NUNO
+    // UTILIZADOR 2 - NUNO - ADMIN SECUNDÁRIO
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Nuno',
         ':palavra_passe'    => md5('nuno'),
         ':nome'             => 'Nuno Coelho',
         ':email'            => 'nuno@gmail.com',
-        ':permissoes'       => '0'.str_repeat('1', 99),
+        ':permissoes'       => str_repeat('1', 100),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
@@ -55,14 +55,14 @@
          $parametros);
 
     //==============================================================
-    // UTILIZADOR 3 - VERA
+    // UTILIZADOR 3 - VERA - ADMIN SECUNDÁRIO
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Vera',
         ':palavra_passe'    => md5('vera'),
         ':nome'             => 'Vera Matos',
         ':email'            => 'vera@gmail.com',
-        ':permissoes'       => '0'.str_repeat('1', 99),
+        ':permissoes'       => str_repeat('1', 100),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
     ];
@@ -111,4 +111,4 @@
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 ?>
-<div class="alert alert-success offset-3 col-6 mt-2 text-center">Utilizadores inseridos com Sucesso.</div>
+<div class="alert alert-success text-center">Utilizadores inseridos com Sucesso.</div>

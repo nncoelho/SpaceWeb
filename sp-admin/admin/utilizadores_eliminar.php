@@ -55,7 +55,7 @@
 
 <!-- SEM PERMISSÃO -->
 <?php if($erro_permissao) : ?>
-    <?php include('inc/sem_permissao.php') ?>
+    <?php include('../inc/sem_permissao.php') ?>
 <?php else : ?>
 
     <!-- REMOÇÃO COM SUCESSO -->
@@ -74,25 +74,22 @@
 
         <!-- APRESENTAÇÃO DOS DADOS DO UTILIZADOR A REMOVER -->
         <div class="container">
-            <div class="mt-3 mb-3 p-3">
-                <h4 class="text-center">Remover Utilizador</h4>                    
+            <div class="row mt-3 mb-3 p-3">
+                <div class="col-md-8 offset-md-2 mt-3 card">
+                    
+                    <h4 class="text-center m-4"><i class="fa fa-trash"></i> Remover Utilizador</h4>
 
-                <!-- DADOS DO UTILIZADOR -->
-                <div class="row">
-                    <div class="col-md-8 offset-md-2 card mt-3 mb-3 p-3">
+                    <p class="text-center">Tem a certeza que pretende eliminar o utilizador:<br>
+                        <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo E-mail é: 
+                        <strong><?php echo $dados_utilizador[0]['email'] ?></strong> ?
+                    </p>
 
-                        <p class="text-center">Tem a certeza que pretende eliminar o utilizador:<br>
-                            <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo E-mail é: 
-                            <strong><?php echo $dados_utilizador[0]['email'] ?></strong> ?
-                        </p>
-
-                        <!-- BOTÕES NÃO E SIM -->
-                        <div class="text-center mt-3 mb-3">
-                            <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100">Não</a>
-                            <a href="?a=eliminar_utilizador&id=<?php echo $id_utilizador ?>&r=1" class="btn btn-primary btn-size-100">Sim</a>
-                        </div>
-
+                    <!-- BOTÕES NÃO E SIM -->
+                    <div class="text-center mt-3 mb-3">
+                        <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100">Não</a>
+                        <a href="?a=eliminar_utilizador&id=<?php echo $id_utilizador ?>&r=1" class="btn btn-primary btn-size-100">Sim</a>
                     </div>
+
                 </div>
             </div>
         </div>

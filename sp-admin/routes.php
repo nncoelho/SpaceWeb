@@ -52,9 +52,9 @@
         case 'perfil_alterar_email':            include_once('users/perfil/perfil_alterar_email.php'); break;
         
         //=====================================
-        // OPÇÕES DISPONVEIS APENAS PARA O ADMINISTRADOR
+        // OPÇÕES DISPONVEIS APENAS PARA OS ADMINISTRADORES
         case 'utilizadores_gerir':              include_once('admin/utilizadores_gerir.php'); break;
-        // ADICIONAR NOVO UTILIZADOR
+        // FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR
         case 'utilizadores_adicionar':          include_once('admin/utilizadores_adicionar.php'); break;
         // EDITAR UTILIZADOR
         case 'editar_utilizador':               include_once('admin/utilizadores_editar.php'); break;

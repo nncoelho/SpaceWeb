@@ -99,7 +99,7 @@
 
 <!-- ERRO DE PERMISSÃO -->
 <?php if($erro_permissao) : ?>
-    <?php include('inc/sem_permissao.php') ?>
+    <?php include('../inc/sem_permissao.php') ?>
 <?php else : ?>
 
     <!-- ERRO DE FALTA DE DADOS -->
@@ -126,7 +126,7 @@
         <!-- FORMULÁRIO PARA EDIÇÃO DOS DADOS DO UTILIZADOR -->
         <div class="container">
             <div class="row card mt-3 mb-3">
-                <h4 class="text-center mt-4">Editar Dados do Utilizador</h4>
+                <h4 class="text-center mt-4"><i class="fa fa-edit"></i> Editar Dados do Utilizador</h4>
 
                 <div class="row">
                     <div class="col-md-6 offset-md-3">

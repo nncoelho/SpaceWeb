@@ -49,7 +49,8 @@
                             );                        
                         ?>
 
-                        <?php foreach($dados_utilizadores as $utilizador) : ?>                    
+                        <?php foreach($dados_utilizadores as $utilizador) : ?>
+
                             <tr>
                                 <!-- DIFERENCIAÇÃO DO ICON DE ADMINISTRADOR -->
                                 <?php if(substr($utilizador['permissoes'], 0, 1) == 1) : ?>
@@ -63,11 +64,11 @@
                                 <td><?php echo $utilizador['email'] ?></td>
 
                                 <td>
-                                    <!-- DROPDOWN -->
+                                    <!-- MENU DO DROPDOWN -->
                                     <?php 
                                         $id = $utilizador['id_utilizador'] ;
 
-                                        // DEFINE SE O DROPDOWN VAI APARECER
+                                        // DEFINE A RELAÇÃO ENTRE O(S) ADMIN(S) E O DROPDOWN
                                         $drop = true;
                                         if($id == 1 || $id == $_SESSION['id_utilizador'] ){
                                             $drop = false;
@@ -75,29 +76,30 @@
                                     ?>
 
                                     <?php if($drop): ?>
-
-                                    <div class="dropdown text-center">
-                                        <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                                        <div class="dropdown-menu" aria-labelledby="d1">
-                                            <a class="dropdown-item" href="?a=editar_utilizador&id=<?php echo $id ?>"><i class="fa fa-edit"></i> Editar utilizador</a>
-                                            <a class="dropdown-item" href="?a=editar_permissoes&id=<?php echo $id ?>"><i class="fa fa-list"></i> Editar permissões</a>
-                                            <a class="dropdown-item" href="?a=eliminar_utilizador&id=<?php echo $id ?>"><i class="fa fa-trash"></i> Eliminar</a>                                                                            
+                                        <div class="dropdown text-center">
+                                            <i class="fa fa-cog" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                            <div class="dropdown-menu" aria-labelledby="d1">
+                                                <a class="dropdown-item" href="?a=editar_utilizador&id=<?php echo $id ?>"><i class="fa fa-edit"></i> Editar utilizador</a>
+                                                <a class="dropdown-item" href="?a=editar_permissoes&id=<?php echo $id ?>"><i class="fa fa-list"></i> Editar permissões</a>
+                                                <a class="dropdown-item" href="?a=eliminar_utilizador&id=<?php echo $id ?>"><i class="fa fa-trash"></i> Eliminar</a>                                                                            
+                                            </div>
                                         </div>
-                                    </div>
-
                                     <?php else: ?>
                                         <div class="text-center">
                                             <i class="fa fa-cog text-muted"></i>
                                         </div>
                                     <?php endif; ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
 
+                                </td>
+
+                            </tr>
+
+                        <?php endforeach; ?>
+                        
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    
+
 <?php endif; ?>

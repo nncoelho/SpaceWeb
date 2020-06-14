@@ -67,4 +67,4 @@
     );
 ?>
 
-<div class="alert alert-success offset-3 col-6 mt-2 text-center">Base de Dados Criada com Sucesso.</div>
+<div class="alert alert-success text-center">Base de Dados Criada com Sucesso.</div>
