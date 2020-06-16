@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // ÁREA DO SETUP
+    // ÁREA DO SETUP DA BASE DE DADOS
     //=========================================
 
     // VERIFICA A SESSÃO
@@ -31,15 +31,15 @@
 
 <div class="container-fluid p-3">
 
-    <h2 class="text-center mb-4">Setup</h2>
+    <h2 class="text-center mt-5 mb-5"><i class="fa fa-wrench"></i> Manutenção da Base de Dados</h2>
 
     <div class="text-center">
         <!-- CRIAR A BASE DE DADOS -->
-        <p><a href="?a=setup_criar_bd" class="btn btn-primary btn-size-250">
-            <i class="fa fa-table fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Criar a Base de Dados</a>
+        <p><a href="?a=setup_criar_bd" class="btn btn-warning btn-size-300 mb-1">
+            <i class="fa fa-table fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Limpa e Constrói a Base de Dados</a>
         </p>
         <!-- INSERIR UTILIZADORES -->
-        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-250">
+        <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-300 mt-1">
             <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Inserir Utilizadores</a></p>
         <hr class="mt-5">
         <p><a href="http://spaceweb.me/sp-admin/" class="btn btn-secondary mt-3 btn-size-150">Voltar</a></p>

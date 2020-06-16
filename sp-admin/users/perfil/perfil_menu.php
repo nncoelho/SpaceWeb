@@ -39,7 +39,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-6 card m-5 p-5">
-                <h4 class="text-center mb-5"><i class="fa fa-id-card-o"></i> Perfil de Utilizador</h4>
+                <h4 class="text-center mb-5"><i class="fa fa-id-card-o"></i> Perfil do Utilizador</h4>
                 <!-- DADOS DO UTILIZADOR -->
                 <h5><i class="fa fa-user"></i> <?php echo $dados[0]['nome'] ?></h5>
                 <p><i class="fa fa-envelope"></i> <?php echo $dados[0]['email'] ?></p>

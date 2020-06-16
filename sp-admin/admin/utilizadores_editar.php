@@ -48,15 +48,15 @@
     }  
     
     //========================================================
-    // POST
+    // METODO POST
     //========================================================
-    if($_SERVER['REQUEST_METHOD']== 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        // VAI BUSCAR OS DADOS DAS TEXT'S
+        // VAI BUSCAR OS DADOS DAS TEXTS
         $nome = $_POST['text_nome'];
         $email = $_POST['text_email'];
 
-        // VERIFICAÇÕES - VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
+        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
         $parametros = [
             ':id_utilizador' => $id_utilizador,
             ':email'         => $email
@@ -71,14 +71,14 @@
         }
 
         //==========================================================
-        // ATUALIZA OS DADOS NA BASE DE DADOS
+        // ATUALIZA OS DADOS DO UTILIZADOR NA BASE DE DADOS
         if(!$erro){
             $parametros = [
                 ':id_utilizador' => $id_utilizador,
                 ':nome'          => $nome,
                 ':email'         => $email,
                 ':atualizado_em' => Datas::DataHoraAtualBD()
-            ];  
+            ];
             
             $gestor->EXE_NON_QUERY(
                 'UPDATE utilizadores SET
@@ -89,7 +89,7 @@
             
             // SUCESSO
             $sucesso = true;
-            $mensagem = 'Dados atualizados com sucesso.';
+            $mensagem = 'Dados do perfil do utilizador atualizados com sucesso.';
 
             $parametros = [':id_utilizador' => $id_utilizador];
             $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
@@ -109,7 +109,7 @@
             <div class="row mt-5 mb-5">
                 <div class="col-md-6 offset-md-3 text-center">
                     <p class="alert alert-danger"><?php echo $mensagem ?></p>
-                    <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100">Voltar</a>
+                    <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100 mt-3">Voltar</a>
                 </div>
             </div>
         </div>
@@ -125,8 +125,8 @@
 
         <!-- FORMULÁRIO PARA EDIÇÃO DOS DADOS DO UTILIZADOR -->
         <div class="container">
-            <div class="row card mt-3 mb-3">
-                <h4 class="text-center mt-4"><i class="fa fa-edit"></i> Editar Dados do Utilizador</h4>
+            <div class="row card mt-5">
+                <h4 class="text-center mt-5 mb-4"><i class="fa fa-edit"></i> Editar Dados do Perfil do Utilizador</h4>
 
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
@@ -161,7 +161,7 @@
                                     </div>
 
                                     <div class="text-center">
-                                        <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Cancelar</a>
+                                        <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
                                         <button class="btn btn-primary btn-size-150">Atualizar</button>
                                     </div>
                                 </div>

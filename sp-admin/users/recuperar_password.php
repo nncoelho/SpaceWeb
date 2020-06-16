@@ -95,15 +95,15 @@
             
                 <form action="?a=recuperar_password" method="post">                
                     <div class="text-center">
-                        <h3>Recuperar Password</h3>
-                        <p>Coloque aqui o seu endereço de E-mail para recuperação da password.</p>
+                        <h3 class="mt-3 mb-4"><i class="fa fa-unlock-alt"></i> Recuperar Password</h3>
+                        <p>Coloque aqui o seu endereço de E-mail<br>para seguir as instruções de recuperação da password.</p>
                     </div>
                     <div class="form-group">
                         <input type="email" name="text_email" class="form-control" placeholder="E-mail" required>
                     </div>                
                     <div class="form-group text-center">
-                        <a href="?a=inicio" class="btn btn-primary btn-size-150">Cancelar</a>
-                        <button role="submit" class="btn btn-primary btn-size-150">Recuperar</button>
+                        <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-2 mb-2">Cancelar</a>
+                        <button role="submit" class="btn btn-primary btn-size-150 mt-2 mb-2">Recuperar</button>
                     </div>
                 </form>            
             </div>        

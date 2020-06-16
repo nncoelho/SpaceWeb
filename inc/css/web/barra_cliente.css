@@ -2,7 +2,7 @@
 .barra-cliente{
     background: linear-gradient(black, rgb(71, 71, 71));
     color: white;
-    padding: 10px;
+    padding: 12px;
 }
 
 .barra-cliente a{

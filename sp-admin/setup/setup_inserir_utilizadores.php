@@ -55,32 +55,13 @@
          $parametros);
 
     //==============================================================
-    // UTILIZADOR 3 - VERA - ADMIN SECUNDÁRIO
+    // UTILIZADOR 3 - VERA
     // DEFINIÇÃO DE PARAMETROS
     $parametros = [
         ':utilizador'       => 'Vera',
         ':palavra_passe'    => md5('vera'),
         ':nome'             => 'Vera Matos',
         ':email'            => 'vera@gmail.com',
-        ':permissoes'       => str_repeat('1', 100),
-        ':criado_em'        => $data->format('Y-m-d H:i:s'),
-        ':atualizado_em'    => $data->format('Y-m-d H:i:s')
-    ];
-
-    // INSERIR O UTILIZADOR
-    $gestor->EXE_NON_QUERY(
-        'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
-         VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
-         $parametros);
-
-    //==============================================================
-    // UTILIZADOR 4 - SIMÃO
-    // DEFINIÇÃO DE PARAMETROS
-    $parametros = [
-        ':utilizador'       => 'Simao',
-        ':palavra_passe'    => md5('simao'),
-        ':nome'             => 'Simão Bercial',
-        ':email'            => 'simao@gmail.com',
         ':permissoes'       => '0'.str_repeat('1', 99),
         ':criado_em'        => $data->format('Y-m-d H:i:s'),
         ':atualizado_em'    => $data->format('Y-m-d H:i:s')
@@ -111,4 +92,5 @@
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
          $parametros);
 ?>
-<div class="alert alert-success text-center">Utilizadores inseridos com Sucesso.</div>
+
+<div class="alert alert-success text-center">Utilizadores inseridos com sucesso.</div>

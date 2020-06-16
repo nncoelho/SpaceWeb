@@ -3,7 +3,6 @@
     // CABEÇALHO DO BACKEND
     //========================================
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -12,8 +11,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SpaceWeb</title>
     <!-- BOOTSTRAP - FONTAWESOME - CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../inc/css/admin/main.css">
 </head>
 <body>

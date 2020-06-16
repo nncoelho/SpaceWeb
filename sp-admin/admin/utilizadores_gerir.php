@@ -20,7 +20,7 @@
 <?php else: ?>
 
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row mt-4 mb-2 justify-content-center">
             <div class="col card m-3 p-3">
                 <h4 class="text-center mt-2 mb-4"><i class="fa fa-cogs" aria-hidden="true"></i> Gestão de Utilizadores</h4>
                 
@@ -81,7 +81,7 @@
                                             <div class="dropdown-menu" aria-labelledby="d1">
                                                 <a class="dropdown-item" href="?a=editar_utilizador&id=<?php echo $id ?>"><i class="fa fa-edit"></i> Editar utilizador</a>
                                                 <a class="dropdown-item" href="?a=editar_permissoes&id=<?php echo $id ?>"><i class="fa fa-list"></i> Editar permissões</a>
-                                                <a class="dropdown-item" href="?a=eliminar_utilizador&id=<?php echo $id ?>"><i class="fa fa-trash"></i> Eliminar</a>                                                                            
+                                                <a class="dropdown-item" href="?a=eliminar_utilizador&id=<?php echo $id ?>"><i class="fa fa-trash"></i> Eliminar utilizador</a>                                                                            
                                             </div>
                                         </div>
                                     <?php else: ?>

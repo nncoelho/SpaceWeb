@@ -8,7 +8,7 @@
         exit();
     }
 
-    $erro = true;    
+    $erro = true;
     $mensagem = '';
     
     // VERIFICA SE FOI FEITO UM POST
@@ -55,7 +55,7 @@
 
     <div class="container-fluid">
         
-        <h3 class="text-center mt-4"><i class="fa fa-users" aria-hidden="true"></i> Gestão de Utilizadores</h3>
+        <h3 class="text-center mt-4"><i class="fa fa-users" aria-hidden="true"></i> Login de Utilizadores</h3>
 
         <div class="row justify-content-center">        
             <div class="col-md-4 card mt-4 p-4">
@@ -90,7 +90,9 @@
         <div class="row justify-content-center">
             <div class="col-md-4 card mt-5 p-4 text-center">
                 <p>Bem-vindo(a), <strong><?php echo $dados[0]['nome'] ?></strong></p>
-                <a href="?a=inicio" class="btn btn-primary">Avançar</a>
+                <div class="text-center">
+                    <a href="?a=inicio" class="btn btn-primary btn-size-200">Avançar</a>
+                </div>
             </div>        
         </div>
     </div>   

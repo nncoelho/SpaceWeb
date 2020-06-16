@@ -93,7 +93,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col card m-3 p-3">
+        <div class="col card mt-5 p-4">
             <h4 class="text-center"><i class="fa fa-key" aria-hidden="true"></i> Alterar Password</h4>
             <hr>
 
