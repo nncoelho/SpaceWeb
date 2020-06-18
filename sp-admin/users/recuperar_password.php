@@ -1,7 +1,7 @@
 <?php
-    //=========================================
-    // FORMULÁRIO DE RECUPERAÇÃO DA PASSWORD
-    //=========================================   
+    //==================================================
+    // RECUPERAÇÃO DA PASSWORD DOS UTILIZADORES
+    //==================================================
     
     // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
@@ -73,7 +73,7 @@
             } else {
                 // ACONTECEU UM ERRO
                 $erro = true;
-                $mensagem = 'Atenção: O E-mail de recuperação não foi enviado com Sucesso. Tente novamente.';
+                $mensagem = 'Atenção: O E-mail de recuperação não foi enviado com sucesso. Tente novamente.';
             }
         }
     }
@@ -91,7 +91,7 @@
     <!-- APRESENTAÇÃO DO FORMULÁRIO -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
-            <div class="col-md-4 card mt-5 p-3">
+            <div class="col-md-4 card mt-5 p-4">
             
                 <form action="?a=recuperar_password" method="post">                
                     <div class="text-center">
@@ -102,8 +102,8 @@
                         <input type="email" name="text_email" class="form-control" placeholder="E-mail" required>
                     </div>                
                     <div class="form-group text-center">
-                        <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-2 mb-2">Cancelar</a>
-                        <button role="submit" class="btn btn-primary btn-size-150 mt-2 mb-2">Recuperar</button>
+                        <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-2 mb-2 mr-1">Cancelar</a>
+                        <button role="submit" class="btn btn-primary btn-size-150 mt-2 mb-2 ml-1">Recuperar</button>
                     </div>
                 </form>            
             </div>        
@@ -115,10 +115,11 @@
     <!-- APRESENTAÇÃO DA MENSAGEM DE SUCESSO NA RECUPERAÇÃO DA PASSWORD -->
     <div class="container-fluid">    
         <div class="row justify-content-center">
-            <div class="col-md-6 card m-3 p-5 text-center">
-                <h3>Recuperação concluida com Sucesso</h3>
-                <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de correio electrónico para ter acesso á sua nova password.</p>
-
+            <div class="col-md-6 card mt-5 p-4 text-center">
+                <h3 class="mt-3 mb-4"><i class="far fa-thumbs-up"></i>Recuperação concluida com sucesso</h3>
+                <p>A recuperação da password foi efetuada com sucesso. Consulte a sua caixa de correio 
+                    electrónico para poder ter acesso a sua nova password e posteriormente poder alterá-la.
+                </p>
                 <div class="text-center">
                     <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
                 </div>

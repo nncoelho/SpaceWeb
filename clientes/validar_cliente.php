@@ -15,10 +15,10 @@
     // VERIFICA SE O VALOR 'V' ESTÁ DEFINIDO NA URL
     if(!isset($_GET['v'])){
         $erro = true;
-        $mensagem = "Não está definido o Código de Ativação.";
+        $mensagem = "O código de validação não está definido.";
     }
 
-    // SE 'V' ESTÁ DEFINIDO AVANÇA NO PROCESSO
+    // SE 'V' ESTIVER DEFINIDO AVANÇA NO PROCESSO
     if(!$erro){
 
         // VAI BUSCAR O CÓDIGO DE ATIVAÇÃO
@@ -37,18 +37,18 @@
         if(count($dados)==0){
             // NÃO FOI ENCONTRADO NENHUM CLIENTE COM O CÓDIGO INDICADO
             $erro = true;
-            $mensagem = 'Não existe nenhum Cliente com esse Código de Validação.';
+            $mensagem = 'Não existe nenhum cliente com esse código de validação.';
         }
 
         // VERIFICA SE 'VALIDADA' JÁ ESTAVA COM O VALOR 1
         if(!$erro){
             if($dados[0]['validada']==1){
                 $erro = true;
-                $mensagem = 'Esta Conta já está Validada.';
+                $mensagem = 'Esta conta já se encontra validada.';
             }
         }
 
-        // FINALMENTE (ULTRAPASSADOS OS ERROS POSSÍVEIS) > VALIDAR A CONTA
+        // FINALMENTE (ULTRAPASSADOS OS ERROS POSSÍVEIS) > VALIDAR E ATIVAR A CONTA
         if(!$erro){
             $parametros = [
                 ':id_cliente'   => $dados[0]['id_cliente']
@@ -58,7 +58,7 @@
             
             // INFORMAR O CLIENTE QUE A SUA CONTA FOI ATIVADA
             $sucesso = true;
-            $mensagem = "Conta Validada e Ativada com Sucesso.";
+            $mensagem = "Conta validada e ativada com sucesso.";
         }
     }
 ?>

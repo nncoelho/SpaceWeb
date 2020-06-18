@@ -1,4 +1,8 @@
-<?php     
+<?php
+    //=========================================
+    // PERFIL DOS CLIENTES
+    //=========================================
+
     // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();

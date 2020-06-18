@@ -1,11 +1,11 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
 
     class emails{
         
         public function EnviarEmail($dados){
-
+            
             // DADOS[0] = ENDEREÇO DE E-MAIL DO DESTINATÁRIO
             // DADOS[1] = ASSUNTO
             // DADOS[2] = MENSAGEM

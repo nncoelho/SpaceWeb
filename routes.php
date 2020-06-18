@@ -1,6 +1,6 @@
 <?php 
     //========================================
-    // ROUTES DA APLICAÇÃO WEB
+    // ROUTES DO FRONTEND
     //========================================
 
     // VERIFICA A SESSÃO

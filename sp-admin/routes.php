@@ -19,15 +19,12 @@
         // CASOS ESPECIAIS
         $routes_especiais = [
             'recuperar_password',
-            'setup',
-            'setup_criar_bd',
-            'setup_inserir_utilizadores'
         ];
 
         // BYPASS DO SISTEMA NORMAL
         if(!in_array($a, $routes_especiais)){
             $a='login';
-        }                        
+        }
     }
 
     //=========================================
@@ -68,10 +65,10 @@
         case 'inicio':                          include_once('inicio.php'); break;
         // APRESENTA A PÁGINA ACERCA DE
         case 'about':                           include_once('about.php'); break;
-        // ABRE O MENU DO SETUP
-        case 'setup':                           include_once('setup/setup.php'); break;
 
         //=====================================
+        // ABRE O MENU DO SETUP
+        case 'setup':                           include_once('setup/setup.php'); break;
         // SETUP - CRIAR A BASE DE DADOS
         case 'setup_criar_bd':                  include_once('setup/setup.php'); break;
         // SETUP - INSERIR UTILIZADORES

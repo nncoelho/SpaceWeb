@@ -1,6 +1,6 @@
 <?php
     //=========================================
-    // FORMULÁRIO DE LOGIN
+    // LOGIN DOS UTILIZADORES
     //=========================================    
     
     // VERIFICA A SESSÃO

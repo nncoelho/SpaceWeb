@@ -59,12 +59,12 @@
         'nome                           NVARCHAR(50), '.
         'email                          NVARCHAR(50), '.
         'utilizador                     NVARCHAR(50), '.
-        'palavra_passe                  NVARCHAR(200), '.        
-        'codigo_validacao               NVARCHAR(200), '.   
+        'palavra_passe                  NVARCHAR(200), '.
+        'codigo_validacao               NVARCHAR(200), '.
         'validada                       TINYINT, '.
         'criado_em                      DATETIME, '.
         'atualizado_em                  DATETIME)'
     );
 ?>
 
-<div class="alert alert-success text-center">Base de dados construida com sucesso.</div>
+<div class="alert alert-success text-center">Base de dados limpa e construida com sucesso.</div>

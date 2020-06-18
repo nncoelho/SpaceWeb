@@ -48,7 +48,7 @@
         // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
         if(count($dados_utilizador)==0){
             $erro = true;
-            $mensagem = 'Não foram encontrados dados do utilizador.';
+            $mensagem = 'Não foram encontrados dados de permissões de utilizador.';
         }
     }
 
@@ -110,7 +110,7 @@
 
         <div class="container">
             <div class="row mt-5 mb-5">
-                <div class="col-md-6 offset-md-3 text-center">
+                <div class="col-md-8 offset-2 text-center">
                     <p class="alert alert-danger"><?php echo $mensagem ?></p>
                     <div class="text-center">
                         <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100 mt-3">Voltar</a>
@@ -120,22 +120,18 @@
         </div>
 
     <!-- MENSAGEM DE SUCESSO -->
-    <?php elseif($sucesso) :?>
-
-        <div class="container">
-            <div class="row mt-5 mb-5">
-                <div class="col-md-6 offset-md-3 text-center">
-                    <p class="alert alert-success"><?php echo $mensagem ?></p>
-                    <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100 mt-3">Voltar</a>
-                </div>
-            </div>
-        </div>
-
     <?php else: ?>
+
+        <!-- APRESENTA UMA MENSAGEM DE SUCESSO -->
+        <?php if($sucesso): ?>
+            <div class="alert alert-success text-center">
+                <?php echo $mensagem ?>
+            </div>
+        <?php endif; ?>
 
         <div class="container">    
             <div class="row mt-3 mb-3 p-3">
-                <div class="col-8 offset-2 card p-4">
+                <div class="col-8 offset-2 mb-5 card p-4">
                     <h4 class="text-center"><i class="fa fa-list"></i> Editar Permissões</h4>
 
                     <!-- DADOS DO UTILIZADOR -->
@@ -176,7 +172,7 @@
 
                         <!-- BOTÕES -->
                         <div class="text-center mt-5">
-                            <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Cancelar</a>
+                            <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
                             <button type="submit" class="btn btn-primary btn-size-150">Atualizar</button>
                         </div>
                     </form>

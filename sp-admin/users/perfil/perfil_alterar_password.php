@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // PERFIL - ALTERAR PASSWORD
+    // PERFIL UTILIZADORES - ALTERAR PASSWORD
     //=========================================
 
     // VERIFICA A SESSÃO

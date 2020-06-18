@@ -1,5 +1,5 @@
 <?php 
-    // PERMISSÕES
+    // PERMISSÕES DOS UTILIZADORES
     return [
 
         [

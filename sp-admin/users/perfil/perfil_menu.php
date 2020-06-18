@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // PERFIL - MENU INICIAL
+    // PERFIL UTILIZADORES
     //=========================================
 
     // VERIFICA A SESSÃO

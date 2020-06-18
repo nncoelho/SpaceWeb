@@ -1,4 +1,8 @@
-<?php 
+<?php
+    //=========================================
+    // BARRA DOS CLIENTES
+    //=========================================
+
     // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
@@ -33,7 +37,7 @@
         <div class="dropdown d-inline">
 
             <!-- INTERRUPTOR -->
-            <a href="" class="mr-3" id="dropdownMenuButton" data-toggle="dropdown" 
+            <a href="" class="mr-2" id="dropdownMenuButton" data-toggle="dropdown" 
             aria-haspopup="true" aria-expanded="false"><i class="fas fa-sign-in-alt"></i> Login</a>|
             
             <!-- CAIXA -->
@@ -69,7 +73,7 @@
         </div>
 
         <div class="d-inline">
-            <a href="?a=signup" class="ml-3"><i class="fas fa-user-plus"></i> Signup</a>
+            <a href="?a=signup" class="ml-2"><i class="fas fa-user-plus"></i> Signup</a>
         </div>
 
         <?php endif; ?>

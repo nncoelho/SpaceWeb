@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // BARRA DO UTILIZADOR
+    // BARRA DOS UTILIZADORES
     //=========================================
 
     // VERIFICA A SESSÃO

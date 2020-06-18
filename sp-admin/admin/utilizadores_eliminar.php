@@ -43,7 +43,7 @@
         // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
         if(count($dados_utilizador)==0){
             $erro = true;
-            $mensagem = 'Não foram encontrados dados do utilizador.';
+            $mensagem = 'Não foram encontrados dados de utilizador a eliminar.';
         }
     }
 
@@ -73,7 +73,7 @@
 
         <div class="container">
             <div class="row mt-5 mb-5">
-                <div class="col-md-6 offset-md-3 text-center">
+                <div class="col-md-8 offset-2 text-center">
                     <p class="alert alert-danger"><?php echo $mensagem ?></p>
                     <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100 mt-3">Voltar</a>
                 </div>
@@ -85,7 +85,7 @@
 
         <div class="container">
             <div class="row mt-5 mb-5">
-                <div class="col-md-6 offset-md-3 text-center">
+                <div class="col-md-8 offset-2 text-center">
                     <p class="alert alert-success">Utilizador removido com sucesso.</p>
                     <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-100 mt-3">Voltar</a>
                 </div>
@@ -97,7 +97,7 @@
         <!-- APRESENTAÇÃO DOS DADOS DO UTILIZADOR A REMOVER -->
         <div class="container">
             <div class="row mt-3 mb-3 p-3">
-                <div class="col-md-8 offset-md-2 mt-3 card">                    
+                <div class="col-md-8 offset-md-2 mt-5 card">
                     <h4 class="text-center m-4"><i class="fa fa-trash"></i> Remover Utilizador</h4>
 
                     <p class="text-center">Tem a certeza que pretende eliminar o utilizador:<br>

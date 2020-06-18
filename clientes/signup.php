@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // SIGNUP
+    // SIGNUP DOS CLIENTES
     //=========================================
 
     // VERIFICA A SESSÃO
@@ -9,7 +9,7 @@
     }  
 
     $erro = false;
-    $sucesso = false;
+    // $sucesso = false;
     $mensagem = '';
     $gestor = new Gestor();
 
@@ -34,7 +34,7 @@
         // VERIFICA SE AS SENHAS CORRESPONDEM
         if($senha1 != $senha2){
             $erro = true;
-            $mensagem = 'As senhas não coincidem.';
+            $mensagem = 'As senhas não coincidem. Tente novamente e faça-as coincidir.';
         }
 
         // VERIFICA SE JÁ EXISTE UM CLIENTE COM OS MESMOS DADOS
@@ -49,12 +49,12 @@
                 SELECT * FROM clientes WHERE
                 nome = :nome OR
                 email = :email OR
-                utilizador = :utilizador
-            ',$parametros);
+                utilizador = :utilizador',$parametros
+            );
 
             if(count($dados) != 0){
                 $erro = true;
-                $mensagem = 'Já existe um cliente com dados iguais.';
+                $mensagem = 'Já existe um cliente com o mesmo nome, email ou utilizador definido.';
             }
         }
 
@@ -79,22 +79,25 @@
                 INSERT INTO
                 clientes(nome, email, utilizador, palavra_passe, codigo_validacao, validada, criado_em, atualizado_em)
                 VALUES
-                (:nome, :email, :utilizador, :palavra_passe, :codigo_validacao, :validada, :criado_em, :atualizado_em)
-            ',$parametros);
+                (:nome, :email, :utilizador, :palavra_passe, :codigo_validacao, :validada, :criado_em, :atualizado_em)',$parametros
+            );
 
-            // ENVIO DO EMAIL PARA O CLIENTE ATIVAR/VALIDAR A SUA CONTA
+            // ENVIO DO EMAIL PARA O CLIENTE VALIDAR/ATIVAR A SUA CONTA
             $email_a_enviar = new emails();
 
             // CRIA O LINK DE ATIVAÇÃO
-            $config = include('../inc/config.php');
-            $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];            
+            $config = include('inc/config.php');
+
+            $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];
 
             // PREPARAÇÃO DOS DADOS DO EMAIL
             $temp = [
                 $email,
+
                 '<h3>SpaceWeb - Ativação da Conta de Cliente</h3>',
-                '<p>Clique no link seguinte para validar a sua conta de cliente:</p>'.
-                '<a href="'.$link.'">'.$link.'</a>'                
+                '<p>Clique no link seguinte para validar e ativar a sua conta de cliente:</p>'.
+
+                '<a href="'.$link.'">'.$link.'</a>'
             ];
 
             // ENVIO DO EMAIL
@@ -102,17 +105,17 @@
         }
     }
 ?>
+
 <!-- MENSAGEM DE ERRO -->
 <?php if($erro){
-        echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
-    }
+    echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>'; }
 ?>
 
-<div class="container signup mt-4">
-    <div class="text-center mb-3"><h3><i class="fa fa-handshake fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Nova Conta de Cliente</h3></div>
+<div class="container signup mt-5 mb-5">
     <div class="row">
-        <div class="col-sm-6 offset-sm-3">
-            
+        <div class="col-sm-6 offset-3">
+            <div class="text-center mb-4"><h3><i class="far fa-handshake fa-lg mr-3"></i>Nova Conta de Cliente</h3></div>
+
             <form action="" method="post">
                 <!-- NOME COMPLETO DO CLIENTE -->
                 <div class="form-group">
@@ -128,7 +131,7 @@
                     <input type="email"
                            class="form-control"
                            name="text_email"
-                           placeholder = "Email"
+                           placeholder = "E-mail"
                            value="<?php echo $email ?>"
                            required>
                 </div>
@@ -164,11 +167,12 @@
                            id="check_termos" 
                            class="mr-2"
                            required>
-                           <label for="check_termos">Li e Aceito os <a href="">Termos e Condições de Utilização</a>.</label>
+                           <label for="check_termos">Li e Aceito os <a href="#">Termos e Condições de Utilização</a>.</label>
                 </div>
                 <!-- SUBMETER -->
-                <div class="text-center">                    
-                    <button class="btn btn-primary mb-5">Criar Cliente</button>
+                <div class="text-center">
+                    <a href="?a=home" class="btn btn-primary mb-5 btn-size-150">Voltar</a>&nbsp;&nbsp;
+                    <button class="btn btn-primary mb-5 btn-size-150">Criar Cliente</button>
                 </div>
             </form>
         </div>

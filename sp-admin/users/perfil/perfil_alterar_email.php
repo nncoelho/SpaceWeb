@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // PERFIL - ALTERAR E-MAIL
+    // PERFIL UTILIZADORES - ALTERAR E-MAIL
     //=========================================
 
     // VERIFICA A SESSÃO

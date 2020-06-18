@@ -7,10 +7,10 @@
 
 .barra-cliente a{
     text-decoration: none;
-    color: rgb(121, 188, 250);
+    color: rgb(105, 168, 225);
 }
 
-.barra-cliente a:hover{color: rgb(253, 253, 253);}
+.barra-cliente a:hover{color: rgb(255, 255, 255);}
 
 /* DROPDOWN MENU */
 .dropdown-menu a{    

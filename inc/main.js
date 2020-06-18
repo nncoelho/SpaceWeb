@@ -18,7 +18,7 @@ function gerarPassword(numLetras){
     text_password.value = codigo;    
 }
 
-// CONTROL AS CHECKBOXS DA CAIXA DE PERMISSOES DE UM NOVO UTILIZADOR
+// CONTROL AS CHECKBOXS DAS CAIXAS DAS PERMISSOES
 function checks(estado){
     $('input:checkbox').prop('checked', estado);
 }
