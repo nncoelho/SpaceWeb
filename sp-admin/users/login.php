@@ -55,10 +55,10 @@
 
     <div class="container-fluid">
         
-        <h3 class="text-center mt-4"><i class="fa fa-users" aria-hidden="true"></i> Login de Utilizadores</h3>
+        <h3 class="text-center mt-5"><i class="fa fa-users" aria-hidden="true"></i> Login de Utilizadores</h3>
 
         <div class="row justify-content-center">        
-            <div class="col-md-4 card mt-4 p-4">
+            <div class="col-md-4 card mt-2 p-4">
 
                 <form action="?a=login" method="post">
                     <div class="form-group">
@@ -80,8 +80,8 @@
         </div>
     </div>
 
-    <div class="text-center mt-5">
-        <a href="http://spaceweb.me/?a=home" class="btn btn-secondary btn-size-150">Voltar</a>
+    <div class="text-center mt-4">
+        <a href="../index.php?a=backend" class="btn btn-secondary btn-size-100">Voltar</a>
     </div>
 
 <?php else : ?>

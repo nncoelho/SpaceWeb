@@ -38,7 +38,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-6 card m-5 p-5">
+            <div class="col-sm-6 card mt-5 p-5">
                 <h4 class="text-center mb-5"><i class="fa fa-id-card-o"></i> Perfil do Utilizador</h4>
                 <!-- DADOS DO UTILIZADOR -->
                 <h5><i class="fa fa-user"></i> <?php echo $dados[0]['nome'] ?></h5>
@@ -47,7 +47,7 @@
         </div>
         <div class="text-center">
             <!-- VOLTAR -->
-            <a href="?a=inicio" class="btn btn-primary btn-size-150 m-3">Voltar</a>
+            <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-4">Voltar</a>
         </div>
     </div>
 

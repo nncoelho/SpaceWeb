@@ -171,7 +171,7 @@
                 </div>
                 <!-- SUBMETER -->
                 <div class="text-center">
-                    <a href="?a=home" class="btn btn-primary mb-5 btn-size-150">Voltar</a>&nbsp;&nbsp;
+                    <a href="?a=inicio" class="btn btn-secondary mb-5 btn-size-150">Voltar</a>&nbsp;&nbsp;
                     <button class="btn btn-primary mb-5 btn-size-150">Criar Cliente</button>
                 </div>
             </form>

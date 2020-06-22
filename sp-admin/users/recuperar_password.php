@@ -102,8 +102,8 @@
                         <input type="email" name="text_email" class="form-control" placeholder="E-mail" required>
                     </div>                
                     <div class="form-group text-center">
-                        <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-2 mb-2 mr-1">Cancelar</a>
-                        <button role="submit" class="btn btn-primary btn-size-150 mt-2 mb-2 ml-1">Recuperar</button>
+                        <a href="?a=inicio" class="btn btn-secondary btn-size-150 mt-2 mb-2 ">Cancelar</a>
+                        <button role="submit" class="btn btn-primary btn-size-150 mt-2 mb-2">Recuperar</button>
                     </div>
                 </form>            
             </div>        

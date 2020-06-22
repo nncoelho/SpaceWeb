@@ -1,14 +1,34 @@
-<?php 
-    //=========================================
-    // INÍCIO DA APLICAÇÃO WEB
-    //=========================================
+<?php
+//=========================================
+// INICIO DO FRONTEND
+//=========================================
+
+// VERIFICA A SESSÃO
+if (!isset($_SESSION['a'])) {
+    exit();
+}
 ?>
 
-<div class="container-fluid index-container text-center">
+<?php if(isset($_SESSION['id_cliente']) && $_SESSION['id_cliente'] == true): ?>
 
-    <h3>Página Inicial da Aplicação Web</h3>
+    <div class="container-fluid index-container text-center">
+        <h3>Página inicial da Aplicação web</h3>
+        <div class="row mt-2">
+            <div class="col-md-8 offset-2">
+            </div>
+        </div>
+    </div>
 
-    <!-- BOTÃO PARA ACEDER AO QUADRO DE LOGIN DOS UTILIZADORES/FUNCIONÁRIOS -->
-    <a href="sp-admin/index.php" class="btn btn-outline-primary mt-5 btn-size-200">Utilizadores</a>
+<?php else: ?>
 
-</div>
+    <div class="container-fluid index-container text-center">
+        <h3>Página inicial da Aplicação web</h3>
+        <div class="row mt-2">
+            <div class="col-md-8 offset-2">
+                <!-- BOTÃO PARA ACEDER AO BACKEND -->
+                <a href="?a=backend" class="btn btn-outline-primary"> Backend</a>
+            </div>
+        </div>
+    </div>
+
+<?php endif; ?>

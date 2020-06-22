@@ -8,7 +8,7 @@
         exit();
     }
 
-    $a = 'home';
+    $a = 'inicio';
     if(isset($_GET['a'])){
         $a = $_GET['a'];
     }    
@@ -18,8 +18,11 @@
     //========================================
     switch ($a) {
 
-        // HOME
-        case 'home':                            include_once('inicio.php'); break;
+        // FRONTEND
+        case 'inicio':                          include_once('inicio.php'); break;
+        
+        // BACKEND
+        case 'backend':                         include_once('backend.php'); break;
 
         //========================================
         // CLIENTES

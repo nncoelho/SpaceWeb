@@ -1,6 +1,6 @@
 <?php 
     //=========================================
-    // INICIO DO BACKEND
+    // BACKEND DA APLICAÇÂO WEB
     //=========================================
 
     // VERIFICA A SESSÃO
@@ -12,18 +12,33 @@
     <div class="row mt-5 p-3">
         <div class="col-md-8 offset-md-2 card"> 
             <?php if(funcoes::Permissao(0)): ?>
-                <!-- BOTÃO PARA ACEDER AO SETUP -->
+
+                <!-- SETUP DA BASE DE DADOS -->
                 <div class="text-center mt-5">
-                    <h3><i class="fa fa-database" style="color: green;"></i> Administração da Base de Dados</h3>
-                    <a href="?a=setup" class="btn btn-primary btn-lg btn-size-300 mt-5">Setup da Base de Dados</a><br>
-                    <a href="../index.php" class="btn btn-secondary btn-size-150 mb-5 mt-5">Voltar</a>
+                    <h3><i class="fa fa-database"></i> Área dos Administradores</h3>
+                    <a href="?a=setup" class="btn btn-outline-primary btn-lg btn-size-300 mt-4">Setup da Base de Dados</a><br>
+                    <!-- TABELA DE CLIENTES -->
+                    <a href="?a=clientes_lista" class="btn btn-outline-success btn-lg btn-size-300 mt-4">Tabela de Clientes</a>                    
                 </div>
+                <div class="text-center">
+                    <a href="../index.php?a=backend" class="btn btn-secondary btn-size-150 mb-5 mt-5">Voltar</a>
+                </div>
+
             <?php else: ?>
+
                 <div class="text-center mt-5">
-                    <h3 class="mb-4">Área Reservada a Administradores</h3>
-                    <h1><i class="fa fa-ban mb-3" style="color: red;" aria-hidden="true"></i></h1>
-                    <a href="../index.php" class="btn btn-secondary btn-size-150 mb-5">Voltar</a>
+                    <h3><i class="fa fa-database"></i> Área dos Utilizadores</h3>
+                    <!-- SEM PERMISSÂO -->
+                    <button href="#" class="btn btn-outline-warning btn-lg btn-size-300 mt-4" disabled>
+                        <i class="fa fa-ban"></i> Sem Permissão
+                    </button><br>
+                    <!-- TABELA DE CLIENTES -->
+                    <a href="?a=clientes_lista" class="btn btn-outline-success btn-lg btn-size-300 mt-4">Tabela de Clientes</a>
                 </div>
+                <div class="text-center">
+                    <a href="../index.php?a=backend" class="btn btn-secondary btn-size-150 mb-5 mt-5">Voltar</a>
+                </div>
+
             <?php endif; ?>
         </div>
     </div>

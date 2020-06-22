@@ -11,9 +11,9 @@
     // ACESSO A BASE DE DADOS
     $gestor = new Gestor();
 
-    // LIMPAR OS DADOS DOS UTILIZADORES
+    // LIMPA OS DADOS DOS UTILIZADORES E ZERA O AUTO_INCREMENT
     $gestor->EXE_NON_QUERY('DELETE FROM utilizadores');
-    $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT=1');
+    $gestor->EXE_NON_QUERY('ALTER TABLE utilizadores AUTO_INCREMENT = 1');
     $data = new DateTime();
     
     //==============================================================

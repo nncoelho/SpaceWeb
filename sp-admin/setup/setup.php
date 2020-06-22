@@ -32,6 +32,11 @@
         case 'setup_inserir_utilizadores':
             include('setup_inserir_utilizadores.php');
             break;
+
+        // INSERIR CLIENTES
+        case 'setup_inserir_clientes':
+            include('setup_inserir_clientes.php');
+            break;
     }
 ?>
 
@@ -41,20 +46,24 @@
 <?php else: ?>
 
     <div class="container-fluid p-3">
-        <h2 class="text-center mt-5 mb-5"><i class="fa fa-wrench"></i> Manutenção da Base de Dados</h2>
+        <h2 class="text-center mt-4 mb-5"><i class="fa fa-wrench"></i> Manutenção da Base de Dados</h2>
 
         <div class="text-center">
-            <!-- CRIAR A BASE DE DADOS -->
+            <!-- LIMPA E CONTRÓI A BASE DE DADOS -->
             <p><a href="?a=setup_criar_bd" class="btn btn-warning btn-size-300 mb-1">
-                <i class="fa fa-table fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Limpa e Constrói a Base de Dados</a>
+                <i class="fa fa-table fa-lg"></i>&nbsp;&nbsp;Limpa e Constrói a Base de Dados</a>
             </p>
             <!-- INSERIR UTILIZADORES -->
-            <p><a href="?a=setup_inserir_utilizadores" class="btn btn-success btn-size-300 mt-1">
-                <i class="fa fa-user-plus fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Inserir Utilizadores</a></p>
-            <hr class="mt-5">
+            <p><a href="?a=setup_inserir_utilizadores" class="btn btn-primary btn-size-300 mt-1">
+                <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir Utilizadores</a>
+            </p>
+            <!-- INSERIR CLIENTES -->
+            <p><a href="?a=setup_inserir_clientes" class="btn btn-success btn-size-300 mt-1">
+                <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir Clientes</a>
+            </p>
+            <hr class="mt-5 mb-4">
             <p><a href="../sp-admin/index.php" class="btn btn-secondary mt-3 btn-size-150">Voltar</a></p>
         </div> 
-
     </div>
 
 <?php endif; ?>

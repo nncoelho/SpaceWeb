@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="?a=perfil" class="btn btn-primary btn-size-150">Voltar</a>
+                    <a href="?a=perfil" class="btn btn-secondary btn-size-150">Voltar</a>
                     <button role="submit" class="btn btn-primary btn-size-150">Alterar</button>                    
                 </div>
 

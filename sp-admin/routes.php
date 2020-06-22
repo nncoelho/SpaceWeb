@@ -28,12 +28,12 @@
     }
 
     //=========================================
-    // ROUTES
+    // ROUTES - SWITCH
     //=========================================
     switch ($a) {
 
         //=====================================
-        // LOGIN
+        // LOGIN DOS UTILIZADORES/ADMIN
         case 'login':                           include_once('users/login.php'); break;
         // LOGOUT
         case 'logout':                          include_once('users/logout.php'); break;
@@ -41,7 +41,7 @@
         case 'recuperar_password':              include_once('users/recuperar_password.php'); break;
 
         //=====================================
-        // PERFIL
+        // PERFIL DOS UTILIZADORES
         case 'perfil':                          include_once('users/perfil/perfil_menu.php'); break;
         // ALTERAR PASSWORD
         case 'perfil_alterar_password':         include_once('users/perfil/perfil_alterar_password.php'); break;
@@ -51,7 +51,7 @@
         //=====================================
         // OPÇÕES DISPONVEIS APENAS PARA OS ADMINISTRADORES
         case 'utilizadores_gerir':              include_once('admin/utilizadores_gerir.php'); break;
-        // FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR
+        // ADICIONAR NOVO UTILIZADOR
         case 'utilizadores_adicionar':          include_once('admin/utilizadores_adicionar.php'); break;
         // EDITAR UTILIZADOR
         case 'editar_utilizador':               include_once('admin/utilizadores_editar.php'); break;
@@ -61,18 +61,24 @@
         case 'eliminar_utilizador':             include_once('admin/utilizadores_eliminar.php'); break;
 
         //=====================================
-        // APRESENTA A PÁGINA INICIAL
+        // PÁGINA INICIAL DO BACKEND
         case 'inicio':                          include_once('inicio.php'); break;
-        // APRESENTA A PÁGINA ACERCA DE
+        // PÁGINA DO ABOUT
         case 'about':                           include_once('about.php'); break;
 
         //=====================================
-        // ABRE O MENU DO SETUP
+        // SETUP DA BASE DE DADOS
         case 'setup':                           include_once('setup/setup.php'); break;
-        // SETUP - CRIAR A BASE DE DADOS
+        // LIMPA E CONSTROI A BASE DE DADOS
         case 'setup_criar_bd':                  include_once('setup/setup.php'); break;
-        // SETUP - INSERIR UTILIZADORES
+        // INSERIR UTILIZADORES
         case 'setup_inserir_utilizadores':      include_once('setup/setup.php'); break;
+        // INSERIR CLIENTES
+        case 'setup_inserir_clientes':          include_once('setup/setup.php'); break;
+
+        //=====================================
+        // CLIENTES
+        case 'clientes_lista':                  include_once('clientes/clientes_lista.php'); break;
     }
     
 ?>

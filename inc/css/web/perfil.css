@@ -1,11 +1,13 @@
 /* FICHEIRO DE CSS DO PERFIL DE CLIENTE */
 .perfil{
-    background: linear-gradient(rgb(134, 164, 199), rgb(188, 211, 236));
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:rgb(114, 186, 186);
     color: black;
 }
 
 .btn-link{
-    text-decoration: none;    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
     color: black;
     font-size: 1.1em;
     font-weight: bold;
@@ -13,5 +15,5 @@
 
 .btn-link:hover{
     text-decoration: none;    
-    color: blue;
+    color: rgb(114, 186, 186);
 }

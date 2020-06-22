@@ -17,10 +17,7 @@
     include_once('../inc/emails.php');
 
     include_once('../inc/gestorBD.php');    
-
-    // BARRA DO UTILIZADOR
-    include_once('users/barra_utilizador.php');
-
+    
     include_once('cabecalho.php');   
 
     include_once('routes.php');

@@ -1,5 +1,4 @@
 /* FICHEIRO CSS DO SP-ADMIN */
-
 * {margin: 0px; padding: 0px;}
 
 /* MARGENS */
@@ -103,8 +102,6 @@
 
 .btn-size-300 {width: 300px;}
 
-.btn-transparent {background-color: transparent;}
-
 /* CABEÇALHO */
 .cabecalho {
   background-color: black;
@@ -150,7 +147,4 @@
   font-style: italic;
   opacity: .7; 
 }
-
 .caixa-permissoes label {margin: 0px !important;}
-
-/*# sourceMappingURL=main.css.map */
