@@ -79,6 +79,10 @@
         //=====================================
         // CLIENTES
         case 'clientes_lista':                  include_once('clientes/clientes_lista.php'); break;
+        // VISUALIZACAO DOS DADOS DO CLIENTE
+        case 'clientes_dados':                  include_once('clientes/clientes_dados.php'); break;
+        // ELIMINAR CLIENTE
+        case 'clientes_eliminar':               include_once('clientes/clientes_eliminar.php'); break;
     }
     
 ?>
