@@ -110,5 +110,31 @@
                 return false;
             }
         }
+
+        // =======================================================
+        public static function Paginacao($source, $pagina_atual, $itens_por_pagina, $total_itens){
+            // CRIA E CONTROLA O MECANISMO DE PAGINÇÃO E RESPECTIVA NAVEGAÇÃO
+            $max_paginas = floor($total_itens/$itens_por_pagina);
+
+            echo '<div>';
+
+            // PAGINA ANTERIOR
+            if($pagina_atual == 1){
+                echo '«';
+            } else {
+                echo '<a href="' .$source. '&p=' .($pagina_atual - 1). '">«</a>';
+            }
+
+            echo ' | ';
+
+            // PAGINA SEGUINTE
+            if($pagina_atual == $max_paginas){
+                echo '»';
+            } else {
+                echo '<a href="' .$source. '&p=' .($pagina_atual + 1). '">»</a>';
+            }
+
+            echo '</div>';
+        }
     }
 ?>

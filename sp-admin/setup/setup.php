@@ -26,17 +26,17 @@
         // EXECUTA OS PROCEDIMENTOS PARA A CRIAÇÃO DA BASE DE DADOS
         case 'setup_criar_bd':
             include('setup_criar_bd.php');
-            break;
+        break;
         
         // INSERIR UTILIZADORES
         case 'setup_inserir_utilizadores':
             include('setup_inserir_utilizadores.php');
-            break;
+        break;
 
         // INSERIR CLIENTES
         case 'setup_inserir_clientes':
             include('setup_inserir_clientes.php');
-            break;
+        break;
     }
 ?>
 

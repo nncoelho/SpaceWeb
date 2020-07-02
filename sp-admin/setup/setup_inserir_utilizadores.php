@@ -33,7 +33,7 @@
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
-         $parametros);
+    $parametros);
 
     //==============================================================
     // UTILIZADOR 2 - NUNO - ADMIN SECUNDÁRIO
@@ -52,7 +52,7 @@
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
-         $parametros);
+    $parametros);
 
     //==============================================================
     // UTILIZADOR 3 - VERA
@@ -71,7 +71,7 @@
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
-         $parametros);
+    $parametros);
     
     //==============================================================
     // UTILIZADOR 4 - JORGE
@@ -90,7 +90,7 @@
     $gestor->EXE_NON_QUERY(
         'INSERT INTO utilizadores(utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
          VALUES(:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
-         $parametros);
+    $parametros);
 ?>
 
 <div class="alert alert-success text-center">Utilizadores inseridos com sucesso.</div>

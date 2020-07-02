@@ -4,17 +4,17 @@
 
         [
             'permissao' => 'Administrador',
-            'sumario'   => 'O Utilizador fica como Administrador do Sistema.'
+            'sumario'   => 'O utilizador fica como administrador do sistema.'
         ],
 
         [
-            'permissao' => 'Adicionar, Editar e Remover Utilizadores',
-            'sumario'   => 'O Utilizador fica com a permissão para Adicionar, Editar e Remover Utilizadores.'
+            'permissao' => 'Adicionar, editar e remover utilizadores',
+            'sumario'   => 'O utilizador fica com a permissão para adicionar, editar e remover utilizadores.'
         ],
 
         [
-            'permissao' => 'Eliminar Encomendas',
-            'sumario'   => 'O Utilizador fica com a permissão para poder eliminar encomendas.',
+            'permissao' => 'Eliminar marcações',
+            'sumario'   => 'O utilizador fica com a permissão para poder eliminar marcações.',
         ],
     ];
 

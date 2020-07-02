@@ -18,7 +18,6 @@
 
         // VAI BUSCAR O VALOR INSERIDO NO INPUT
         $novo_email = $_POST['text_novo_email'];
-        
         $gestor = new Gestor();
 
         //=====================================
@@ -33,7 +32,8 @@
         $dados = $gestor->EXE_QUERY(
             'SELECT id_utilizador, email FROM utilizadores
              WHERE id_utilizador <> :id_utilizador
-             AND email = :email',$parametros);
+             AND email = :email',
+        $parametros);
 
         if(count($dados) != 0){
             // OUTRO UTILIZADOR COM O MESMO E-MAIL
@@ -56,8 +56,8 @@
                 'UPDATE utilizadores SET
                  email = :email,
                  atualizado_em = :atualizado_em 
-                 WHERE id_utilizador = :id_utilizador          
-                ',$parametros);
+                 WHERE id_utilizador = :id_utilizador',
+            $parametros);
             
             $sucesso = true;
             $mensagem = 'E-mail atualizado com sucesso.';
@@ -72,13 +72,13 @@
 ?>
 
 <!-- MENSAGENS DE ERRO E SUCESSO -->
-<?php if($erro) : ?>
+<?php if($erro): ?>
     <div class="alert alert-danger text-center">
         <?php echo $mensagem ?>
     </div>
 <?php endif; ?>
 
-<?php if($sucesso) : ?>
+<?php if($sucesso): ?>
     <div class="alert alert-success text-center">
         <?php echo $mensagem ?>
     </div>

@@ -35,7 +35,8 @@
         $dados = $gestor->EXE_QUERY(
             'SELECT id_utilizador, palavra_passe FROM utilizadores
              WHERE id_utilizador = :id_utilizador
-             AND palavra_passe = :palavra_passe',$parametros);
+             AND palavra_passe = :palavra_passe',
+        $parametros);
 
         if(count($dados) == 0){
             // PASSWORD ATUAL ERRADA
@@ -53,7 +54,6 @@
 
         // ATUALIZA A PASSWORD NA BD
         if(!$erro){
-            
             $data_atualizacao = new DateTime();
 
             $parametros = [
@@ -66,8 +66,8 @@
                 'UPDATE utilizadores SET
                  palavra_passe = :palavra_passe,
                  atualizado_em = :atualizado_em 
-                 WHERE id_utilizador = :id_utilizador          
-                ',$parametros);
+                 WHERE id_utilizador = :id_utilizador',
+            $parametros);
             
             $sucesso = true;
             $mensagem = 'Password atualizada com sucesso.';
@@ -140,7 +140,7 @@
                     <a href="?a=perfil" class="btn btn-secondary btn-size-150">Voltar</a>
                     <button role="submit" class="btn btn-primary btn-size-150">Alterar</button>                    
                 </div>
-
+                
             </form>
         </div>        
     </div>

@@ -9,7 +9,6 @@
     }  
 
     $erro = false;
-    // $sucesso = false;
     $mensagem = '';
     $gestor = new Gestor();
 
@@ -87,7 +86,6 @@
 
             // CRIA O LINK DE ATIVAÇÃO
             $config = include('inc/config.php');
-
             $link = $config['BASE_URL'].'?a=validar&v='.$parametros[':codigo_validacao'];
 
             // PREPARAÇÃO DOS DADOS DO EMAIL
@@ -114,7 +112,7 @@
 <div class="container signup mt-5 mb-5">
     <div class="row">
         <div class="col-sm-6 offset-3">
-            <div class="text-center mb-4"><h3><i class="far fa-handshake fa-lg mr-3"></i>Nova Conta de Cliente</h3></div>
+            <div class="text-center mb-4"><h3><i class="fa fa-handshake-o fa-lg mr-2"></i>Nova Conta de Cliente</h3></div>
 
             <form action="" method="post">
                 <!-- NOME COMPLETO DO CLIENTE -->

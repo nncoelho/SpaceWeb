@@ -24,18 +24,16 @@
     ];
     $dados = $gestor->EXE_QUERY(
         'SELECT * FROM utilizadores 
-         WHERE id_utilizador = :id_utilizador',$parametros);
+         WHERE id_utilizador = :id_utilizador',
+    $parametros);
 ?>
 
 <?php if($erro) :?>
-
     <div class="text-center">
         <h3><?php echo $mensagem ?></h3>
         <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>
     </div>
-
 <?php else :?>
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-6 card mt-5 p-5">
@@ -50,5 +48,4 @@
             <a href="?a=inicio" class="btn btn-primary btn-size-150 mt-4">Voltar</a>
         </div>
     </div>
-
 <?php endif; ?>

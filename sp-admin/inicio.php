@@ -6,8 +6,14 @@
     // VERIFICA A SESSÃO
     if(!isset($_SESSION['a'])){
         exit();
-    }    
+    }
+
+    // LIMPA OS FILTROS DAS PESQUISAS DA TABELA DOS CLIENTES
+    if(isset($_SESSION['texto_pesquisa'])){
+        unset($_SESSION['texto_pesquisa']);
+    }
 ?>
+
 <div class="container pad-20">
     <div class="row mt-5 p-3">
         <div class="col-md-8 offset-md-2 card"> 

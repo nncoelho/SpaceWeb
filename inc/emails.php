@@ -19,12 +19,11 @@
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->SMTPOptions = array(
-                    'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                    )
-                );
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true)
+            );
 
             $mail->isHTML();
             $mail->SMTPDebug = $configs['MAIL_DEBUG'];
@@ -47,10 +46,10 @@
 
             // ENVIO DA MENSAGEM
             $enviada = false;
-            if($mail->send()){ $enviada = true; }
+            if($mail->send()){$enviada = true;}
             return $enviada;
         }
-                
+        
         // =========================================================
         public function EnviarEmailCliente($dados){
 
@@ -67,12 +66,11 @@
             $mail = new PHPMailer();
             $mail->isSMTP();
             $mail->SMTPOptions = array(
-                    'ssl' => array(
-                    'verify_peer' => false,
-                    'verify_peer_name' => false,
-                    'allow_self_signed' => true
-                    )
-                );
+                'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true)
+            );
 
             $mail->isHTML();
             $mail->SMTPDebug = $configs['MAIL_DEBUG'];
@@ -95,7 +93,7 @@
 
             // ENVIO DA MENSAGEM
             $enviada = false;
-            if($mail->send()){ $enviada = true; }
+            if($mail->send()){$enviada = true;}
             return $enviada;
         }
     }

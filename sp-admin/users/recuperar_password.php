@@ -14,6 +14,7 @@
 
     // VERIFICA SE EXISTE UM POST
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
         $text_email = $_POST['text_email'];
 
         // CRIA O OBJETO DA BASE DE DADOS
@@ -34,7 +35,7 @@
         }
         
         // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O E-MAIL INDICADO)
-        else{
+        else {
 
             // RECUPERAR A PASSWORD
             $nova_password = funcoes::CriarCodigoAlfanumerico(15);
@@ -65,7 +66,8 @@
                 $gestor->EXE_NON_QUERY(
                     'UPDATE utilizadores
                     SET palavra_passe = :palavra_passe
-                    WHERE id_utilizador = :id_utilizador', $parametros);
+                    WHERE id_utilizador = :id_utilizador',
+                $parametros);
 
                 // LOG
                 funcoes::CriarLOG('O utilizador '.$dados[0]['nome'].' solicitou recuperação da password.', $dados[0]['nome']);

@@ -1,102 +1,103 @@
 <?php
-//========================================================
-// GESTÃO DE UTILIZADORES - EDITAR UTILIZADOR
-//========================================================
+    //========================================================
+    // GESTÃO DE UTILIZADORES - EDITAR UTILIZADOR
+    //========================================================
 
-// VERIFICA A SESSÃO
-if (!isset($_SESSION['a'])) {
-    exit();
-}
-
-// VERIFICA PERMISSÃO
-$erro_permissao = false;
-if (!funcoes::Permissao(0)) {
-    $erro_permissao = true;
-}
-
-// VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
-$id_utilizador = -1;
-if (isset($_GET['id'])) {
-    $id_utilizador = $_GET['id'];
-} else {
-    $erro_permissao = true;
-}
-
-// VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
-if ($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']) {
-    $erro_permissao = true;
-}
-
-// =======================================================
-$gestor = new Gestor();
-$dados_utilizador = null;
-
-$erro = false;
-$sucesso = false;
-$mensagem = '';
-
-if (!$erro_permissao) {
-    // VAI BUSCAR OS DADOS DO UTILIZADOR
-    $parametros = [':id_utilizador' => $id_utilizador];
-    $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
-                                                WHERE id_utilizador = :id_utilizador', $parametros);
-    // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
-    if (count($dados_utilizador) == 0) {
-        $erro = true;
-        $mensagem = 'Não foram encontrados dados do perfil de utilizador.';
-    }
-}
-
-//========================================================
-// METODO POST
-//========================================================
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    // VAI BUSCAR OS DADOS DAS TEXTS
-    $nome = $_POST['text_nome'];
-    $email = $_POST['text_email'];
-
-    // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
-    $parametros = [
-        ':id_utilizador' => $id_utilizador,
-        ':email'         => $email
-    ];
-
-    $temp = $gestor->EXE_QUERY('SELECT * FROM utilizadores
-                                    WHERE id_utilizador <> :id_utilizador
-                                    AND email = :email', $parametros);
-    if (count($temp) != 0) {
-        $erro = true;
-        $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
+    // VERIFICA A SESSÃO
+    if (!isset($_SESSION['a'])) {
+        exit();
     }
 
-    //==========================================================
-    // ATUALIZA OS DADOS DO UTILIZADOR NA BASE DE DADOS
-    if (!$erro) {
+    // VERIFICA PERMISSÃO
+    $erro_permissao = false;
+    if (!funcoes::Permissao(0)) {
+        $erro_permissao = true;
+    }
+
+    // VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
+    $id_utilizador = -1;
+    if (isset($_GET['id'])) {
+        $id_utilizador = $_GET['id'];
+    } else {
+        $erro_permissao = true;
+    }
+
+    // VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
+    if ($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']) {
+        $erro_permissao = true;
+    }
+
+    // =======================================================
+    $gestor = new Gestor();
+    $dados_utilizador = null;
+
+    $erro = false;
+    $sucesso = false;
+    $mensagem = '';
+
+    if (!$erro_permissao) {
+        // VAI BUSCAR OS DADOS DO UTILIZADOR
+        $parametros = [':id_utilizador' => $id_utilizador];
+        $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
+                                                    WHERE id_utilizador = :id_utilizador', $parametros);
+        // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
+        if (count($dados_utilizador) == 0) {
+            $erro = true;
+            $mensagem = 'Não foram encontrados dados do perfil de utilizador.';
+        }
+    }
+
+    //========================================================
+    // METODO POST
+    //========================================================
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // VAI BUSCAR OS DADOS DAS TEXTS
+        $nome = $_POST['text_nome'];
+        $email = $_POST['text_email'];
+
+        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
         $parametros = [
             ':id_utilizador' => $id_utilizador,
-            ':nome'          => $nome,
-            ':email'         => $email,
-            ':atualizado_em' => Datas::DataHoraAtualBD()
+            ':email'         => $email
         ];
 
-        $gestor->EXE_NON_QUERY(
-            'UPDATE utilizadores SET
-                nome  = :nome,
-                email = :email,
-                atualizado_em = :atualizado_em
-                WHERE id_utilizador = :id_utilizador',
-            $parametros
-        );
+        $temp = $gestor->EXE_QUERY('SELECT * FROM utilizadores
+                                        WHERE id_utilizador <> :id_utilizador
+                                        AND email = :email',
+        $parametros);
 
-        // SUCESSO
-        $sucesso = true;
-        $mensagem = 'Dados do perfil do utilizador atualizados com sucesso.';
+        if (count($temp) != 0) {
+            $erro = true;
+            $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
+        }
 
-        $parametros = [':id_utilizador' => $id_utilizador];
-        $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
+        //==========================================================
+        // ATUALIZA OS DADOS DO UTILIZADOR NA BASE DE DADOS
+        if (!$erro) {
+            $parametros = [
+                ':id_utilizador' => $id_utilizador,
+                ':nome'          => $nome,
+                ':email'         => $email,
+                ':atualizado_em' => Datas::DataHoraAtualBD()
+            ];
+
+            $gestor->EXE_NON_QUERY(
+                'UPDATE utilizadores SET
+                 nome  = :nome,
+                 email = :email,
+                 atualizado_em = :atualizado_em
+                 WHERE id_utilizador = :id_utilizador',
+            $parametros);
+
+            // SUCESSO
+            $sucesso = true;
+            $mensagem = 'Dados do perfil do utilizador atualizados com sucesso.';
+
+            $parametros = [':id_utilizador' => $id_utilizador];
+            $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
+        }
     }
-}
 ?>
 
 <!-- ERRO DE PERMISSÃO -->
@@ -130,6 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="row mt-4 mb-3 p-3">
                 <div class="col-8 offset-2 mb-5 card p-4">
                     <h4 class="text-center mt-3 mb-4"><i class="fa fa-edit"></i> Editar Dados do Perfil de Utilizador</h4>
+
                     <form action="?a=editar_utilizador&id=<?php echo $id_utilizador ?>" method="post">
                         <div class="form-group">
                             <label>Utilizador:</label>
@@ -148,11 +150,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
 
                             <div class="text-center">
-                                <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
+                                <a href="?a=utilizadores_gerir" class="btn btn-secondary btn-size-150">Voltar</a>
                                 <button class="btn btn-primary btn-size-150">Atualizar</button>
                             </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>

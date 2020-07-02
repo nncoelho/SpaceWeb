@@ -60,7 +60,9 @@
 
         $dtemp = $gestor->EXE_QUERY('SELECT utilizador 
                                      FROM utilizadores
-                                     WHERE utilizador = :utilizador', $parametros);
+                                     WHERE utilizador = :utilizador', 
+        $parametros);
+
         if(count($dtemp)!=0){
             $erro = true;
             $mensagem = 'Já existe um utilizador com o mesmo nome.';
@@ -74,7 +76,9 @@
 
             $dtemp = $gestor->EXE_QUERY('SELECT email 
                                          FROM utilizadores
-                                         WHERE email = :email', $parametros);
+                                         WHERE email = :email',
+            $parametros);
+
             if(count($dtemp)!=0){
                 $erro = true;
                 $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
@@ -97,7 +101,8 @@
                 INSERT INTO utilizadores
                     (utilizador, palavra_passe, nome, email, permissoes, criado_em, atualizado_em)
                 VALUES
-                    (:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',$parametros);
+                    (:utilizador, :palavra_passe, :nome, :email, :permissoes, :criado_em, :atualizado_em)',
+            $parametros);
             
             // ENVIAR O E-MAIL PARA O NOVO UTILIZADOR
             $mensagem = [
@@ -105,7 +110,9 @@
                 'SpaceWeb - Criação de Nova Conta de Utilizador',
                 "<h4>Foi criada a sua nova conta de utilizador com os seguintes dados:</h4><p><b>Utilizador:</b> $utilizador </p><p><b>Password:</b> $password </p>"
             ];
+
             $mail = new emails();
+            
             $mail->EnviarEmail($mensagem);
             
             // APRESENTAR UM ALERTA DE SUCESSO
@@ -130,7 +137,7 @@
         <div class="row mb-5 justify-content-center">
             <div class="col-sm-8 card my-5 p-5">
 
-                <h4 class="text-center mb-4"><i class="fa fa-address-book" aria-hidden="true"></i> Adicionar Novo Utilizador</h4>
+                <h4 class="text-center"><i class="fa fa-address-book" aria-hidden="true"></i> Adicionar Novo Utilizador</h4>
                 <hr>
                 <!-- FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR -->
                 <form action="?a=utilizadores_adicionar" method="POST">
@@ -228,11 +235,10 @@
                                     &nbsp;&nbsp;&nbsp;
                                 <a href="#" onclick="checks(false); return false">Nenhuma</a> <i class="fa fa-square-o" aria-hidden="true"></i>
                             </div>
-
                         </div>
                     </div>
                 </form>
-
+                
             </div>        
         </div>
     </div>

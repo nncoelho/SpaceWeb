@@ -16,17 +16,17 @@
         <!-- CLIENTE LOGADO -->
         <?php if(funcoes::VerificarLoginCliente()): ?>
 
-            <i class="fas fa-user mr-2"></i><?php echo $_SESSION['nome_cliente'] ?>
+            <i class="fa fa-user mr-2"></i><?php echo $_SESSION['nome_cliente'] ?>
 
             <!-- DROPDOWN MENU -->
             <div class="dropdown d-inline">
                 <a class="btn btn-secondary ml-2 mr-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" 
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Definições <i class="fas fa-cog"></i>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Definições <i class="fa fa-cog"></i>
                 </a>
                 <div class="dropdown-menu mr-4" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="?a=perfil"><i class="far fa-id-card"></i> Acesso ao Perfil</a>
+                    <a class="dropdown-item" href="?a=perfil"><i class="fa fa-id-card"></i> Acesso ao Perfil</a>
                         <div class="dropdown-divider"></div>                                    
-                    <a class="dropdown-item" href="?a=logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a class="dropdown-item" href="?a=logout"><i class="fa fa-sign-out"></i> Logout</a>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
 
                 <!-- INTERRUPTOR -->
                 <a href="" class="mr-2" id="dropdownMenuButton" data-toggle="dropdown" 
-                    aria-haspopup="true" aria-expanded="false"><i class="fas fa-sign-in-alt"></i> Login
+                    aria-haspopup="true" aria-expanded="false"><i class="fa fa-sign-in"></i> Login
                 </a>|
                 
                 <!-- DROPDOWN FORM -->
@@ -73,7 +73,7 @@
             </div>
 
             <div class="d-inline">
-                <a href="?a=signup" class="ml-2"><i class="fas fa-user-plus"></i> Signup</a>
+                <a href="?a=signup" class="ml-2"><i class="fa fa-user-plus"></i> Signup</a>
             </div>
 
         <?php endif; ?>

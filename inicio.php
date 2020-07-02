@@ -10,7 +10,6 @@ if (!isset($_SESSION['a'])) {
 ?>
 
 <?php if(isset($_SESSION['id_cliente']) && $_SESSION['id_cliente'] == true): ?>
-
     <div class="container-fluid index-container text-center">
         <h3>Página inicial da Aplicação web</h3>
         <div class="row mt-2">
@@ -18,9 +17,7 @@ if (!isset($_SESSION['a'])) {
             </div>
         </div>
     </div>
-
 <?php else: ?>
-
     <div class="container-fluid index-container text-center">
         <h3>Página inicial da Aplicação web</h3>
         <div class="row mt-2">
@@ -30,5 +27,4 @@ if (!isset($_SESSION['a'])) {
             </div>
         </div>
     </div>
-
 <?php endif; ?>

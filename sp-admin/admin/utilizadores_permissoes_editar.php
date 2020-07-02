@@ -43,7 +43,8 @@
         // VAI BUSCAR OS DADOS DO UTILIZADOR
         $parametros = [':id_utilizador' => $id_utilizador];
         $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
-                                                WHERE id_utilizador = :id_utilizador', $parametros);
+                                                WHERE id_utilizador = :id_utilizador',
+        $parametros);
 
         // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
         if(count($dados_utilizador)==0){
@@ -172,14 +173,14 @@
 
                         <!-- BOTÕES -->
                         <div class="text-center mt-5">
-                            <a href="?a=utilizadores_gerir" class="btn btn-primary btn-size-150">Voltar</a>
+                            <a href="?a=utilizadores_gerir" class="btn btn-secondary btn-size-150">Voltar</a>
                             <button type="submit" class="btn btn-primary btn-size-150">Atualizar</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
-
     <?php endif; ?>
 
 <?php endif; ?>

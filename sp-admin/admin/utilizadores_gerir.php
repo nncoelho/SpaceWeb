@@ -30,7 +30,6 @@
                 </div>
 
                 <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS ?>
-
                 <table class="table">
 
                     <thead class="thead-dark">
@@ -49,7 +48,6 @@
                     ?>
 
                     <?php foreach($dados_utilizadores as $utilizador) : ?>
-
                         <tr>
                             <!-- DIFERENCIAÇÃO DO ICON DE ADMINISTRADOR -->
                             <?php if(substr($utilizador['permissoes'], 0, 1) == 1) : ?>
@@ -88,12 +86,11 @@
                                         <i class="fa fa-cog text-muted"></i>
                                     </div>
                                 <?php endif; ?>
-
                             </td>
-                        </tr>
 
-                    <?php endforeach; ?>
-                    
+                        </tr>
+                    <?php endforeach; ?>  
+
                 </table>
             </div>
         </div>

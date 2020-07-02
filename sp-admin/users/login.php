@@ -27,14 +27,14 @@
         $dados = $gestor->EXE_QUERY(
             'SELECT * FROM utilizadores
              WHERE utilizador = :utilizador
-             AND palavra_passe = :palavra_passe',$parametros);
+             AND palavra_passe = :palavra_passe',
+        $parametros);
         
         if(count($dados) == 0){
             // LOGIN INVÁLIDO
             $erro = true;
             $mensagem = 'Dados de login inválidos.';
         } else {
-
             // LOGIN VÁLIDO
             $erro = false;
             // INICIA A SESSÃO
@@ -46,17 +46,14 @@
 ?>
 
 <?php if($erro): ?>
-
     <?php 
         if($mensagem!=''){
             echo '<div class="alert alert-danger text-center">'.$mensagem.'</div>';
         }
     ?>
 
-    <div class="container-fluid">
-        
+    <div class="container-fluid">        
         <h3 class="text-center mt-5"><i class="fa fa-users" aria-hidden="true"></i> Login de Utilizadores</h3>
-
         <div class="row justify-content-center">        
             <div class="col-md-4 card mt-2 p-4">
 
@@ -75,7 +72,6 @@
                 <div class="text-center">
                     <a href="?a=recuperar_password">Recuperar Password</a>
                 </div>
-
             </div>        
         </div>
     </div>
@@ -95,6 +91,6 @@
                 </div>
             </div>        
         </div>
-    </div>   
+    </div>
 
 <?php endif; ?>

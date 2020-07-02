@@ -24,7 +24,6 @@
         //=====================================
         include_once('users/barra_utilizador.php');
     ?>
-    
     <!-- CABEÇALHO E LOGOTIPO -->
     <div class="container-fluid cabecalho">
         <a href="../index.php?a=backend"><img class="logo" src="../images/logo.png"></a>

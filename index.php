@@ -1,6 +1,6 @@
 <?php
     //=========================================
-    // INDEX GERAL/PRINCIPAL DA APLICAÇÃO WEB
+    // INDEX PRINCIPAL DA APLICAÇÃO WEB
     //=========================================
     
     // CONTROLO DE SESSÃO
