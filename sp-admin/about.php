@@ -9,4 +9,4 @@ if (!isset($_SESSION['a'])) {
 }
 ?>
 
-<p>About - (Acerca de)</p>
+<p>About - Acerca de</p>

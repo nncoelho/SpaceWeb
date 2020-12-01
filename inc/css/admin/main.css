@@ -203,6 +203,10 @@
   width: 300px;
 }
 
+.btn-size-350 {
+  width: 350px;
+}
+
 /* CABEÇALHO */
 .cabecalho {
   background-color: black;

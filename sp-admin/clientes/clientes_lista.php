@@ -60,7 +60,7 @@ if (isset($_SESSION['texto_pesquisa'])) {
 <div class="container mb-5">
     <div class="row mt-2 mb-2">
         <div class="col-sm-8 col-12 align-self-center">
-            <h4><i class="fa fa-list-alt"></i> Listagem de Clientes</h4>
+            <h4><i class="fa fa-list-alt"></i> Listagem de clientes</h4>
             <!-- MECANISMO DE PAGINAÇÃO -->
             <?php funcoes::Paginacao('?a=clientes_lista', $pagina, $itens_por_pagina, $total_clientes); ?>
         </div>

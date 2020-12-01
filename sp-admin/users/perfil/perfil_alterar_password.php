@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card mt-5 p-4">
-            <h4 class="text-center"><i class="fa fa-key" aria-hidden="true"></i> Alterar Password</h4>
+            <h4 class="text-center"><i class="fa fa-key" aria-hidden="true"></i> Alterar password</h4>
             <hr>
 
             <!-- FORMULÁRIO -->
@@ -111,14 +111,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
-                        <label>Nova Password:</label>
+                        <label>Nova password:</label>
                         <input type="password" class="form-control" name="text_password_nova_1" required title="No mínimo 3 e no máximo 20 caracteres." pattern=".{3,20}">
                     </div>
                 </div>
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
-                        <label>Repetir a Nova Password:</label>
+                        <label>Repetir a nova password:</label>
                         <input type="password" class="form-control" name="text_password_nova_2" required title="No mínimo 3 e no máximo 20 caracteres." pattern=".{3,20}">
                     </div>
                 </div>

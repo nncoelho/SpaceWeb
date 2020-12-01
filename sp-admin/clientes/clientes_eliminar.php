@@ -25,7 +25,7 @@ $dados = $gestor->EXE_QUERY('SELECT * FROM clientes WHERE id_cliente = :id_clien
 // VERIFICA SE O CLIENTE EXISTE
 if (count($dados) == 0) {
     $erro = true;
-    $mensagem = 'Não existe nenhum cliente a eliminar com o ID indicado.';
+    $mensagem = 'Não existe nenhum cliente a eliminar com o id indicado.';
 }
 
 // ELIMINAÇÃO DO CLIENTE
@@ -62,7 +62,7 @@ if (!$erro) {
                     <div class="card mt-5 p-5">
                         <h5>Tem a certeza que pretende eliminar o cliente:</h5>
                         <p>
-                            <b><?php echo $dados[0]['nome'] ?></b> cujo o ID é o número: <b><?php echo $dados[0]['id_cliente'] ?></b> ?
+                            <b><?php echo $dados[0]['nome'] ?></b> cujo o id é o número: <b><?php echo $dados[0]['id_cliente'] ?></b> ?
                         </p>
                         <div class="mt-3">
                             <a href="?a=clientes_lista" class="btn btn-secondary btn-size-100">Não</a>

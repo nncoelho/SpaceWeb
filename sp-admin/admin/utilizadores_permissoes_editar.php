@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container">
             <div class="row mt-3 mb-3 p-3">
                 <div class="col-8 offset-2 mb-5 card p-4">
-                    <h4 class="text-center"><i class="fa fa-list"></i> Editar Permissões</h4>
+                    <h4 class="text-center"><i class="fa fa-list"></i> Editar permissões</h4>
 
                     <!-- DADOS DO UTILIZADOR -->
                     <hr>
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div>
                                 <a href="#" onclick="checks(true); return false">Todas</a> <i class="fa fa-check-square" aria-hidden="true"></i>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="#" onclick="checks(false); return false">Nenhumas</a> <i class="fa fa-square-o" aria-hidden="true"></i>
+                                <a href="#" onclick="checks(false); return false">Nenhuma</a> <i class="fa fa-square-o" aria-hidden="true"></i>
                             </div>
                         </div>
 

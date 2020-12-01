@@ -206,7 +206,7 @@ $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
 <div class="container-fluid perfil">
 
     <div class="container p-4">
-        <h3 class="text-center mb-3">Editar Perfil de Cliente</h3>
+        <h3 class="text-center mb-3">Editar perfil do cliente</h3>
 
         <div class="col-md-8 offset-2 col-xs-12">
 
@@ -216,7 +216,7 @@ $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
                 <div class="card">
                     <div class="card-header" id="caixa_utilizador">
                         <h6 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#t_1" aria-expanded="false" aria-controls="collapseOne">Alterar Nome Completo
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#t_1" aria-expanded="false" aria-controls="collapseOne">Alterar nome completo
                             </button>
                         </h6>
                     </div>
@@ -245,7 +245,7 @@ $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
                 <div class="card">
                     <div class="card-header" id="caixa_email">
                         <h6 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#t_2" aria-expanded="false" aria-controls="collapseTwo">Alterar E-mail
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#t_2" aria-expanded="false" aria-controls="collapseTwo">Alterar e-mail
                             </button>
                         </h6>
                     </div>
@@ -279,7 +279,7 @@ $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
                 <div class="card">
                     <div class="card-header" id="caixa_senha">
                         <h6 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#t_3" aria-expanded="false" aria-controls="collapseThree">Alterar Password
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#t_3" aria-expanded="false" aria-controls="collapseThree">Alterar password
                             </button>
                         </h6>
                     </div>

@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>
 
     <div class="container-fluid">
-        <h3 class="text-center mt-5"><i class="fa fa-users" aria-hidden="true"></i> Login de Utilizadores</h3>
+        <h3 class="text-center mt-5"><i class="fa fa-users" aria-hidden="true"></i> Login de utilizadores</h3>
         <div class="row justify-content-center">
             <div class="col-md-4 card mt-2 p-4">
 
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </form>
 
                 <div class="text-center">
-                    <a href="?a=recuperar_password">Recuperar Password</a>
+                    <a href="?a=recuperar_password">Recuperar password</a>
                 </div>
             </div>
         </div>

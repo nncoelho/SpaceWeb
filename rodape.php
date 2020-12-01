@@ -10,8 +10,8 @@
                 <h6>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fa fa-envelope"></i> <a href="mailto:geral@spaceweb.com">
                         geral@spaceweb.com</a>
                 </h6>
-                <p>Aplicação Web Desenvolvida em HTML5 CSS3 JavaScript e PHP com acesso a Base de Dados MySQL e com envio de E-mails
-                    através do PHPMailer e do Composer.
+                <p>Aplicação web desenvolvida em HTML5 CSS3 JavaScript e PHP com acesso a base de dados MySQL e com envio de e-mails
+                    através do suporte do PHPMailer e do Composer.
                 </p>
             </div>
             <div class="col-sm-6 col-12 rodape-social text-right">

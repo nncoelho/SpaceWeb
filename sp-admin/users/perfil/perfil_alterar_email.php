@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col card mt-5 p-4">
-            <h4 class="text-center"><i class="fa fa-at" aria-hidden="true"></i> Alterar E-mail</h4>
+            <h4 class="text-center"><i class="fa fa-at" aria-hidden="true"></i> Alterar e-mail</h4>
             <hr>
 
             <!-- APRESENTA O E-MAIL ATUAL -->
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <div class="col-sm-4 offset-sm-4 justify-content-center">
                     <div class="form-group">
-                        <label>Novo E-mail:</label>
+                        <label>Novo e-mail:</label>
                         <input type="email" class="form-control" name="text_novo_email" required title="No mínimo 5 e no máximo 50 caracteres." pattern=".{5,50}">
                     </div>
                 </div>

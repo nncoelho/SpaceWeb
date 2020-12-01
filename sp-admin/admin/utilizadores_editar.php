@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (count($temp) != 0) {
         $erro = true;
-        $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
+        $mensagem = 'Já existe outro utilizador com o mesmo e-mail.';
     }
 
     //==========================================================
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="container">
             <div class="row mt-4 mb-3 p-3">
                 <div class="col-8 offset-2 mb-5 card p-4">
-                    <h4 class="text-center mt-3 mb-4"><i class="fa fa-edit"></i> Editar Dados do Perfil de Utilizador</h4>
+                    <h4 class="text-center mt-3 mb-4"><i class="fa fa-edit"></i> Editar perfil de utilizador</h4>
 
                     <form action="?a=editar_utilizador&id=<?php echo $id_utilizador ?>" method="post">
                         <div class="form-group">

@@ -46,20 +46,20 @@ switch ($a) {
 <?php else : ?>
 
     <div class="container-fluid p-3">
-        <h2 class="text-center mt-4 mb-5"><i class="fa fa-wrench"></i> Manutenção da Base de Dados</h2>
+        <h2 class="text-center mt-4 mb-5"><i class="fa fa-wrench"></i> Manutenção da base de dados</h2>
 
         <div class="text-center">
             <!-- LIMPA E CONTRÓI A BASE DE DADOS -->
             <p><a href="?a=setup_criar_bd" class="btn btn-warning btn-size-300 mb-1">
-                    <i class="fa fa-table fa-lg"></i>&nbsp;&nbsp;Limpa e Constrói a Base de Dados</a>
+                    <i class="fa fa-table fa-lg"></i>&nbsp;&nbsp;Limpa e constrói a base de dados</a>
             </p>
             <!-- INSERIR UTILIZADORES -->
             <p><a href="?a=setup_inserir_utilizadores" class="btn btn-primary btn-size-300 mt-1">
-                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir Utilizadores</a>
+                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir utilizadores</a>
             </p>
             <!-- INSERIR CLIENTES -->
             <p><a href="?a=setup_inserir_clientes" class="btn btn-success btn-size-300 mt-1">
-                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir Clientes</a>
+                    <i class="fa fa-user-plus fa-lg"></i>&nbsp;&nbsp;Inserir clientes</a>
             </p>
             <hr class="mt-5 mb-4">
             <p><a href="../sp-admin/index.php" class="btn btn-secondary mt-3 btn-size-150">Voltar</a></p>

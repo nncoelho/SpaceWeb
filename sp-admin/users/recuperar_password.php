@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // VERIFICAR SE FOI ENCONTRADO E-MAIL
     if (count($dados) == 0) {
         $erro = true;
-        $mensagem = 'Não foi encontrada nenhuma conta de utilizador com esse E-mail.';
+        $mensagem = 'Não foi encontrada nenhuma conta de utilizador com esse e-mail.';
     }
 
     // NO CASO DE NÃO HAVER ERRO (FOI ENCONTRADA CONTA DE UTILIZADOR COM O E-MAIL INDICADO)
@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // PREPARAÇÃO DOS DADOS DO E-MAIL
         $temp = [
             $dados[0]['email'],
-            'SpaceWeb - Recuperação da Password',
-            '<h3>SpaceWeb</H3><h4>Recuperação Da Password</h4><p>' . $nova_password . '</p>'
+            'SpaceWeb - Recuperação da password',
+            '<h3>Spaceweb</H3><h4>Recuperação da password</h4><p>' . $nova_password . '</p>'
         ];
 
         // ENVIO DO E-MAIL
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             // ACONTECEU UM ERRO
             $erro = true;
-            $mensagem = 'Atenção: O E-mail de recuperação não foi enviado com sucesso. Tente novamente.';
+            $mensagem = 'Atenção: O e-mail de recuperação não foi enviado com sucesso. Tente novamente.';
         }
     }
 }
@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <form action="?a=recuperar_password" method="post">
                     <div class="text-center">
-                        <h3 class="mt-3 mb-4"><i class="fa fa-unlock-alt"></i> Recuperar Password</h3>
-                        <p>Coloque aqui o seu endereço de E-mail<br>para seguir as instruções de recuperação da password.</p>
+                        <h3 class="mt-3 mb-4"><i class="fa fa-unlock-alt"></i> Recuperar password</h3>
+                        <p>Coloque aqui o seu endereço de e-mail<br>para seguir as instruções de recuperação da password.</p>
                     </div>
                     <div class="form-group">
                         <input type="email" name="text_email" class="form-control" placeholder="E-mail" required>

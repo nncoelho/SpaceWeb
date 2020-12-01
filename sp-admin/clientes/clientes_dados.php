@@ -37,7 +37,7 @@ if ($id != -1) {
 
                 <!-- APRESENTAR OS DADOS DO CLIENTE -->
                 <div class="card mt-5 mb-5 p-4">
-                    <h4 class="text-center mb-5"><i class="fa fa-id-card"></i> Dados do Cliente</h4>
+                    <h4 class="text-center mb-5"><i class="fa fa-id-card"></i> Dados do cliente</h4>
                     <p class="ml-5"><i class="fa fa-user-circle-o"></i> <b><?php echo $cliente['nome'] ?></b></p>
                 </div>
                 <div class="text-center">
@@ -47,7 +47,7 @@ if ($id != -1) {
             <?php else : ?>
                 <!-- ERRO -->
                 <div class="alert alert-danger text-center mt-4">
-                    Não existe nenhum cliente a apresentar com o ID indicado.
+                    Não existe nenhum cliente a apresentar com o id indicado.
                 </div>
                 <div class="text-center">
                     <a href="?a=clientes_lista" class="btn btn-primary btn-size-150 mt-2 text-center">Voltar</a>

@@ -22,11 +22,11 @@ if (!funcoes::Permissao(0)) {
     <div class="container">
         <div class="row mt-2 mb-5 justify-content-center">
             <div class="col card mt-4 mb-5 p-3">
-                <h4 class="text-center mt-2 mb-4"><i class="fa fa-cogs" aria-hidden="true"></i> Gestão de Utilizadores</h4>
+                <h4 class="text-center mt-2 mb-4"><i class="fa fa-cogs" aria-hidden="true"></i> Gestão de utilizadores</h4>
 
                 <div class="text-center mb-4">
                     <a href="?a=inicio" class="btn btn-primary btn-size-150">Voltar</a>&nbsp;&nbsp;&nbsp;
-                    <a href="?a=utilizadores_adicionar" class="btn btn-success btn-size-150">Novo Utilizador</a>
+                    <a href="?a=utilizadores_adicionar" class="btn btn-success btn-size-150">Novo utilizador</a>
                 </div>
 
                 <?php // TABELA DOS UTILIZADORES REGISTADOS NA BASE DE DADOS 

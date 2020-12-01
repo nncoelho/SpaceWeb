@@ -67,4 +67,4 @@ $gestor->EXE_NON_QUERY(
 );
 ?>
 
-<div class="alert alert-success text-center">Base de dados limpa e construida com sucesso.</div>
+<div class="alert alert-success text-center">Base de dados limpa e reconstruida com sucesso.</div>

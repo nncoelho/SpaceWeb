@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (count($dtemp) != 0) {
             $erro = true;
-            $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
+            $mensagem = 'Já existe outro utilizador com o mesmo e-mail.';
         }
     }
 
@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // ENVIAR O E-MAIL PARA O NOVO UTILIZADOR
         $mensagem = [
             $email,
-            'SpaceWeb - Criação de Nova Conta de Utilizador',
+            'SpaceWeb - Criação de nova conta de utilizador',
             "<h4>Foi criada a sua nova conta de utilizador com os seguintes dados:</h4><p><b>Utilizador:</b> $utilizador </p><p><b>Password:</b> $password </p>"
         ];
 
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row mb-5 justify-content-center">
             <div class="col-sm-8 card my-5 p-5">
 
-                <h4 class="text-center"><i class="fa fa-address-book" aria-hidden="true"></i> Adicionar Novo Utilizador</h4>
+                <h4 class="text-center"><i class="fa fa-address-book" aria-hidden="true"></i> Adicionar novo utilizador</h4>
                 <hr>
                 <!-- FORMULÁRIO PARA ADICIONAR NOVO UTILIZADOR -->
                 <form action="?a=utilizadores_adicionar" method="POST">
@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="col">
                                 <button type="button" class="btn btn-warning" onclick="gerarPassword(10)">
-                                    <i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;&nbsp;Gerar Password
+                                    <i class="fa fa-bolt" aria-hidden="true"></i>&nbsp;&nbsp;Gerar password
                                 </button>
                             </div>
                         </div>
@@ -183,13 +183,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="text-center my-4">
                         <a href="?a=utilizadores_gerir" class="btn btn-secondary btn-size-150">Cancelar</a>&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-primary btn-size-150">Criar Utilizador</button>
+                        <button class="btn btn-primary btn-size-150">Criar utilizador</button>
                     </div>
 
                     <hr class="my-4">
 
                     <div class="text-center my-4">
-                        <button type="button" class="btn btn-dark" data-toggle="collapse" data-target="#caixa_permissoes"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>&nbsp;&nbsp; Definir Permissões
+                        <button type="button" class="btn btn-dark" data-toggle="collapse" data-target="#caixa_permissoes"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>&nbsp;&nbsp; Definir permissões
                         </button>
                     </div>
 

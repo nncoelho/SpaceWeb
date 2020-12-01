@@ -44,15 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':utilizador'       => $utilizador
         ];
 
-        $dados = $gestor->EXE_QUERY('
-                SELECT * FROM clientes WHERE
-                nome = :nome OR
-                email = :email OR
-                utilizador = :utilizador', $parametros);
+        $dados = $gestor->EXE_QUERY('SELECT * FROM clientes WHERE nome = :nome OR email = :email OR utilizador = :utilizador', $parametros);
 
         if (count($dados) != 0) {
             $erro = true;
-            $mensagem = 'Já existe um cliente com o mesmo nome, email ou utilizador definido.';
+            $mensagem = 'Já existe um cliente com o mesmo email ou utilizador definido.';
         }
     }
 
@@ -90,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $temp = [
             $email,
 
-            '<h3>SpaceWeb - Ativação da Conta de Cliente</h3>',
-            '<p>Clique no link seguinte para validar e ativar a sua conta de cliente:</p>' .
+            '<h3>Spaceweb - Ativação da conta de cliente</h3>',
+            '<p>Clique no link para validar e ativar a sua conta de cliente:</p>' .
 
                 '<a href="' . $link . '">' . $link . '</a>'
         ];
@@ -112,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="row">
         <div class="col-sm-6 offset-3">
             <div class="text-center mb-4">
-                <h3><i class="fa fa-handshake-o fa-lg mr-2"></i>Nova Conta de Cliente</h3>
+                <h3><i class="fa fa-handshake-o fa-lg mr-2"></i>Nova conta de cliente</h3>
             </div>
 
             <form action="" method="post">
@@ -139,12 +135,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <!-- ACEITAÇÃO DOS TERMOS E CONDIÇÕES DE UTILIZAÇÃO -->
                 <div class="text-center form-group">
                     <input type="checkbox" name="check_termos" id="check_termos" class="mr-2" required>
-                    <label for="check_termos">Li e Aceito os <a href="#">Termos e Condições de Utilização</a>.</label>
+                    <label for="check_termos">Li e aceito os <a href="#">Termos e condições de utilização</a>.</label>
                 </div>
                 <!-- SUBMETER -->
                 <div class="text-center">
                     <a href="?a=inicio" class="btn btn-secondary mb-5 btn-size-150">Voltar</a>&nbsp;&nbsp;
-                    <button class="btn btn-primary mb-5 btn-size-150">Criar Cliente</button>
+                    <button class="btn btn-primary mb-5 btn-size-150">Criar cliente</button>
                 </div>
             </form>
         </div>

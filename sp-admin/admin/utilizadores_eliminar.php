@@ -98,10 +98,10 @@ if (isset($_GET['r'])) {
         <div class="container">
             <div class="row mt-3 mb-3 p-3">
                 <div class="col-md-8 offset-md-2 mt-5 card">
-                    <h4 class="text-center m-4"><i class="fa fa-trash"></i> Remover Utilizador</h4>
+                    <h4 class="text-center m-4"><i class="fa fa-trash"></i> Remover utilizador</h4>
 
                     <p class="text-center">Tem a certeza que pretende eliminar o utilizador:<br>
-                        <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo E-mail é:
+                        <strong><?php echo $dados_utilizador[0]['nome'] ?></strong>, cujo e-mail é:
                         <strong><?php echo $dados_utilizador[0]['email'] ?></strong> ?
                     </p>
 

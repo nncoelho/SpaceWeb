@@ -17,11 +17,11 @@ $nomes_homem = [
 ];
 $nomes_mulher = [
     'Vera', 'Rita', 'Sofia', 'Ana', 'Teresa', 'Sandra', 'Laura', 'Carolina', 'Sonia', 'Patricia',
-    'Isabel', 'Carla', 'Mariana', 'Mafalda', 'Catarina', 'Fernanda', 'Paula', 'Elsa', 'Luciana', 'Luisa'
+    'Isabel', 'Carla', 'Mariana', 'Mafalda', 'Catarina', 'Andreia', 'Paula', 'Elsa', 'Luciana', 'Luisa'
 ];
 $apelidos = [
     'Coelho', 'Matos', 'Moita', 'Feliciano', 'Marques', 'Gomes', 'Santos', 'Rodrigues', 'Silva', 'Carvalho',
-    'Monteiro', 'Barros', 'Oliveira', 'Teixiera', 'Azevedo', 'Raimundo', 'Dias', 'Duarte', 'Albino', 'Ribeiro'
+    'Monteiro', 'Sousa', 'Oliveira', 'Teixiera', 'Azevedo', 'Raimundo', 'Dias', 'Duarte', 'Albino', 'Ribeiro'
 ];
 
 //=========================================
@@ -83,4 +83,4 @@ for ($i = 0; $i < $numero_clientes; $i++) {
 }
 ?>
 
-<div class="alert alert-success text-center"><?php echo $numero_clientes ?> Clientes inseridos com sucesso.</div>
+<div class="alert alert-success text-center"><?php echo $numero_clientes ?> clientes inseridos com sucesso.</div>
