@@ -1,7 +1,7 @@
-<?php 
-    //=========================================
-    // INÍCIO DO BACKEND DA APLICAÇÃO WEB
-    //=========================================
+<?php
+//=========================================
+// INÍCIO DO BACKEND DA APLICAÇÃO WEB
+//=========================================
 ?>
 
 <div class="container-fluid index-container text-center">

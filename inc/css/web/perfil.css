@@ -1,11 +1,11 @@
 /* PERFIL DE CLIENTE */
-.perfil{
+.perfil {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color:rgb(114, 186, 186);
+    background-color: rgb(114, 186, 186);
     color: black;
 }
 
-.btn-link{
+.btn-link {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: black;
@@ -13,7 +13,7 @@
     font-weight: bold;
 }
 
-.btn-link:hover{
-    text-decoration: none;    
+.btn-link:hover {
+    text-decoration: none;
     color: rgb(114, 186, 186);
 }

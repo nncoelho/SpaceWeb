@@ -1,103 +1,106 @@
 <?php
-    //========================================================
-    // GESTÃO DE UTILIZADORES - EDITAR UTILIZADOR
-    //========================================================
+//========================================================
+// GESTÃO DE UTILIZADORES - EDITAR UTILIZADOR
+//========================================================
 
-    // VERIFICA A SESSÃO
-    if (!isset($_SESSION['a'])) {
-        exit();
-    }
+// VERIFICA A SESSÃO
+if (!isset($_SESSION['a'])) {
+    exit();
+}
 
-    // VERIFICA PERMISSÃO
-    $erro_permissao = false;
-    if (!funcoes::Permissao(0)) {
-        $erro_permissao = true;
-    }
+// VERIFICA PERMISSÃO
+$erro_permissao = false;
+if (!funcoes::Permissao(0)) {
+    $erro_permissao = true;
+}
 
-    // VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
-    $id_utilizador = -1;
-    if (isset($_GET['id'])) {
-        $id_utilizador = $_GET['id'];
-    } else {
-        $erro_permissao = true;
-    }
+// VERIFICA SE O ID_UTILIZADOR ESTÁ DEFINIDO
+$id_utilizador = -1;
+if (isset($_GET['id'])) {
+    $id_utilizador = $_GET['id'];
+} else {
+    $erro_permissao = true;
+}
 
-    // VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
-    if ($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']) {
-        $erro_permissao = true;
-    }
+// VERIFICA SE PODE AVANÇAR (ID_UTILIZADOR != 1 E != DO DA SESSÃO)
+if ($id_utilizador == 1 || $id_utilizador == $_SESSION['id_utilizador']) {
+    $erro_permissao = true;
+}
 
-    // =======================================================
-    $gestor = new Gestor();
-    $dados_utilizador = null;
+// =======================================================
+$gestor = new Gestor();
+$dados_utilizador = null;
 
-    $erro = false;
-    $sucesso = false;
-    $mensagem = '';
+$erro = false;
+$sucesso = false;
+$mensagem = '';
 
-    if (!$erro_permissao) {
-        // VAI BUSCAR OS DADOS DO UTILIZADOR
-        $parametros = [':id_utilizador' => $id_utilizador];
-        $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
+if (!$erro_permissao) {
+    // VAI BUSCAR OS DADOS DO UTILIZADOR
+    $parametros = [':id_utilizador' => $id_utilizador];
+    $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores 
                                                     WHERE id_utilizador = :id_utilizador', $parametros);
-        // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
-        if (count($dados_utilizador) == 0) {
-            $erro = true;
-            $mensagem = 'Não foram encontrados dados do perfil de utilizador.';
-        }
+    // VERIFICA SE EXISTEM DADOS DO UTILIZADOR
+    if (count($dados_utilizador) == 0) {
+        $erro = true;
+        $mensagem = 'Não foram encontrados dados do perfil de utilizador.';
     }
+}
 
-    //========================================================
-    // METODO POST
-    //========================================================
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//========================================================
+// METODO POST
+//========================================================
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // VAI BUSCAR OS DADOS DAS TEXTS
-        $nome = $_POST['text_nome'];
-        $email = $_POST['text_email'];
+    // VAI BUSCAR OS DADOS DAS TEXTS
+    $nome = $_POST['text_nome'];
+    $email = $_POST['text_email'];
 
-        // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
-        $parametros = [
-            ':id_utilizador' => $id_utilizador,
-            ':email'         => $email
-        ];
+    // VERIFICA SE EXISTE OUTRO UTILIZADOR COM O MESMO E-MAIL
+    $parametros = [
+        ':id_utilizador' => $id_utilizador,
+        ':email'         => $email
+    ];
 
-        $temp = $gestor->EXE_QUERY('SELECT * FROM utilizadores
+    $temp = $gestor->EXE_QUERY(
+        'SELECT * FROM utilizadores
                                         WHERE id_utilizador <> :id_utilizador
                                         AND email = :email',
-        $parametros);
+        $parametros
+    );
 
-        if (count($temp) != 0) {
-            $erro = true;
-            $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
-        }
+    if (count($temp) != 0) {
+        $erro = true;
+        $mensagem = 'Já existe outro utilizador com o mesmo E-mail.';
+    }
 
-        //==========================================================
-        // ATUALIZA OS DADOS DO UTILIZADOR NA BASE DE DADOS
-        if (!$erro) {
-            $parametros = [
-                ':id_utilizador' => $id_utilizador,
-                ':nome'          => $nome,
-                ':email'         => $email,
-                ':atualizado_em' => Datas::DataHoraAtualBD()
-            ];
+    //==========================================================
+    // ATUALIZA OS DADOS DO UTILIZADOR NA BASE DE DADOS
+    if (!$erro) {
+        $parametros = [
+            ':id_utilizador' => $id_utilizador,
+            ':nome'          => $nome,
+            ':email'         => $email,
+            ':atualizado_em' => Datas::DataHoraAtualBD()
+        ];
 
-            $gestor->EXE_NON_QUERY(
-                'UPDATE utilizadores SET
+        $gestor->EXE_NON_QUERY(
+            'UPDATE utilizadores SET
                  nome  = :nome,
                  email = :email,
                  atualizado_em = :atualizado_em
                  WHERE id_utilizador = :id_utilizador',
-            $parametros);
+            $parametros
+        );
 
-            // SUCESSO
-            $sucesso = true;
-            $mensagem = 'Dados do perfil do utilizador atualizados com sucesso.';
+        // SUCESSO
+        $sucesso = true;
+        $mensagem = 'Dados do perfil do utilizador atualizados com sucesso.';
 
-            $parametros = [':id_utilizador' => $id_utilizador];
-            $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
-        }
+        $parametros = [':id_utilizador' => $id_utilizador];
+        $dados_utilizador = $gestor->EXE_QUERY('SELECT * FROM utilizadores WHERE id_utilizador = :id_utilizador', $parametros);
     }
+}
 ?>
 
 <!-- ERRO DE PERMISSÃO -->
@@ -155,7 +158,7 @@
                             </div>
                         </div>
                     </form>
-                    
+
                 </div>
             </div>
         </div>

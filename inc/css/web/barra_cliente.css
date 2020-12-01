@@ -1,24 +1,25 @@
 /* BARRA DE CLIENTE */
-.barra-cliente{
+.barra-cliente {
     background: linear-gradient(black, rgb(71, 71, 71));
     color: white;
     padding: 19px;
 }
 
-.barra-cliente a{
+.barra-cliente a {
     text-decoration: none;
     color: rgb(105, 168, 225);
 }
 
-.barra-cliente a:hover{
-    color: rgb(255, 255, 255);}
+.barra-cliente a:hover {
+    color: rgb(255, 255, 255);
+}
 
 /* DROPDOWN MENU */
-.dropdown-menu a{
+.dropdown-menu a {
     text-decoration: none;
     color: rgb(12, 12, 126);
 }
 
-.dropdown-menu a:hover{
+.dropdown-menu a:hover {
     color: rgb(81, 183, 12);
 }

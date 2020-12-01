@@ -1,18 +1,18 @@
-<?php 
-    //=========================================
-    // LOGOUT DOS CLIENTES
-    //=========================================
+<?php
+//=========================================
+// LOGOUT DOS CLIENTES
+//=========================================
 
-    // VERIFICA A SESSÃO
-    if(!isset($_SESSION['a'])){
-        exit();
-    }
+// VERIFICA A SESSÃO
+if (!isset($_SESSION['a'])) {
+    exit();
+}
 
-    // GUARDA O NOME DO CLIENTE PARA SER APRESENTADO NO LOGOUT
-    $nome = $_SESSION['nome_cliente'];
+// GUARDA O NOME DO CLIENTE PARA SER APRESENTADO NO LOGOUT
+$nome = $_SESSION['nome_cliente'];
 
-    // EXECUTA A DESTRUIÇÃO DA SESSÃO DO CLIENTE
-    funcoes::DestroiSessaoCliente();
+// EXECUTA A DESTRUIÇÃO DA SESSÃO DO CLIENTE
+funcoes::DestroiSessaoCliente();
 ?>
 
 <div class="container">

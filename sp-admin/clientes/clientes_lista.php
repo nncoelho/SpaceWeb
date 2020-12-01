@@ -1,60 +1,60 @@
 <?php
-    //=========================================
-    // LISTAGEM DE CLIENTES
-    //=========================================
+//=========================================
+// LISTAGEM DE CLIENTES
+//=========================================
 
-    // VERIFICA A SESSÃO
-    if (!isset($_SESSION['a'])) {
-        exit();
+// VERIFICA A SESSÃO
+if (!isset($_SESSION['a'])) {
+    exit();
+}
+
+// VERIFICA SE FOI DEFINIDO O CLEAR DA PESQUISA
+if (isset($_GET['clear'])) {
+    if (isset($_SESSION['texto_pesquisa'])) {
+        unset($_SESSION['texto_pesquisa']);
     }
+}
 
-    // VERIFICA SE FOI DEFINIDO O CLEAR DA PESQUISA
-    if(isset($_GET['clear'])){
-        if(isset($_SESSION['texto_pesquisa'])){
-            unset($_SESSION['texto_pesquisa']);
-        }
+// VERIFICA SE EXISTIU UM POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_POST['text_pesquisa'] != '') {
+        $_SESSION['texto_pesquisa'] = $_POST['text_pesquisa'];
     }
+}
 
-    // VERIFICA SE EXISTIU UM POST
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if($_POST['text_pesquisa'] != ''){
-            $_SESSION['texto_pesquisa'] = $_POST['text_pesquisa'];
-        }
-    }
+// CARREGA OS DADOS DOS CLIENTES
+$gestor = new Gestor();
+$clientes = null;
+$total_clientes = 0;
 
-    // CARREGA OS DADOS DOS CLIENTES
-    $gestor = new Gestor();
-    $clientes = null;
-    $total_clientes = 0;
+// SISTEMA DE PAGINAÇÃO
+$pagina = 1;
 
-    // SISTEMA DE PAGINAÇÃO
-    $pagina = 1;
+if (isset($_GET['p'])) {
+    $pagina = $_GET['p'];
+}
 
-    if(isset($_GET['p'])){
-        $pagina = $_GET['p'];
-    }
+$itens_por_pagina = 10;
+$item_inicial = ($pagina * $itens_por_pagina) - $itens_por_pagina;
 
-    $itens_por_pagina = 10;
-    $item_inicial = ($pagina * $itens_por_pagina) - $itens_por_pagina;
-
-    if(isset($_SESSION['texto_pesquisa'])){
-        // PESQUISA COM FILTRO
-        $texto = $_SESSION['texto_pesquisa'];
-        $parametros = [':pesquisa' => '%'.$texto.'%'];
-        $clientes = $gestor->EXE_QUERY('SELECT * FROM clientes 
+if (isset($_SESSION['texto_pesquisa'])) {
+    // PESQUISA COM FILTRO
+    $texto = $_SESSION['texto_pesquisa'];
+    $parametros = [':pesquisa' => '%' . $texto . '%'];
+    $clientes = $gestor->EXE_QUERY('SELECT * FROM clientes 
                                         WHERE nome LIKE :pesquisa
                                         OR email LIKE :pesquisa
-                                        ORDER BY nome ASC LIMIT '.$item_inicial.','.$itens_por_pagina, $parametros);
+                                        ORDER BY nome ASC LIMIT ' . $item_inicial . ',' . $itens_por_pagina, $parametros);
 
-        $total_clientes = count($gestor->EXE_QUERY('SELECT * FROM clientes 
+    $total_clientes = count($gestor->EXE_QUERY('SELECT * FROM clientes 
                                                     WHERE nome LIKE :pesquisa
                                                     OR email LIKE :pesquisa
                                                     ORDER BY nome ASC', $parametros));
-    } else{
-        // PESQUISA SEM FILTRO
-        $clientes = $gestor->EXE_QUERY('SELECT * FROM clientes ORDER BY nome ASC LIMIT '.$item_inicial.','.$itens_por_pagina);
-        $total_clientes = count($gestor->EXE_QUERY('SELECT id_cliente FROM clientes'));
-    }
+} else {
+    // PESQUISA SEM FILTRO
+    $clientes = $gestor->EXE_QUERY('SELECT * FROM clientes ORDER BY nome ASC LIMIT ' . $item_inicial . ',' . $itens_por_pagina);
+    $total_clientes = count($gestor->EXE_QUERY('SELECT id_cliente FROM clientes'));
+}
 ?>
 
 <div class="container mb-5">
@@ -68,11 +68,7 @@
             <form action="?a=clientes_lista" method="post">
                 <div class="form-inline">
                     <div class="text-right">
-                        <input type="text" 
-                            name="text_pesquisa" 
-                            class="form-control ml-5" 
-                            placeholder="Pesquisa" 
-                            value="<?php echo isset($_SESSION['texto_pesquisa']) ? $_SESSION['texto_pesquisa'] : ''; ?>">
+                        <input type="text" name="text_pesquisa" class="form-control ml-5" placeholder="Pesquisa" value="<?php echo isset($_SESSION['texto_pesquisa']) ? $_SESSION['texto_pesquisa'] : ''; ?>">
                         <button class="btn btn-primary ml-1 text-center">
                             <i class="fa fa-search"></i>
                         </button>
@@ -91,7 +87,7 @@
             <th class="text-center">Ações:</th>
         </thead>
         <tbody>
-            <?php foreach ($clientes as $cliente): ?>
+            <?php foreach ($clientes as $cliente) : ?>
                 <tr>
                     <!-- NOME -->
                     <td>
@@ -111,7 +107,7 @@
                     </td>
                     <!-- AÇÕES -->
                     <td class="text-center">
-                        <a href="?a=clientes_eliminar&id=<?php echo $cliente['id_cliente']?>"><i class="fa fa-trash"></i></a>
+                        <a href="?a=clientes_eliminar&id=<?php echo $cliente['id_cliente'] ?>"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php endforeach; ?>

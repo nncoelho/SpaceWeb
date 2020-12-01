@@ -1,10 +1,11 @@
 <?php
-    //=========================================
-    // CABEÇALHO PRINCIPAL DA APLICAÇÃO WEB
-    //=========================================
+//=========================================
+// CABEÇALHO PRINCIPAL DA APLICAÇÃO WEB
+//=========================================
 ?>
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +17,16 @@
     <link rel="stylesheet" href="inc/css/web/main_web.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-<div class="bg-white">
-    <?php
+    <div class="bg-white">
+        <?php
         //=====================================
         // BARRA DE CLIENTES
         //=====================================
         include_once('clientes/barra_cliente.php');
-    ?>
-    <!-- CABEÇALHO E LOGOTIPO -->
-    <div class="container-fluid cabecalho">
-        <a href="?a=inicio"><img class="logo" src="images/logo.png"></a>
-    </div>
+        ?>
+        <!-- CABEÇALHO E LOGOTIPO -->
+        <div class="container-fluid cabecalho">
+            <a href="?a=inicio"><img class="logo" src="images/logo.png"></a>
+        </div>

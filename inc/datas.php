@@ -9,4 +9,3 @@
             return $data->format('Y-m-d H:i:s');
         }
     }
-?>
