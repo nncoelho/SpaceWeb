@@ -82,7 +82,7 @@ $gestor->EXE_NON_QUERY(
 $parametros = [
     ':utilizador'       => 'Alberto',
     ':palavra_passe'    => md5('alberto'),
-    ':nome'             => 'Alberto Silva',
+    ':nome'             => 'Alberto Caeiro',
     ':email'            => 'alberto@mail.com',
     ':permissoes'       => '0' . str_repeat('1', 99),
     ':criado_em'        => $data->format('Y-m-d H:i:s'),

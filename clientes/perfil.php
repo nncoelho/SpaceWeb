@@ -206,7 +206,7 @@ $dados = $dados_cliente[0]; // PASSA OS DADOS TODOS PARA UM ARRAY UNIDIMENSIONAL
 <div class="container-fluid perfil">
 
     <div class="container p-4">
-        <h3 class="text-center mb-3">Editar perfil do cliente</h3>
+        <h3 class="text-center mb-3">Perfil do cliente</h3>
 
         <div class="col-md-8 offset-2 col-xs-12">
 

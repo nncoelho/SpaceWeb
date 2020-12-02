@@ -18,5 +18,5 @@ return [
     'MAIL_DEBUG'        => 0,
 
     // ENDEREÇO BASE
-    'BASE_URL'          => 'http://spaceweb.me/'
+    'BASE_URL'          => 'https://spaceweb.me/'
 ];

@@ -7,11 +7,9 @@
     <div class="container rodape">
         <div class="row">
             <div class="col-sm-6 mt-2 col-12">
-                <h6>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fa fa-envelope"></i> <a href="mailto:geral@spaceweb.com">
-                        geral@spaceweb.com</a>
-                </h6>
-                <p>Aplicação web desenvolvida em HTML5 CSS3 JavaScript e PHP com acesso a base de dados MySQL e com envio de e-mails
-                    através do suporte do PHPMailer e do Composer.
+                <p><b>SpaceWeb &copy; <?php echo date('Y') ?> | <i class="fa fa-envelope"></i> <a href="mailto:geral@spaceweb.com">geral@spaceweb.com</a></b></p>
+                <p>Aplicação web desenvolvida em PHP CSS3 e JavaScript com acesso a base de dados MySQL, através do HeidiSQL e com envio de e-mails
+                    com o suporte do PHPMailer e do Composer.
                 </p>
             </div>
             <div class="col-sm-6 col-12 rodape-social text-right">

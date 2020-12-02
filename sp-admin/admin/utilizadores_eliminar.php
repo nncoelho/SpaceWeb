@@ -83,7 +83,7 @@ if (isset($_GET['r'])) {
         <!-- REMOÇÃO COM SUCESSO -->
     <?php elseif ($sucesso) : ?>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mt-5 mb-5">
                 <div class="col-md-8 offset-2 text-center">
                     <p class="alert alert-success">Utilizador removido com sucesso.</p>
