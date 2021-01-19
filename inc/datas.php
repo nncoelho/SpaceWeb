@@ -4,7 +4,7 @@
     //=========================================
     class Datas{
         public static function DataHoraAtualBD(){
-            // RETORNA A DATA E HORA ATUAL FORMATADA PARA MYSQL
+            // RETORNA A DATA E HORA ATUAL FORMATADA
             $data = new DateTime();
             return $data->format('Y-m-d H:i:s');
         }
